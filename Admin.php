@@ -1,5 +1,6 @@
 
 <?php
+
         if(isset($_POST['add_product'])){
             @include 'config.php';
            $selectd_value = $_POST['category'] ;
@@ -30,6 +31,13 @@
 //                $null = 0;
 //                echo '<script>Messagenull()</script>';
             }
+        }
+
+        if (isset($_GET['delete'])){
+            @include 'config.php';
+            $id = $_GET['delete'];
+            mysqli_query($conn,"DELETE FROM product WHERE id = '$id' ");
+            header('Location:Admin.php');
         }
        ?>
 
@@ -87,6 +95,7 @@
     
     <!-- by using database selecting the things we enterd by adding products -->
     <?php
+    @include 'config.php';
    $select = mysqli_query($conn,"SELECT * FROM product");
    ?>
     <!-- throw the database connection selecting the data and store them in to a variable -->
@@ -113,8 +122,9 @@
                 <h3>Note : <?php echo $row['discription'];?></h3>
             </div>
             <div class="col-sm-6 col-md-4 col-xl-2">
-            <a href="update.php?edit=<?php echo $row['id'];?>" class="btn" name="update_product"> update </a>
-            <a href="admin_page.php?delete=<?php echo $row['id']; ?>" > delete </a>
+            <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn" name="update_product"> update </a>
+            <a href="Admin.php?delete=<?php echo $row['id']; ?>" class="btn_remove"> delete </a>
+            
             </div>
         </div>
         <?php } ?>
