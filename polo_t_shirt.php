@@ -75,7 +75,7 @@
 
                                 <?php
                                 @include 'config.php';
-                                $select = mysqli_query($conn, "SELECT * FROM product WHERE name LIKE 'polo%' ");
+                                $select = mysqli_query($conn, "SELECT * FROM product WHERE name LIKE 'fit polo%' ");
                                 ?>
                                 <!-- throw the database connection selecting the data and store them in to a variable -->
                                 <div class="container">
