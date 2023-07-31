@@ -64,8 +64,8 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse " id="nav_tings">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
+                    <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="home.html#link-to-category" class="nav-link active">Categories</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>

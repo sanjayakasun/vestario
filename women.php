@@ -64,8 +64,8 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse " id="nav_tings">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
+                    <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="home.html#link-to-category" class="nav-link">Categories</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
@@ -92,27 +92,27 @@
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Women's Slim Fit T-Shirt</p>
-                                    <img src="src_images/women/Women's Slim Fit T-Shirt/Women's Slim Fit T-Shirt - blue.png" alt="picture 1"
+                                    <img src="src_images/women/Womens Slim Fit T-Shirt/Womens Slim Fit T-Shirt - blue.png" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="" class="btn btn-outline-dark">Explore more..</a>
+                                    <br><a href="Women's_Slim_Fit_T_Shirt.php" class="btn btn-outline-dark">Explore more..</a>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Womens Traveler Pant</p>
-                                    <img src="src_images/women/womens traveler pant/Women's Traveler Pant - Moss Stone.jpg" alt="picture 1"
+                                    <img src="src_images/women/womens traveler pant/Womens Traveler Pant - Drift Wood.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="" class="btn btn-outline-dark">Explore more..</a>
+                                    <br><a href="womens_traveler_pant.php" class="btn btn-outline-dark">Explore more..</a>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Womens Premium Legging</p>
                                     <img src="src_images/women/legging/womens premium Legging - white.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="" class="btn btn-outline-dark">Explore more..</a>
+                                    <br><a href="legging.php" class="btn btn-outline-dark">Explore more..</a>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Womes's Classic Pant</p>
-                                    <img src="src_images/women/Womes's Classic Pant/Womes's Classic Pant - Morning Blue.jpg" alt="picture 1"
+                                    <img src="src_images/women/Womess Classic Pant/Womess Classic Pant - Morning Blue.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="" class="btn btn-outline-dark">Explore more..</a>
+                                    <br><a href="Womess_Classic_Pant.php" class="btn btn-outline-dark">Explore more..</a>
                                 </div>
                                 
                             </div>

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>crew neck t shirt</title>
+        <title>Women's Traveler Pant</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"> -->
@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse " id="nav_tings">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="home.html#link-to-category" class="nav-link">Categories</a></li>
+                        <li class="nav-item"><a href="home.html#link-to-category" class="nav-link active">Categories</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
@@ -68,13 +68,13 @@
                             <div class="container mt-3">
                                 <div class="row">
                                     <div class="col-12">
-                                        <h1 class="text-center">Crew Neck T-Shirt Collections</h1>
+                                        <h1 class="text-center">Women's Traveler Pant</h1>
                                     </div>
                                 </div><!--row header-->
 
                                 <?php
                                 @include 'config.php';
-                                $select = mysqli_query($conn, "SELECT * FROM product WHERE name LIKE 'crew%' ");
+                                $select = mysqli_query($conn, "SELECT * FROM product WHERE category = 'women' AND name LIKE 'womens trave%' ");
                                 ?>
                                 <!-- throw the database connection selecting the data and store them in to a variable -->
                                 <div class="container">
@@ -218,3 +218,5 @@
     </body>
 
 </html>
+
+
