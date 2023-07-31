@@ -10,15 +10,14 @@
            $image_tmp_name = $_FILES['product_image']['tmp_name'];
            $image_folder ='img/'.$image ;
            $selectd_value3 = $_POST['size'];
-           $quantity = $_POST['product_quantity'];
            $discription = $_POST['discription'];
-            if(empty($selectd_value) || empty($selectd_value3) || empty($name) || empty($price) || empty($image) || empty($quantity) || empty($discription)){
+            if(empty($selectd_value) || empty($selectd_value3) || empty($name) || empty($price) || empty($image) || empty($discription)){
                 $message_null = '<h3 style="color:red;" class="text-center">please fill out all</h3>';
                 echo $message_null;
 //                $null = 1;
 //                echo '<script>Messagenull()</script>';
             }else{
-                $insert = "INSERT INTO product(category,name,price,photo,size,quantity,discription) VALUES('$selectd_value','$name','$price','$image','$selectd_value3','$quantity','$discription')";
+                $insert = "INSERT INTO product(category,name,price,photo,size,discription) VALUES('$selectd_value','$name','$price','$image','$selectd_value3','$discription')";
                 $upload = mysqli_query($conn,$insert);
                 if($upload){
                     move_uploaded_file($image_tmp_name, $image_folder);
@@ -80,13 +79,12 @@
          <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
         <select class="box" name="size">
             <option>Select the Product Size</option>
-            <option value="s">S</option>
-            <option value="m">M</option>
-            <option value="l">L</option>
-            <option value="xl">XL</option>
-            <option value="xxl">XXL</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
         </select>
-         <input type="number" placeholder="Enter Product Quantity" name="product_quantity" class="box">
          <input type="text" placeholder="Enter Product Discription" name="discription" class="box">
          <input type="submit" class="btn" name="add_product" value="add product">
       </form>
@@ -116,7 +114,6 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                 <h3>Size : <?php echo $row['size'];?></h3>
-                <h3>Quantity : <?php echo $row['quantity'];?></h3>
             </div>
             <div class="col-sm-6 col-md-4 col-xl-2">
                 <h3>Note : <?php echo $row['discription'];?></h3>
