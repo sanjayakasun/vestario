@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Womes's Classic Pant</p>
-                                    <img src="src_images/women/Womess Classic Pant/Womess Classic Pant - Morning Blue.jpg" alt="picture 1"
+                                    <img src="src_images/women/Womens Classic Pant/Womens Classic Pant - Miracle Navy.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
                                     <br><a href="Womess_Classic_Pant.php" class="btn btn-outline-dark">Explore more..</a>
                                 </div>

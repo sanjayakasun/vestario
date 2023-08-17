@@ -17,7 +17,7 @@
 //                $null = 1;
 //                echo '<script>Messagenull()</script>';
             }else{
-                $insert = "INSERT INTO product(category,name,price,photo,size,discription) VALUES('$selectd_value','$name','$price','$image','$selectd_value3','$discription')";
+                $insert = "INSERT INTO product(category,product_name,price,photo,size,discription) VALUES('$selectd_value','$name','$price','$image','$selectd_value3','$discription')";
                 $upload = mysqli_query($conn,$insert);
                 if($upload){
                     move_uploaded_file($image_tmp_name, $image_folder);
@@ -35,7 +35,7 @@
         if (isset($_GET['delete'])){
             @include 'config.php';
             $id = $_GET['delete'];
-            mysqli_query($conn,"DELETE FROM product WHERE id = '$id' ");
+            mysqli_query($conn,"DELETE FROM product WHERE product_id = '$id' ");
             header('Location:Admin.php');
         }
        ?>
@@ -108,7 +108,7 @@
                 <h3>Category : <?php echo $row['category'];?></h3>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <h3>Name : <?php echo $row['name'];?></h3>
+                <h3>Name : <?php echo $row['product_name'];?></h3>
                 <br>
                 <h3>Price : <?php echo $row['price'];?></h3>
             </div>
@@ -119,8 +119,8 @@
                 <h3>Note : <?php echo $row['discription'];?></h3>
             </div>
             <div class="col-sm-6 col-md-4 col-xl-2">
-            <a href="update.php?edit=<?php echo $row['id']; ?>" class="btn" name="update_product"> update </a>
-            <a href="Admin.php?delete=<?php echo $row['id']; ?>" class="btn_remove"> delete </a>
+            <a href="update.php?edit=<?php echo $row['product_id']; ?>" class="btn" name="update_product"> update </a>
+            <a href="Admin.php?delete=<?php echo $row['product_id']; ?>" class="btn_remove"> delete </a>
             
             </div>
         </div>

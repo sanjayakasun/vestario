@@ -74,7 +74,7 @@
 
                                 <?php
                                 @include 'config.php';
-                                $select = mysqli_query($conn, "SELECT * FROM product WHERE name LIKE 'oxford%' ");
+                                $select = mysqli_query($conn, "SELECT * FROM product WHERE product_name LIKE 'oxford%' ");
                                 ?>
                                 <!-- throw the database connection selecting the data and store them in to a variable -->
                                 <div class="container">
@@ -82,7 +82,7 @@
                                         <!--opening { bracket-->
                                         <div class="row">
                                             <div class="col-12 col-sm-6 col-md-4">
-                                                <p class="text-center lead"><?php echo $row['name'] ?></p>
+                                                <p class="text-center lead"><?php echo $row['product_name'] ?></p>
                                                 <img src="img/<?php echo $row['photo']; ?>" height="100" alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
                                                 <h5 class="text-center">Rs.<?php echo $row['price'] ?> </h5> <br>
                                                 <br>

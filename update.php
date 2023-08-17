@@ -25,7 +25,7 @@ if(isset($_POST['update_product'])){
    }else{
       $con = $dbcon->getConnection();
 
-      $update_data = "UPDATE product SET name='$product_name', price='$product_price', size='$product_size'  WHERE id = '$id'";
+      $update_data = "UPDATE product SET product_name='$product_name', price='$product_price', size='$product_size'  WHERE product_id = '$id'";
 
       $pstmt = $con->prepare($update_data);
       $pstmt->execute();
@@ -69,11 +69,11 @@ if(isset($_POST['update_product'])){
 
    <?php
       $con2 = $dbcon->getConnection();
-      $select = "SELECT * FROM product WHERE id = '$id'";
+      $select = "SELECT * FROM product WHERE product_id = '$id'";
       $pstmt = $con2->query($select);
       $rs = $pstmt->fetch(PDO::FETCH_ASSOC);
        foreach($rs as $rows){
-           $p_name = $rs['name'];
+           $p_name = $rs['product_name'];
            $p_price = $rs['price'];
            $size= $rs['size'];
        }
