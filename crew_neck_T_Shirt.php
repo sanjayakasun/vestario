@@ -77,9 +77,11 @@
                                 $select = mysqli_query($conn, "SELECT * FROM product WHERE product_name LIKE 'crew%' ");
                                 ?>
                                 <!-- throw the database connection selecting the data and store them in to a variable -->
+                                
                                 <div class="container">
                                     <?php while ($row = mysqli_fetch_assoc($select)) { ?>
                                         <!--opening { bracket-->
+                                            <form action="cart.php?cart=<?php echo $row['product_id']; ?>" method="post">
                                         <div class="row">
                                             <div class="col-12 col-sm-6 col-md-4">
                                                 <p class="text-center lead"><?php echo $row['product_name'] ?></p>
@@ -87,6 +89,7 @@
                                                 <h5 class="text-center">Rs.<?php echo $row['price'] ?> </h5> <br>
                                                 <br>
                                             </div>
+                                            
                                             <div class="col-sm-6 col-md-4">
                                                 <p class="text-center lead"><?php echo $row['discription'] ?></p> <br>
                                                 <h5 class="text-center">Size</h5> 
@@ -106,39 +109,45 @@
                                                         </div>
                                                         <div class="col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="S" />
+                                                            <input type="radio" name="size" value="M" />
                                                             <br>
                                                             M
                                                         </div>
                                                         <div class="col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="S" />
+                                                            <input type="radio" name="size" value="L" />
                                                             <br>
                                                             L
                                                         </div>
                                                         <div class="col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="S" />
+                                                            <input type="radio" name="size" value="XL" />
                                                             <br>
                                                             XL
                                                         </div>
                                                         <div class="col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="S" />
+                                                            <input type="radio" name="size" value="XXL" />
                                                             <br>
                                                             XXL
                                                         </div>
                                                     </div>
                                             </div>
+                                             
                                             <div class="col-sm-6 col-md-4 pt-5" style="text-align: center;">
                                                 <button class="btn btn-primary">Buy Now</button><br><br>
                                                 <button class="btn btn-outline-warning" title="Add to wishlist"><i class="fa fa-heart-o"></i></button><br><br>
-                                                <button class="btn btn-outline-success">Add to Cart</button>
+                                                
+                                                 <button class="btn btn-outline-success">Add to Cart</button>
+                                                <!-- <a href= class="btn btn-outline-success"> Add to Cart </a> -->
+                                                
                                             </div>
-                                            </form>
+                                            
                                         </div>
+                                        </form>
                                     <?php } ?>
-                                </div>   
+                                </div>
+                              
                             </div>
                         </div>
                     </div>
