@@ -1,14 +1,14 @@
-<?php
 
-namespace classes;
-use PDOException;
-use PDO;
+   <?php
+
+
+
 
 class DbConnector{
     private $host = "localhost";
     private $dbname = "vestario";
-    private $dbuser = "testuser";
-    private $dbpw = "testuser";
+    private $dbuser = "root";
+    private $dbpw = "";
 
 public function getConnection(){
     $dsn = "mysql:host=$this->host; dbname=$this->dbname";
@@ -23,3 +23,5 @@ public function getConnection(){
 }
 
 ?>
+
+
