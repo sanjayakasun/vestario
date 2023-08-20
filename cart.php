@@ -128,11 +128,14 @@ if (isset($_GET['delete'])) {
                 <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
                     style="display: block;">
                     <form action="payment.php" method="post">
+                    <input type="number" name="quan" placeholder="Quantity" required>
+                    <br><br>
                     <button class="btn btn-warning" style="color:white">Check Out</button> &ensp;
-                    </form>
+                    
                     <form action="cart.php" method="post">
                     <a href="cart.php?delete=<?php echo $row['cartId']; ?>" class="btn btn-danger"> Remove </a>
-                    </form>
+                    </form>    
+                </form>
                 </div>
             </div>
         </div>
