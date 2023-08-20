@@ -136,15 +136,21 @@
                                              
                                             <div class="col-sm-6 col-md-4 pt-5" style="text-align: center;">
                                                 <button class="btn btn-primary">Buy Now</button><br><br>
-                                                <button class="btn btn-outline-warning" title="Add to wishlist"><i class="fa fa-heart-o"></i></button><br><br>
+                                                 
                                                 
                                                  <button class="btn btn-outline-success">Add to Cart</button>
                                                 <!-- <a href= class="btn btn-outline-success"> Add to Cart </a> -->
-                                                
+                                                </form>
+
+                                                <br><br>
+
+                                                <form action="wishlist.php?wishlist=<?php echo $row['product_id']; ?>" method="post">
+                                                <button class="btn btn-outline-warning" title="Add to wishlist"><i class="fa fa-heart-o"></i></button><br><br>
+                                                </form>
                                             </div>
                                             
                                         </div>
-                                        </form>
+                                        
                                     <?php } ?>
                                 </div>
                               

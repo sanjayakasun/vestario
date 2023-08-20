@@ -1,8 +1,8 @@
-<?php
 
-namespace classes;
-use PDOException;
-use PDO;
+   <?php
+
+
+
 
 class DbConnector{
     private $host = "localhost";
@@ -23,3 +23,5 @@ public function getConnection(){
 }
 
 ?>
+
+

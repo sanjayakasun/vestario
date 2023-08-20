@@ -23,6 +23,7 @@
           background-color: rgb(220, 220, 220);
           
         }
+        
       
 
         
@@ -74,7 +75,7 @@
               <option>Delivered</option>
             </select>        </div>
             <div class="row mt-2">
-                <input type="submit" value="Update" style="background-color:#87CBB9; border:1px solid rgb(0, 183, 255); border-radius: 5px;">
+                <input type="submit" value="Update" style="background-color:#87CBB9; border:1px solid rgb(0, 183, 255); border-radius: 5px; ">
             </div>
     </div>
     </form>
