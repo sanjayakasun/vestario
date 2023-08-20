@@ -6,7 +6,7 @@ use PDO;
 
 class DbConnector{
     private $host = "localhost";
-    private $dbname = "vestarion_new";
+    private $dbname = "vestario";
     private $dbuser = "root";
     private $dbpw = "";
 
