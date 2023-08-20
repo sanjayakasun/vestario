@@ -138,7 +138,6 @@ $userCount = $user->getUserCount();
                             <th>Product ID</th>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -150,7 +149,6 @@ $userCount = $user->getUserCount();
                                 <td><?php echo $userData['productId']; ?></td>
                                 <td><?php echo $userData['productName']; ?></td>
                                 <td><?php echo $userData['price']; ?></td>
-                                <td><?php echo $userData['quantity']; ?></td>
 
                             </tr><?php }
                         ?>
