@@ -1,5 +1,47 @@
-   <!DOCTYPE html>
+<?php
+
+session_start();
+require './classes/RegisteredCustomer.php';
+
+
+
+if (isset($_POST['submit'])) {
+    if (isset($_POST['username'], $_POST['password']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+        $username = $_POST['username'];
+        $password = ($_POST['password']);
+
+        $adminCredentials = array("username" => "admin123", "password" => "admin456");
+        $deliveryCredentials = array("username" => "delivery123", "password" => "delivery456");
+
+        if ($adminCredentials["username"] == $username && $adminCredentials["password"] == $password) {
+            header('Location:admin.php');
+            exit();
+        } elseif ($deliveryCredentials["username"] == $username && $deliveryCredentials["password"] == $password) {
+            header('Location:delivery.php');
+            exit();
+        } else {
+            $customer = new RegisteredCustomer($name = null, $email = null, $contactNumber = null, $address = null, $gender = null, $username, $password);
+            $loginResult = $customer->login($username, $password);
+
+            if ($loginResult == true) {
+                header('location:home.html');
+                exit();
+            } else {
+
+                $errors[] = "Incorrect Username or Password";
+            }
+        }
+    } else {
+        $errors[] = "Username and Password Are Required";
+    }
+    $SESSION['customerId']=$customer->getCustomerId();
+    
+}
+
+?>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,79 +63,96 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <title>Navbar</title>
     <style>
-        .navbar{
+        .navbar {
             font-weight: bold;
         }
-
     </style>
 
 </head>
+
 <body>
-<!--Header-->
-<div class="background_">
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
-        &ensp;
-        <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse " id="nav_tings">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="#"class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
-                <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
-            </ul>
+    <!--Header-->
+    <div class="background_">
+        <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+            &ensp;
+            <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse " id="nav_tings">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
+                    <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="login">
+            <div class="form-container">
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <h3>Log In</h3>
+                    <?php
+                    if (isset($errors) && count($errors) > 0) {
+                        foreach ($errors as $error_msg) {
+                            echo '<div class="alert alert-danger">' . $error_msg . '</div>';
+                        }
+                    }
+                    ?>
+                    <input type="text" name="username" placeholder="Enter User Name" class="box" required />
+                    <input type="password" name="password" placeholder="Enter Password" class="box" required />
+                    <input type="submit" name="submit" class="btn1" value="Log In" />
+                    <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+
+                </form>
+
+            </div>
         </div>
-    </nav>
-<div class="login">
-    <div class="form-container">
-
-        <form action="" method="POST" enctype="multipart/form-data">
-            <h3>Log In</h3>
-            <input type="text" name="UserName" placeholder="Enter User Name" class="box" required/>
-            <input type="password" name="password" placeholder="Enter Password" class="box" required/>
-            <input type="submit" name="submit" class="btn1" value="Log In" />
-            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-
-        </form>
-
-    </div>
-</div>
 
 
 
-<!-- footer -->
-<hr>
-<div class="container-fluid back">
-    <div class="row">
-        <div class="col-12 col-md-3">
-            <img src="src_images/logo new.png" style="width:200px; height:200px;">
-        </div>
-        <div class="col-md-3">
-            <h6>Contact us</h6>
-            <a href="#" class="fa fa-facebook"></a>&ensp;&ensp;
-            <a href="#" class="fa fa-twitter"></a>&ensp;&ensp;
-            <a href="#" class="fa fa-instagram"></a>&ensp;&ensp;
-            <a href="#" class="fa fa-google"></a>&ensp;&ensp;
-            <a href="#" class="fa fa-linkedin"></a><br><br>
-            <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">mail</span>vestario@gmail.com</span>&ensp;</a>
-            <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
-            <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0716123050</a>
-        </div>
-        <div class="col-md-3">
-            <h6>
-                Services
-            </h6>
-            <ul>
-                <a href="" style="text-decoration:none; color:black"><li>Customize products</li></a>
-                <a href="" style="text-decoration:none; color:black"><li>Order Clothes</li></a>
-                <a href="" style="text-decoration:none; color:black"><li>Delivery</li></a>
-                <a href="" style="text-decoration:none; color:black"><li>Sign-up</li></a>
-                <a href="" style="text-decoration:none; color:black"><li>Help</li></a>
-            </ul>
-        </div>
-        <!-- <div class="col-md-3">
+        <!-- footer -->
+        <hr>
+        <div class="container-fluid back">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <img src="src_images/logo new.png" style="width:200px; height:200px;">
+                </div>
+                <div class="col-md-3">
+                    <h6>Contact us</h6>
+                    <a href="#" class="fa fa-facebook"></a>&ensp;&ensp;
+                    <a href="#" class="fa fa-twitter"></a>&ensp;&ensp;
+                    <a href="#" class="fa fa-instagram"></a>&ensp;&ensp;
+                    <a href="#" class="fa fa-google"></a>&ensp;&ensp;
+                    <a href="#" class="fa fa-linkedin"></a><br><br>
+                    <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">mail</span>vestario@gmail.com</span>&ensp;</a>
+                    <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
+                    <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0716123050</a>
+                </div>
+                <div class="col-md-3">
+                    <h6>
+                        Services
+                    </h6>
+                    <ul>
+                        <a href="" style="text-decoration:none; color:black">
+                            <li>Customize products</li>
+                        </a>
+                        <a href="" style="text-decoration:none; color:black">
+                            <li>Order Clothes</li>
+                        </a>
+                        <a href="" style="text-decoration:none; color:black">
+                            <li>Delivery</li>
+                        </a>
+                        <a href="" style="text-decoration:none; color:black">
+                            <li>Sign-up</li>
+                        </a>
+                        <a href="" style="text-decoration:none; color:black">
+                            <li>Help</li>
+                        </a>
+                    </ul>
+                </div>
+                <!-- <div class="col-md-3">
             <h6>
                 About us
             </h6>
@@ -105,20 +164,22 @@
            decisions about the quality, fit, and overall satisfaction of the products.
             </p>
         </div> -->
-    </div>
-</div>
-<hr>
-<div class="container-fluid back">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>
+        <hr>
+        <div class="container-fluid back">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<hr><hr>
+        <hr>
+        <hr>
 
 </body>
+
 </html>

@@ -1,3 +1,39 @@
+<?php
+
+require './classes/RegisteredCustomer.php';
+
+
+if (isset($_POST['submit'])) {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $contactNumber = trim($_POST['phone-no']);
+    $address = trim($_POST['address']);
+    $gender = trim($_POST['gender']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    
+
+    if (!empty($name) && !empty($email) && !empty($contactNumber) && !empty($address) && !empty($gender) && !empty($username) && !empty($password)) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $customer = new RegisteredCustomer($name, $email, $contactNumber, $address, $gender, $username, $password);
+            $registrationResult = $customer->register($name, $email, $contactNumber, $address, $gender, $username, $password);
+
+            if ($registrationResult === 1) {
+                $success = 'User has been created successfully';
+            } elseif($registrationResult===2) {
+                $errors[] = "Registration Unsuccessful";
+            }else{
+                $errors[] = "User Already Exist";
+            }
+        } else {
+            $errors[] = "Email address is not valid";
+        }
+    } else {
+        $errors[] = 'Fill the required fields';
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,29 +84,34 @@
     </nav>
 <div class="singup">
     <div class="form-container">
-
+    
         <form action="" method="POST" enctype="multipart/form-data">
             <h3>Sign Up</h3>
+            <?php 
+            if (isset($errors) && count($errors) > 0) {
+                foreach ($errors as $error_msg) {
+                    echo '<div class="alert alert-danger">' . $error_msg . '</div>';
+                }
+            }
+            if (isset($success)) {
+                echo '<div class="alert alert-success">' . $success . '</div>';
+            }
+            ?>
             <input type="text" name="username" placeholder="Enter UserName" class="box" required/>
             <input type="text" name="name" placeholder="Enter Name" class="box" required/>
             <input type="email" name="email" placeholder="Enter Email" class="box" required/>
             <input type="text" name="phone-no" placeholder="Enter Contact Number" class="box" required/>
             <input type="text" name="address" placeholder="Enter Address" class="box" required/>
             <input type="password" name="password" placeholder="Enter Password" class="box" required/>
-            <select name="user_type" class="box">
+            <select name="gender" class="box">
                 <option selected disabled value="default">Please select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <select name="user_type" class="box">
-                <option selected disabled value="default">Please select a account type</option>
-                <option value="customer">Customer</option>
-                <option value="restaurant">Admin</option>
-                <option value="delivery">Deliver</option>
-            </select>
+            
 
             <input type="submit" name="submit" class="btn1" value="Sign Up" />
-            <p>Already have an account? <a href="login.html">Login</a></p>
+            <p>Already have an account? <a href="login.php">Login</a></p>
 
         </form>
 
