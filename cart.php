@@ -1,3 +1,51 @@
+<?php
+
+require './classes/DbConnector.php';
+use classes\DbConnector;
+
+$dbcon = new DbConnector();
+
+// @include 'config.php';
+
+if (isset($_GET['cart'])) {
+
+    $cartId = $_GET['cart'];
+    $size = $_POST['size'];
+     
+    // take data from clothing collection page
+    $dbuser = new DBConnector();
+    $con = $dbuser->getConnection();
+    $query = "SELECT * FROM product WHERE product_id = $cartId ";
+    $pstmt = $con->prepare($query);
+    $pstmt->execute();
+    $rs = $pstmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rs as $rows) {
+        //store that values to variables
+        $name = $rows['product_name'];
+        $price = $rows['price'];
+        $photo = $rows['photo'];
+        //$size = $rows['size'];
+        $description = $rows['discription'];
+    }
+
+    //store that values again to database
+
+    $query2 = "INSERT INTO cart(customerId,productId,name,price,size,photo,description) VALUES ('1','$cartId','$name','$price','$size', '$photo', '$description')";
+    $pstmt = $con->prepare($query2);
+    $a = $pstmt->execute();
+}
+
+if (isset($_GET['delete'])) {
+    $cartId = $_GET['delete'];
+     
+    $dbuser = new DBConnector();
+    $con = $dbuser->getConnection();
+    $query = "DELETE FROM cart WHERE cartId = $cartId";
+    $pstmt = $con->prepare($query);
+    $pstmt->execute();
+    header('Location:cart.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,34 +104,41 @@
 
     
     <!--Item 1-->
-    
+    <?php
+    @include 'config.php';
+    $select = mysqli_query($conn, "SELECT * FROM cart");
+    ?>
+    <?php while ($row = mysqli_fetch_assoc($select)) { ?>
     <div class="container mt-3">
     
         <div class="rounded border-0   overflow-hidden" style="background-color:#EEEDED">
         <div class="com">
             <div class="row mt-6">
                 <div class="col-12 col-md-6 col-lg-4" style="min-height: 200px;">
-                    <img class="mx-auto d-block rounded border-0   overflow-hidden" width="250" height="180" src="https://img.freepik.com/free-photo/clothing-rack-with-hawaiian-shirts-with-floral-print-hangers-hat_23-2149366076.jpg?size=626&ext=jpg&ga=GA1.1.1882095610.1686062107">
+                <img src="img/<?php echo $row['photo']; ?>" height="100" alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
                 </div>
                 <div class="col-md-6 col-lg-4 mt-2 ">
-                    <h5 class="text-center" id="item-name">Floral Shirt</h5>
-                    <h6 id="item-name-disc">Classic button-up collar and short sleeve length  </h6>
-                    <h6 id="item-size">Premium 100% cotton fabric</h6>
+                    <h5 class="text-center" id="item-name"><?php echo $row['name'] ?></h5>
+                    <h6 id="item-name-disc"><?php echo $row['description'] ?> </h6>
+                     
                     <!--Ieam code or order code-->
-                    <h6 id="item-code">Size : S/M/L/XL/2XL</h6><br>
-                    <h5 class="tedxt-center" id="item-price">Rs.1980.00</h5>
+                    <h6 id="item-code">Size : <?php echo $row['size'] ?></h6><br>
+                    <h5 class="tedxt-center" id="item-price">Rs.<?php echo $row['price'] ?></h5>
                 </div>
                 <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
                     style="display: block;">
                     <form action="payment.php" method="post">
                     <button class="btn btn-warning" style="color:white">Check Out</button> &ensp;
                     </form>
-                    <button class="btn btn-danger" style="color:white">Remove</button>
+                    <form action="cart.php" method="post">
+                    <a href="cart.php?delete=<?php echo $row['cartId']; ?>" class="btn btn-danger"> Remove </a>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     </div>
+    <?php } ?>
     <!--Item 2-->
 
     <div class="container mt-3">
