@@ -1,3 +1,10 @@
+
+ <?php
+ require_once 'classes/DbConnector.php';
+  require 'classes/Delivery_process.php';
+ $userr = new Dashboard();
+
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +29,7 @@
         .card:hover{
           background-color: rgb(220, 220, 220);
           
-        }
-        
-      
-
-        
+        }        
       </style>
 </head>
 <body>
@@ -52,30 +55,30 @@
       </div>
   </nav>
        
-
-  <form>
+ 
+     <form action="update_delivery.php" method="POST">
     <div class="container col-7 col-md-4 col-sm-8 mt-5">
         <div class="row mt-2">
 <h3>Delivery Dashboard</h3>
         </div>
         <div class="row mt-2">
             <label for="validationTooltip01" class="form-label">Order ID</label> 
-            <input type="text" class="form-control" id="validationTooltip01" value="" required>
+            <input type="text" name="orderid"class="form-control" id="validationTooltip01" value="" required>
 
         </div>
         <div class="row mt-2">
-            <label for="validationTooltip02" class="form-label">Delivery member name</label>
-            <input type="text" class="form-control" id="validationTooltip02" value="" required>        </div>
+            <label for="validationTooltip02" class="form-label">Delivery member ID</label>
+            <input type="text" name="id" class="form-control" id="validationTooltip02" value="" required>        </div>
         <div class="row mt-2">
             <label for="validationTooltip04" class="form-label">State</label>
-            <select class="form-select" id="validationTooltip04" required>
+            <select class="form-select" name="status"id="validationTooltip04" required>
               <option selected disabled value="">Choose...</option>
               <option>Processing</option>
               <option>Shipped</option>
               <option>Delivered</option>
             </select>        </div>
             <div class="row mt-2">
-                <input type="submit" value="Update" style="background-color:#87CBB9; border:1px solid rgb(0, 183, 255); border-radius: 5px; ">
+                <input type="submit" name="update" value="Update" style="background-color:#87CBB9; border:1px solid rgb(0, 183, 255); border-radius: 5px; ">
             </div>
     </div>
     </form>
@@ -85,7 +88,10 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">No. of products processing</h5>
-          <p class="card-text">250</p>
+          <p class="card-text"><?php 
+                       $count= $userr->getCountProcessing();
+                        echo $count;
+       ?></p>
         </div>
       </div>
     </div>
@@ -93,7 +99,10 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">No. of products shipped</h5>
-          <p class="card-text">25</p>
+          <p class="card-text"><?php 
+                       $count= $userr->getCountShipped();
+                        echo $count;
+       ?></p>
         </div>
       </div>
     </div>
@@ -101,7 +110,10 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">No. of products delivered</h5>
-          <p class="card-text">20</p>
+          <p class="card-text"><?php 
+                       $count= $userr->getCountDelivered();
+                        echo $count;
+       ?></p>
         </div>
       </div>
     </div>
