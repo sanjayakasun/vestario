@@ -1,3 +1,10 @@
+
+ <?php
+ require_once 'classes/DbConnector.php';
+  require 'classes/Delivery_process.php';
+ $userr = new Dashboard();
+
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,10 +55,7 @@
       </div>
   </nav>
        
-  <?php
-  require 'classes/delivery_process.php';
  
-        ?>
      <form action="update_delivery.php" method="POST">
     <div class="container col-7 col-md-4 col-sm-8 mt-5">
         <div class="row mt-2">
@@ -63,8 +67,8 @@
 
         </div>
         <div class="row mt-2">
-            <label for="validationTooltip02" class="form-label">Delivery member name</label>
-            <input type="text" name="name" class="form-control" id="validationTooltip02" value="" required>        </div>
+            <label for="validationTooltip02" class="form-label">Delivery member ID</label>
+            <input type="text" name="id" class="form-control" id="validationTooltip02" value="" required>        </div>
         <div class="row mt-2">
             <label for="validationTooltip04" class="form-label">State</label>
             <select class="form-select" name="status"id="validationTooltip04" required>
@@ -84,7 +88,10 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">No. of products processing</h5>
-          <p class="card-text">250</p>
+          <p class="card-text"><?php 
+                       $count= $userr->getCountProcessing();
+                        echo $count;
+       ?></p>
         </div>
       </div>
     </div>
@@ -92,7 +99,10 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">No. of products shipped</h5>
-          <p class="card-text">25</p>
+          <p class="card-text"><?php 
+                       $count= $userr->getCountShipped();
+                        echo $count;
+       ?></p>
         </div>
       </div>
     </div>
@@ -100,7 +110,10 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">No. of products delivered</h5>
-          <p class="card-text">20</p>
+          <p class="card-text"><?php 
+                       $count= $userr->getCountDelivered();
+                        echo $count;
+       ?></p>
         </div>
       </div>
     </div>

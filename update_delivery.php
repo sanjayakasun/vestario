@@ -4,12 +4,12 @@ require_once 'classes/DbConnector.php'; // Include your DB connection
 require_once 'classes/Delivery_process.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
+    $id = $_POST['id'];
     $orderId = $_POST['orderid'];
     $deliveryStatus = $_POST['status'];
     
     $dashboard = new Dashboard();
-    $success = $dashboard->updateDeliveryStatus($name, $orderId, $deliveryStatus);
+    $success = $dashboard->updateDeliveryStatus($id, $orderId, $deliveryStatus);
     
     if ($success) {
         // Redirect back to the form or display a success message
