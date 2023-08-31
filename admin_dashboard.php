@@ -3,7 +3,6 @@
 require 'classes/Admin_dashboard_process.php';
 
 $user = new Admin();
-$userCount = $user->getUserCount();
 ?>
 <html lang="en">
     <head>
@@ -39,6 +38,7 @@ $userCount = $user->getUserCount();
             
         </style>
     </head>
+    
     <body>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -67,7 +67,10 @@ $userCount = $user->getUserCount();
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">No. of customers</h5>
-                            <p class="card-text"> <?php echo $userCount; ?></p>
+                            <p class="card-text"> <?php 
+                            
+                            $countt = $user->getCount('registeredcustomer');
+                                echo $countt; ?></p>
                         </div>
                     </div>
                 </div>
@@ -101,7 +104,7 @@ $userCount = $user->getUserCount();
 
                     <thead>
                         <tr>
-                            <th colspan="3">Registered Customers</th>
+                            <th colspan="3">Customers</th>
                         </tr>
                         <tr>
                             <th>CustomerID</th>
@@ -146,8 +149,8 @@ $userCount = $user->getUserCount();
 
                         foreach ($users as $userData) { ?>
                             <tr>
-                                <td><?php echo $userData['productId']; ?></td>
-                                <td><?php echo $userData['productName']; ?></td>
+                                <td><?php echo $userData['product_id']; ?></td>
+                                <td><?php echo $userData['product_name']; ?></td>
                                 <td><?php echo $userData['price']; ?></td>
 
                             </tr><?php }

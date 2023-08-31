@@ -1,6 +1,7 @@
 <?php
 
-require './classes/DbConnector.php';
+require 'classes/DbConnector.php';
+
 
 $dbcon = new DbConnector();
 

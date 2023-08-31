@@ -1,5 +1,6 @@
 <?php
 
+
 require_once 'DbConnector.php';
 
 class Admin 
@@ -13,14 +14,14 @@ class Admin
         $this->db = new DbConnector();
     }
 
-    public function getUserCount() {
-        $con = $this->db->getConnection();
-        $sql = "SELECT COUNT(*) FROM user WHERE role='customer'";
-        $stmt = $con->prepare($sql);
-        $stmt->execute();
-        $count = $stmt->fetchColumn();
-        return $count;
-    }
+//    public function getUserCount() {
+//        $con = $this->db->getConnection();
+//        $sql = "SELECT COUNT(*) FROM user WHERE role='customer'";
+//        $stmt = $con->prepare($sql);
+//        $stmt->execute();
+//        $count = $stmt->fetchColumn();
+//        return $count;
+//    }
          public function getCount($tablename) {
         $con = $this->db->getConnection();
         $sql = "SELECT COUNT(*) FROM $tablename";
