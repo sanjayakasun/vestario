@@ -1,7 +1,7 @@
 <?php
 require './classes/DbConnector.php';
-
 use classes\DbConnector;
+
 
 class RegisteredCustomer
 {

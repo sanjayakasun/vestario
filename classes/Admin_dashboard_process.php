@@ -1,7 +1,7 @@
 <?php
 
 require_once 'DbConnector.php';
-
+use classes\DbConnector;
 class Admin 
 {
   
@@ -15,7 +15,7 @@ class Admin
 
     public function getUserCount() {
         $con = $this->db->getConnection();
-        $sql = "SELECT COUNT(*) FROM user WHERE role='customer'";
+        $sql = "SELECT COUNT(*) FROM registeredcustomer ;
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $count = $stmt->fetchColumn();

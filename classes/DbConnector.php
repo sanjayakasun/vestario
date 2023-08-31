@@ -1,6 +1,7 @@
-
-   <?php
-
+<?php
+namespace classes;
+use PDO;
+use PDOException;
 
 
 
