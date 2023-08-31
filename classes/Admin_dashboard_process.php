@@ -38,7 +38,14 @@ class Admin
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $users;
     }
-  
+   
+    public function deleteUser($id){
+        $con = $this->db->getConnection();
+        $sql = "DELETE  FROM registeredcustomer WHERE customerId=? ";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(1, $id);
+        $stmt->execute();
+    }
     }
 
 
