@@ -1,7 +1,6 @@
 <?php
 
 require './classes/DbConnector.php';
-use classes\DbConnector;
 
 $dbcon = new DbConnector();
 
@@ -114,9 +113,9 @@ if (isset($_GET['delete'])) {
         <div class="rounded border-0   overflow-hidden" style="background-color:#EEEDED">
         <div class="com">
             <div class="row mt-6">
-                <div class="col-12 col-md-6 col-lg-4" style="min-height: 200px;">
+                <div class="col-12 col-md-6 col-lg-4" style="min-height: 200px;"><br>
                 <img src="img/<?php echo $row['photo']; ?>" height="100" alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
-                </div>
+                <br></div>
                 <div class="col-md-6 col-lg-4 mt-2 ">
                     <h5 class="text-center" id="item-name"><?php echo $row['name'] ?></h5>
                     <h6 id="item-name-disc"><?php echo $row['description'] ?> </h6>
@@ -127,7 +126,7 @@ if (isset($_GET['delete'])) {
                 </div>
                 <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
                     style="display: block;">
-                    <form action="payment.php" method="post">
+                    <form action="payment.php?pay=<?php echo $row['cartId']; ?>" method="POST">
                     <input type="number" name="quan" placeholder="Quantity" required>
                     <br><br>
                     <button class="btn btn-warning" style="color:white">Check Out</button> &ensp;
@@ -142,66 +141,8 @@ if (isset($_GET['delete'])) {
     </div>
     </div>
     <?php } ?>
-    <!--Item 2-->
 
-    <div class="container mt-3">
-        <div class=" rounded border-0 border-dark overflow-hidden" style="background-color:#EEEDED">
-        <div class="com">
-            <div class="row mt-6">
-                <div class="col-12 col-md-6 col-lg-4" style="min-height: 200px;">
-                    <img class="mx-auto d-block rounded border-0   overflow-hidden" width="250" height="180" src="https://img.freepik.com/free-photo/fashionable-mannequin-wears-modern-hooded-jacket-generated-by-ai_188544-40166.jpg?size=626&ext=jpg&ga=GA1.1.1882095610.1686062107&semt=sph">
-                </div>
-                <div class="col-md-6 col-lg-4 mt-2 ">
-                    <h5 class="text-center " id="item-name">Jersey</h5>
-                    <h6 id="item-name-disc">Classic Hooded Jersey Long Sleeve T-Shirt</h6>
-                    <h6 id="item-size">Premium jersey fabric</h6>
-                    <!--Ieam code or order code-->
-                    <h6 id="item-code">Size : S/M/L/XL/2XL</h6><br>
-                    <h5 class="tedxt-center" id="item-price">Rs.2400.00</h5>
-                </div>
-                <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
-                    style="display: block;">
-                    <button class="btn btn-warning" style="color:white">Check Out</button> &ensp;
-                    <button class="btn btn-danger" style="color:white">Remove</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <!--Item 3-->
-
-    <div class="container mt-3">
-        <div class="  rounded border-0   overflow-hidden" style="background-color:#EEEDED">
-        <div class="com">
-            <div class="row mt-6">
-                <div class="col-12 col-md-6 col-lg-4" style="min-height: 200px;">
-                    <img class="mx-auto d-block" width="250" height="180" src="https://img.freepik.com/free-photo/shirt-mockup-concept-with-plain-clothing_23-2149448749.jpg?size=626&ext=jpg&ga=GA1.2.1882095610.1686062107&semt=sph">
-                </div>
-                <div class="col-md-6 col-lg-4 mt-2 ">
-                    <h5 class="text-center" id="item-name">Crew Neck T-Shirt</h5>
-                    <h6 id="item-name-disc">Crew Neck short sleeves T-Shirt  </h6>
-                    <h6 id="item-size">Premium 100% cotton fabric</h6>
-                    <!--Ieam code or order code-->
-                    <h6 id="item-code">S/M/L/XL/2XL</h6><br>
-                    <h5 class="tedxt-center" id="item-price">Rs.1980.00</h5>
-                </div>
-                <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
-                    style="display: block;">
-                    <form action="payment.php" method="post">
-                    <button class="btn btn-warning" style="color:white">Check Out</button> &ensp;
-                    </form>
-                    <button class="btn btn-danger" style="color:white">Remove</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-       
-    &ensp;
-    &ensp;
+&ensp;&ensp;
 
     <!-- fotter -->
 <hr>

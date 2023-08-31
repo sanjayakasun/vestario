@@ -88,7 +88,7 @@
                                                 <br>
                                             </div>
                                             <div class="col-sm-6 col-md-4">
-                                                <p class="text-center lead"><?php echo $row['discription'] ?></p> <br>
+                                                <p class="lead"><?php echo $row['discription'] ?></p> <br>
                                                 <h5 class="text-center">Size</h5> 
                                                 <form>
                                                     <div class="row">

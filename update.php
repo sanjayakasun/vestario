@@ -1,7 +1,6 @@
 <?php
 
 require './classes/DbConnector.php';
-use classes\DbConnector;
 
 $dbcon = new DbConnector();
 
@@ -14,18 +13,19 @@ if(isset($_POST['update_product'])){
    $product_name = $_POST['product_name'];
    $product_price = $_POST['product_price'];
    $product_size = $_POST['size'];
+   $up_dis = $_POST['discription'];
    
 //   $product_image = $_FILES['product_image']['name'];
 //   $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
 //   $product_image_folder = 'img/'.$product_image;
 
 
-   if(empty($product_name) || empty($product_price) || empty($product_size)){
+   if(empty($product_name) || empty($product_price) || empty($product_size) || empty($up_dis)){
       $message[] = 'please fill out all!';    
    }else{
       $con = $dbcon->getConnection();
 
-      $update_data = "UPDATE product SET product_name='$product_name', price='$product_price', size='$product_size'  WHERE product_id = '$id'";
+      $update_data = "UPDATE product SET product_name='$product_name', price='$product_price', size='$product_size', discription='$up_dis' WHERE product_id = '$id'";
 
       $pstmt = $con->prepare($update_data);
       $pstmt->execute();
@@ -76,6 +76,7 @@ if(isset($_POST['update_product'])){
            $p_name = $rs['product_name'];
            $p_price = $rs['price'];
            $size= $rs['size'];
+           $dis = $rs['discription'];
        }
 
    ?>
@@ -85,6 +86,7 @@ if(isset($_POST['update_product'])){
       <input type="text" class="box" name="product_name" value="<?php echo $p_name;?>" placeholder="enter the product name">
       <input type="number" min="0" class="box" name="product_price" value="<?php echo $p_price;?>" placeholder="enter the product price">
       <input type="text" class="box" name="size" value="<?php echo $size;?>" placeholder="enter product size">
+      <input type="text" class="box" name="discription" value="<?php echo $dis;?>" placeholder="enter discription">
       
 <!--      <input type="file" class="box" name="product_image"  accept="image/png, image/jpeg, image/jpg">-->
       <input type="submit" value="update product" name="update_product" class="btn">

@@ -84,14 +84,14 @@
                                             <form action="cart.php?cart=<?php echo $row['product_id']; ?>" method="post">
                                         <div class="row">
                                             <div class="col-12 col-sm-6 col-md-4">
-                                                <p class="text-center lead"><?php echo $row['product_name'] ?></p>
+                                                <p class="text-center lead"><b><?php echo $row['product_name'] ?></b></p>
                                                 <img src="img/<?php echo $row['photo']; ?>" height="100" alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
                                                 <h5 class="text-center">Rs.<?php echo $row['price'] ?> </h5> <br>
                                                 <br>
                                             </div>
                                             
                                             <div class="col-sm-6 col-md-4">
-                                                <p class="text-center lead"><?php echo $row['discription'] ?></p> <br>
+                                                <p class="lead"><?php echo $row['discription'] ?></p> <br>
                                                 <h5 class="text-center">Size</h5> 
                                                 <form>
                                                     <div class="row">
