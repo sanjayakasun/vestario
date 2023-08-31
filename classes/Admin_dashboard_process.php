@@ -7,22 +7,21 @@ class Admin
   
 
 
-    private $db;
-
-    public function __construct() {
-        $this->db = new DbConnector();
-    }
+    
 
     public function getUserCount() {
-        $con = $this->db->getConnection();
-        $sql = "SELECT COUNT(*) FROM registeredcustomer ;
+        
+        $dbcon = new DbConnector();
+    $con = $dbcon->getConnection();
+        $sql = "SELECT COUNT(*) FROM user WHERE role='customer'";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $count = $stmt->fetchColumn();
         return $count;
     }
          public function getCount($tablename) {
-        $con = $this->db->getConnection();
+            $dbcon = new DbConnector();
+            $con = $dbcon->getConnection();
         $sql = "SELECT COUNT(*) FROM $tablename";
         $stmt = $con->prepare($sql);
         $stmt->execute();
@@ -30,7 +29,8 @@ class Admin
         return $count;
     }
     public function getUsers($tablename) {
-        $con = $this->db->getConnection();
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
         $sql = "SELECT * FROM $tablename ";
         $stmt = $con->prepare($sql);
         $stmt->execute();
