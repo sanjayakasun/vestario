@@ -54,7 +54,6 @@
           </ul>
       </div>
   </nav>
-       
  
      <form action="update_delivery.php" method="POST">
     <div class="container col-7 col-md-4 col-sm-8 mt-5">

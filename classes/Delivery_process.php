@@ -1,6 +1,5 @@
 
 <?php
-
 class Dashboard {
 
     private $db;
