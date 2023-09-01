@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
         $deliveryCredentials = array("username" => "delivery123", "password" => "delivery456");
 
         if ($adminCredentials["username"] == $username && $adminCredentials["password"] == $password) {
-            header('Location:admin.php');
+            header('Location:admin_dashboard.php');
             exit();
         } elseif ($deliveryCredentials["username"] == $username && $deliveryCredentials["password"] == $password) {
             header('Location:delivery.php');
@@ -24,7 +24,9 @@ if (isset($_POST['submit'])) {
             $loginResult = $customer->login($username, $password);
 
             if ($loginResult == true) {
-                header('location:home.html');
+                // $_SESSION['customerName']=$username;
+                $_SESSION['customerId']=$customer->getCustomerId();
+                header('location:home_logged.php');
                 exit();
             } else {
 
@@ -34,7 +36,7 @@ if (isset($_POST['submit'])) {
     } else {
         $errors[] = "Username and Password Are Required";
     }
-    $SESSION['customerId']=$customer->getCustomerId();
+    $_SESSION['customerId']=$customer->getCustomerId();
     
 }
 
@@ -75,16 +77,16 @@ if (isset($_POST['submit'])) {
     <div class="background_">
         <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
             &ensp;
-            <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse " id="nav_tings">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
+            <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="nav_tings">
+            <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
+                    <!-- <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
-                    <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
+                    <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li> -->
                 </ul>
             </div>
         </nav>
@@ -109,11 +111,12 @@ if (isset($_POST['submit'])) {
 
             </div>
         </div>
+    </div>
 
 
 
         <!-- footer -->
-        <hr>
+        <!-- <hr>
         <div class="container-fluid back">
             <div class="row">
                 <div class="col-12 col-md-3">
@@ -152,7 +155,7 @@ if (isset($_POST['submit'])) {
                         </a>
                     </ul>
                 </div>
-                <!-- <div class="col-md-3">
+                 <div class="col-md-3">
             <h6>
                 About us
             </h6>
@@ -163,7 +166,7 @@ if (isset($_POST['submit'])) {
            allows customers to read feedback from other buyers, helping them make informed
            decisions about the quality, fit, and overall satisfaction of the products.
             </p>
-        </div> -->
+        </div> 
             </div>
         </div>
         <hr>
@@ -178,7 +181,7 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
         <hr>
-        <hr>
+        <hr> -->
 
 </body>
 

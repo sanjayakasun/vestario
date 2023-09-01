@@ -2,9 +2,18 @@
 
 require './classes/DbConnector.php';
 
+session_start();
+$uname = $_SESSION['customerId'];
+    if(isset($_SESSION['customerId'])){
+        header('Location:wishlist.php');
+    }else{
+        header('Location:login.php');
+    }
+
 $dbcon = new DbConnector();
 
 // @include 'config.php';
+
 
 if (isset($_GET['wishlist'])) {
 
@@ -67,18 +76,18 @@ if (isset($_GET['delete'])) {
 
 <body> 
 
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+<nav class="navbar navbar-light navbar-expand-lg"  style="background-color:#87CBB9">
         &ensp;
-        <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
+        <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse " id="nav_tings">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="#"class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="home_logged.php" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="home_logged.php" class="nav-link">Categories</a></li>
+                <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
-                <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
+                <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
+                <li class="nav-item"><a href="home.php" class="nav-link">LogOut</a></li>
             </ul>
         </div>
     </nav>

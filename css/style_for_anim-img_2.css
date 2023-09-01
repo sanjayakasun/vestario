@@ -1,0 +1,33 @@
+
+
+* {
+ box-sizing: border-box;
+}
+:root {
+  --magnifier:5;
+  --gap: 1vmin;
+  --transition: 0.5s;
+}
+  
+.container-img {
+
+  height:600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+}
+
+img {
+  --brightness: 0.75;
+  transition: flex var(--transition), filter var(--transition);
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  flex: 1;
+}
+
+img:hover {
+  --brightness: 1.15;
+  flex: var(--magnifier);
+}

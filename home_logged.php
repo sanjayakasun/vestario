@@ -17,7 +17,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <title>Navbar</title>
     <style>
         .navbar{
@@ -36,20 +36,30 @@
 
 </head>
 <body>
+    <?php
+    session_start();
+    $uname = $_SESSION['customerId'];
+    // if(isset($_SESSION['customerName'])){
+    //     header('Location:home.php');
+    // }else{
+    //     header('Location:login.php');
+    // }
+     ?>
     <!--Header-->
     <div class="background_">
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+    <nav class="navbar navbar-light navbar-expand-lg"  style="background-color:#87CBB9">
         &ensp;
-        <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
+        <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse " id="nav_tings">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="home_logged.php" class="nav-link active">Home</a></li>
                 <li class="nav-item"><a href="#link-to-category" class="nav-link">Categories</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
-                <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
+                <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link">LogOut</a></li>
+                <li class="nav-item" ><a href="home.php" class="nav-link"><i class="fa fa-user-circle-o" style="color:yellow; font-size:20px"></i> Hello, <?php echo $uname ?> !</a></li>
             </ul>
         </div>
     </nav>
@@ -136,24 +146,20 @@
          </h6>
          <ul>
              <a href="" style="text-decoration:none; color:black"><li>Customize products</li></a>
-             <a href="" style="text-decoration:none; color:black"><li>Order Clothes</li></a>
+             <a href="#link-to-category" style="text-decoration:none; color:black"><li>Order Clothes</li></a>
              <a href="" style="text-decoration:none; color:black"><li>Delivery</li></a>
-             <a href="" style="text-decoration:none; color:black"><li>Sign-up</li></a>
+             <!-- <a href="" style="text-decoration:none; color:black"><li></li></a> -->
              <a href="" style="text-decoration:none; color:black"><li>Help</li></a>
          </ul>
      </div>
-     <!-- <div class="col-md-3">
+     <div class="col-md-3">
          <h6>
-             About us
+            Location
          </h6>
          <p>    
-         Welcome to our online clothing store,  When we consider the past era of the apparel industry they had the opportunity to sell their 
-         products only from the physical stores. 
-         Online shopping platforms often provide customer reviews and ratings for products. This 
-        allows customers to read feedback from other buyers, helping them make informed 
-        decisions about the quality, fit, and overall satisfaction of the products. 
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.232221977519!2d81.07370807384885!3d6.981900517669062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae4618a1a9fec37%3A0x1dd900702229654b!2sUva%20Wellassa%20University%20of%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1693496700699!5m2!1sen!2slk" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
          </p>
-     </div> -->
+     </div>
  </div>
 </div>
 <hr>

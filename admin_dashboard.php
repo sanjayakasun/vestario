@@ -29,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Admin Panel</title>
         <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="css/bootstrap.css">    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -65,21 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             crossorigin="anonymous"
         ></script>
         <div class="background_">
-            <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
-                &ensp;
-                <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse " id="nav_tings">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a href="#"class="nav-link active">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
-                        <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
-                    </ul>
-                </div>
-            </nav>
+            
 
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">

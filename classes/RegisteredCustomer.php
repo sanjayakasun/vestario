@@ -1,7 +1,6 @@
 <?php
-require './classes/DbConnector.php';
+require 'DbConnector.php';
 
-use classes\DbConnector;
 
 class RegisteredCustomer
 {
@@ -40,7 +39,7 @@ class RegisteredCustomer
 
         if ($pstmt->rowCount() == 0) {
             $adminId = 1;
-            $query = "INSERT INTO registeredcustomer (name, email, contactNumber, address, gender, username, password, adminId) 
+            $query = "INSERT INTO registeredcustomer (name, email, contactNumber, address, gender, adminId, username, password) 
                     VALUES (?,?,?,?,?,?,?,?)";
             
                 $pstmt = $con->prepare($query);
@@ -49,9 +48,9 @@ class RegisteredCustomer
                 $pstmt->bindValue(3,$contactNumber);
                 $pstmt->bindValue(4,$address);
                 $pstmt->bindValue(5,$gender);
-                $pstmt->bindValue(6,$username);
-                $pstmt->bindValue(7,$password);
-                $pstmt->bindValue(8,$adminId);
+                $pstmt->bindValue(6,$adminId);
+                $pstmt->bindValue(7,$username);
+                $pstmt->bindValue(8,$password);
 
                 $pstmt->execute();
                 if ($pstmt) {

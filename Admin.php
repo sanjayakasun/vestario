@@ -61,7 +61,18 @@
     </style>
 </head>
 <body>
-    <h1 class="text-center">ADMIN</h1>
+            <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+                &ensp;
+                <img src="src_images/logo new.png" style="width:50px; height:50px;"> &ensp;
+                <h4 class="navbar-brand">Hello Admin! </h4>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse " id="nav_tings">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a href="admin_dashboard.php" class="nav-link">Admin_Dashboard</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
     <div class="container">
    <div class="admin-product-form-container">
       <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">

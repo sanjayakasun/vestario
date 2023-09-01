@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 
 if (isset($_POST['quan'])) {
@@ -79,20 +79,20 @@ if (isset($_POST['pay'])){
 <body>
   <!--Header-->
   <div class="background_">
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
-      &ensp;
-      <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse " id="nav_tings">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="#link-to-category" class="nav-link">Categories</a></li>
-          <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Wishlist</a></li>
-          <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-light navbar-expand-lg"  style="background-color:#87CBB9">
+        &ensp;
+        <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse " id="nav_tings">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="home_logged.php" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="home_logged.php" class="nav-link">Categories</a></li>
+                <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
+                <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
+                <li class="nav-item"><a href="home.php" class="nav-link">LogOut</a></li>
+            </ul>
+        </div>
     </nav>
 
     <section class="h-100 gradient-custom">
@@ -279,6 +279,3 @@ if (isset($_POST['pay'])){
 </body>
 
 </html>
-=======
-
->>>>>>> 3f693645f688dfa3eb17e3ed636d9621ba2e0478
