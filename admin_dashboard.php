@@ -3,6 +3,25 @@
 require 'classes/Admin_dashboard_process.php';
 
 $user = new Admin();
+
+//if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete"])) {
+//    $id = $_POST["customerId"];
+//    $user->deleteUser($id);
+//}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['customerId']) && isset($_POST['submit'])) {
+        $id = $_POST['customerId'];
+        
+        $success = $user->deleteUser($id);
+        
+        if ($success) {
+            // Redirect back to the page or display a success message
+            header('Location: admin_dashboard.php');
+            exit;
+        }
+    }
+}
 ?>
 <html lang="en">
     <head>
@@ -35,10 +54,10 @@ $user = new Admin();
                 position: relative;
                 left: 100px;
             }
-            
+
         </style>
     </head>
-    
+
     <body>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -67,10 +86,10 @@ $user = new Admin();
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">No. of customers</h5>
-                            <p class="card-text"> <?php 
-                            
-                            $countt = $user->getCount('registeredcustomer');
-                                echo $countt; ?></p>
+                            <p class="card-text"> <?php
+                                $countt = $user->getCount('registeredcustomer');
+                                echo $countt;
+                                ?></p>
                         </div>
                     </div>
                 </div>
@@ -104,23 +123,29 @@ $user = new Admin();
 
                     <thead>
                         <tr>
-                            <th colspan="3">Customers</th>
+                            <th colspan="4">Customers</th>
                         </tr>
                         <tr>
                             <th>CustomerID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
+                        <?php
                         $users = $user->getUsers('registeredcustomer');
 
-                        foreach ($users as $userData) { ?>
+                        foreach ($users as $userData) {
+                            ?>
                             <tr>
                                 <td><?php echo $userData['customerId']; ?></td>
                                 <td><?php echo $userData['name']; ?></td>
                                 <td><?php echo $userData['email']; ?></td>
+                                <td>  <form method="POST" action="">
+                    <input type="hidden" name="customerId" value="<?= $userData['customerId'] ?>">
+                    <button type="submit" name="submit">Delete</button>
+                                    </form></td>
                             </tr><?php }
                         ?>
                     </tbody>
@@ -144,10 +169,11 @@ $user = new Admin();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
+                        <?php
                         $users = $user->getUsers('product');
 
-                        foreach ($users as $userData) { ?>
+                        foreach ($users as $userData) {
+                            ?>
                             <tr>
                                 <td><?php echo $userData['product_id']; ?></td>
                                 <td><?php echo $userData['product_name']; ?></td>
@@ -175,15 +201,105 @@ $user = new Admin();
                         </tr>
                     </thead>
                     <tbody>
-                       <?php 
+                        <?php
                         $users = $user->getUsers('orders');
 
-                        foreach ($users as $userData) { ?>
+                        foreach ($users as $userData) {
+                            ?>
                             <tr>
                                 <td><?php echo $userData['orderId']; ?></td>
                                 <td><?php echo $userData['orderDate']; ?></td>
                                 <td><?php echo $userData['totalPrice']; ?></td>
                                 <td><?php echo $userData['quantity']; ?></td>
+
+                            </tr><?php }
+                        ?>
+                    </tbody>
+
+                </table>
+            </section>
+             <section class="s1">
+                <table class="table table-hover table-striped">
+
+                    <thead>
+                        <tr>
+                            <th colspan="4">Reviews</th>
+                        </tr>
+                        <tr>
+                            <th>Rating</th>
+                            <th>Review</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $users = $user->getUsers('review');
+
+                        foreach ($users as $userData) {
+                            ?>
+                            <tr>
+                                <td><?php echo $userData['rating']; ?></td>
+                                <td><?php echo $userData['comment']; ?></td>
+                            </tr><?php }
+                        ?>
+                    </tbody>
+
+                </table>
+            </section>
+             <section class="s1">
+                <table class="table table-hover table-striped">
+
+                    <thead>
+                        <tr>
+                            <th colspan="4">Inquiry</th>
+                        </tr>
+                        <tr>
+                            
+                            <th>Rating</th>
+                            <th>Review</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $users = $user->getUsers('inquiry');
+
+                        foreach ($users as $userData) {
+                            ?>
+                            <tr>
+                                <td><?php echo $userData['name']; ?></td>
+                                <td><?php echo $userData['email']; ?></td>
+                                <td><?php echo $userData['message']; ?></td>
+
+                            </tr><?php }
+                        ?>
+                    </tbody>
+
+                </table>
+            </section>
+              <section class="s1">
+                <table class="table table-hover table-striped">
+
+                    <thead>
+                        <tr>
+                            <th colspan="4">Payment Details</th>
+                        </tr>
+                        <tr>
+                            
+                            <th>Order Id</th>
+                            <th>Payment Date</th>
+                            <th>Payment Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $users = $user->getUsers('payment');
+
+                        foreach ($users as $userData) {
+                            ?>
+                            <tr>
+                                <td><?php echo $userData['orderId']; ?></td>
+                                <td><?php echo $userData['paymentDate']; ?></td>
+                                <td><?php echo $userData['paymentMethod']; ?></td>
 
                             </tr><?php }
                         ?>
@@ -237,4 +353,30 @@ $user = new Admin();
             </div>
             <hr><hr>
             </body>
+            <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.delete-button');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const deliveryId = this.parentElement.querySelector('input[name="deliveryId"]').value;
+            
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will not be able to recover this delivery!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to delete action with deliveryId
+                    window.location.href = `admin_dashboard.php?deleteDelivery=${deliveryId}`;
+                }
+            });
+        });
+    });
+});
+</script>
+
             </html>

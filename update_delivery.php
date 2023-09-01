@@ -10,19 +10,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $dashboard = new Dashboard();
     $success = $dashboard->updateDeliveryStatus($id, $orderId, $deliveryStatus);
-    
     if ($success) {
         // Redirect back to the form or display a success message
-        header('Location: delivery.php');
+        header('Location: delivery.php?error=0');
         exit;
     } else {
         // Handle update failure (e.g., display an error message)
-        echo "Failed to update delivery status.";
+                header('Location: delivery.php?error=1');
+
     }
 } else {
     // Invalid request
     http_response_code(400);
-    echo "Invalid request.";
+            header('Location: delivery.php?error=2');
+
+
 }
 
 

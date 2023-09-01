@@ -23,7 +23,7 @@ class Dashboard {
             $stmt1->bindParam(1, $deliveryStatus);
             $stmt1->bindParam(2, $orderId);
             $stmt1->bindParam(3, $id);
-            $stmt1->execute();
+            $a=$stmt1->execute();
             return true; // Return true if update is successful
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
