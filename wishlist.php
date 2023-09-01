@@ -97,10 +97,12 @@ if (isset($_GET['delete'])) {
         </div>
     </div>
 
+
     
 
     
     <!--Item 1-->
+    
     <?php
     @include 'config.php';
     $select = mysqli_query($conn, "SELECT * FROM wishlist");
@@ -120,7 +122,7 @@ if (isset($_GET['delete'])) {
                     <h6 id="item-name-disc"><?php echo $row['description'] ?> </h6>
                      
                     <!--Ieam code or order code-->
-                    <h6 id="item-code">Size : <?php echo $row['size'] ?></h6><br>
+                    <!-- <h6 id="item-code">Size : <?php echo $row['size'] ?></h6><br> -->
                     <h5 class="tedxt-center" id="item-price">Rs.<?php echo $row['price'] ?>.00</h5>
                 </div>
                 <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
@@ -135,17 +137,74 @@ if (isset($_GET['delete'])) {
     </div>
     </div>
     <?php } ?>
-    <!--Item 2-->
 
+    <!--Item 2-->
+    
+    <!-- <div class="container mt-3">
+        <div class=" rounded border-0 border-dark overflow-hidden" style="background-color:#EEE9DA">
+        <div class="com">
+            <div class="row mt-6">
+                <div class="col-12 col-md-6 col-lg-4" style="min-height: 200px;">
+                    <img class="mx-auto d-block rounded border-0   overflow-hidden" width="250" height="180" src="https://img.freepik.com/free-photo/fashionable-mannequin-wears-modern-hooded-jacket-generated-by-ai_188544-40166.jpg?size=626&ext=jpg&ga=GA1.1.1882095610.1686062107&semt=sph">
+                </div>
+                <div class="col-md-6 col-lg-4 mt-2 ">
+                    <h5 class="text-center " id="item-name">Jersey</h5>
+                    <h6 id="item-name-disc">Classic Hooded Jersey Long Sleeve T-Shirt</h6>
+                    <h6 id="item-size">Premium jersey fabric</h6> -->
+                    <!--Ieam code or order code-->
+                    <!-- <h6 id="item-code">Size : S/M/L/XL/2XL</h6><br>
+                    <h5 class="tedxt-center" id="item-price">Rs.2400.00</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
+                    style="display: block;">
+                     
+                    <button class="btn btn-danger" style="color:white">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> -->
+
+
+    <!--Item 3-->
+
+    <!-- <div class="container mt-3">
+        <div class="  rounded border-0   overflow-hidden" style="background-color:#EEE9DA">
+        <div class="com">
+            <div class="row mt-6">
+                <div class="col-12 col-md-6 col-lg-4" style="min-height: 200px;">
+                    <img class="mx-auto d-block" width="250" height="180" src="https://img.freepik.com/free-photo/shirt-mockup-concept-with-plain-clothing_23-2149448749.jpg?size=626&ext=jpg&ga=GA1.2.1882095610.1686062107&semt=sph">
+                </div>
+                <div class="col-md-6 col-lg-4 mt-2 ">
+                    <h5 class="text-center" id="item-name">Crew Neck T-Shirt</h5>
+                    <h6 id="item-name-disc">Crew Neck short sleeves T-Shirt  </h6>
+                    <h6 id="item-size">Premium 100% cotton fabric</h6> -->
+                    <!--Ieam code or order code-->
+                    <!-- <h6 id="item-code">S/M/L/XL/2XL</h6><br>
+                    <h5 class="tedxt-center" id="item-price">Rs.1980.00</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
+                    style="display: block;">
+                     
+                    <button class="btn btn-danger" style="color:white">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+       
+    &ensp;
+    &ensp; -->
     
 
 
     
        
-    &ensp;
-    &ensp;
+ 
 
     <!-- fotter -->
+
 <hr>
 <div class="container-fluid back">
  <div class="row">
@@ -175,6 +234,7 @@ if (isset($_GET['delete'])) {
              <a href="" style="text-decoration:none; color:black"><li>Help</li></a>
          </ul>
      </div>
+
      <!-- <div class="col-md-3">
          <h6>
              About us
@@ -187,6 +247,7 @@ if (isset($_GET['delete'])) {
         decisions about the quality, fit, and overall satisfaction of the products. 
          </p>
      </div> -->
+
  </div>
 </div>
 <hr>
@@ -201,6 +262,7 @@ if (isset($_GET['delete'])) {
  </div>
  </div>
  <hr><hr>
+
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
