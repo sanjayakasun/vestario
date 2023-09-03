@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="js/bootstrap.js"></script>
     <!--for animated images-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="css/style_for_anim-img_2.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style_for_anim-img_2.css"> -->
     <!--end-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -45,6 +45,7 @@
 <?php
 ?>
 <body>
+    
     <!--Header-->
     <div class="background_">
         <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
@@ -56,9 +57,20 @@
                     <li class="nav-item"><a href="home.php" class="nav-link active">Home</a></li>
                     <li class="nav-item"><a href="#link-to-category" class="nav-link">Categories</a></li>
                     <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
+                    <li class="nav-item"><a href="design.php" class="nav-link">Customize Products</a></li>
                     <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['customerId'])) { 
+                        $cu_name = $_SESSION['customerName'];
+                        ?>
+                        <li class="nav-item"><a href="logout.php" class="nav-link">LogOut</a></li>
+                    <li class="nav-item nav-link" ><i class="fa fa-user-circle-o" style="color:black; font-size:20px"></i> Hello,<?php echo $cu_name ?>!</li>
+                    <?php } else { ?>
                     <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+                    <?php }
+                    ?>
+
                 </ul>
             </div>
         </nav>
@@ -66,8 +78,8 @@
         
 
         <!--animated image starts-->
-        <div class="container-img"><img src="src_images/men/crew neck t shirt/crew neck t shirt green.jpg"/><img src="src_images/men/chino pants/chino pants blue.jpg"/><img src="src_images/men/polo t-shirt/fit polo t shirt.jpg"/><img src="src_images/women/Womens Slim Fit T-Shirt/Womens Slim Fit T-Shirt-red.png"/><img src="src_images/women/womens traveler pant/Womens Traveler Pant - Mulberry wine.jpg"/>
-        </div>
+        <!-- <div class="container-img"><img src="src_images/men/crew neck t shirt/crew neck t shirt green.jpg"/><img src="src_images/men/chino pants/chino pants blue.jpg"/><img src="src_images/men/polo t-shirt/fit polo t shirt.jpg"/><img src="src_images/women/Womens Slim Fit T-Shirt/Womens Slim Fit T-Shirt-red.png"/><img src="src_images/women/womens traveler pant/Womens Traveler Pant - Mulberry wine.jpg"/>
+        </div> -->
         <!--animated image finished-->
 
         <div class="container mt-5  mx-auto d-block">
@@ -137,34 +149,32 @@
                 <img src="src_images/logo new.png" style="width:200px; height:200px;">
             </div>
             <div class="col-md-3">
-                <h6>Contact us</h6>
+                <a href="contactus.php"><h6>Contact us</h6></a>
                 <a href="#" class="fa fa-facebook"></a>&ensp;&ensp;
-                <a href="#" class="fa fa-twitter"></a>&ensp;&ensp;
-                <a href="#" class="fa fa-instagram"></a>&ensp;&ensp;
                 <a href="#" class="fa fa-google"></a>&ensp;&ensp;
-                <a href="#" class="fa fa-linkedin"></a><br><br>
+                <br><br>
                 <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">mail</span>vestario@gmail.com</span>&ensp;</a>
                 <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
-                <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0716123050</a>
+                <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
             </div>
             <div class="col-md-3">
                 <h6>
                     Services
                 </h6>
                 <ul>
-                    <a href="" style="text-decoration:none; color:black">
+                    <a href="design.php" style="text-decoration:none; color:black">
                         <li>Customize products</li>
                     </a>
                     <a href="#link-to-category" style="text-decoration:none; color:black">
                         <li>Order Clothes</li>
                     </a>
-                    <a href="" style="text-decoration:none; color:black">
-                        <li>Delivery</li>
+                    <a href="review.php" style="text-decoration:none; color:black">
+                        <li>Review</li>
                     </a>
                     <!-- <a href="" style="text-decoration:none; color:black"><li></li></a> -->
-                    <a href="" style="text-decoration:none; color:black">
+                    <!-- <a href="" style="text-decoration:none; color:black">
                         <li>Help</li>
-                    </a>
+                    </a> -->
                 </ul>
             </div>
             <div class="col-md-3">
@@ -172,7 +182,7 @@
                     Location
                 </h6>
                 <p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.232221977519!2d81.07370807384885!3d6.981900517669062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae4618a1a9fec37%3A0x1dd900702229654b!2sUva%20Wellassa%20University%20of%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1693496700699!5m2!1sen!2slk" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.4842255938223!2d79.96344996947397!3d6.777534431309632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24fd7781fbd17%3A0x36b8c930439bdc4f!2sVestario!5e0!3m2!1sen!2slk!4v1693714871562!5m2!1sen!2slk" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </p>
             </div>
         </div>

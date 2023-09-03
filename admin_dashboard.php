@@ -68,7 +68,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             crossorigin="anonymous"
         ></script>
         <div class="background_">
-            
+        
+        <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+                &ensp;
+                <img src="src_images/logo new.png" style="width:50px; height:50px;"> &ensp;
+                <h4 class="navbar-brand">Hello Admin! </h4>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse " id="nav_tings">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a href="home.php" class="nav-link">LogOut</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+
 
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">

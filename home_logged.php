@@ -56,7 +56,7 @@
                 <li class="nav-item"><a href="home_logged.php" class="nav-link active">Home</a></li>
                 <li class="nav-item"><a href="#link-to-category" class="nav-link">Categories</a></li>
                 <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
+                <li class="nav-item"><a href="design.php" class="nav-link">Customize Products</a></li>
                 <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
                 <li class="nav-item"><a href="logout.php" class="nav-link">LogOut</a></li>
                 <li class="nav-item" ><a href="home.php" class="nav-link"><i class="fa fa-user-circle-o" style="color:yellow; font-size:20px"></i> Hello, <?php echo $uname ?> !</a></li>

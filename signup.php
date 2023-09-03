@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) {
 <body>
 <!--Header-->
 <div class="background_">
-    <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+    <!-- <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
         &ensp;
         <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;"></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
                 <li class="nav-item"><a href="#" class='fas fa-user-circle nav-link d-flex'>Login</a></li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 <div class="singup">
     <div class="form-container">
     
@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
 
 
 <!-- footer -->
-<hr>
+<!-- <hr>
 <div class="container-fluid back">
     <div class="row">
         <div class="col-12 col-md-3">
@@ -150,7 +150,7 @@ if (isset($_POST['submit'])) {
                 <a href="" style="text-decoration:none; color:black"><li>Help</li></a>
             </ul>
         </div>
-        <!-- <div class="col-md-3">
+        <div class="col-md-3">
             <h6>
                 About us
             </h6>
@@ -161,7 +161,7 @@ if (isset($_POST['submit'])) {
            allows customers to read feedback from other buyers, helping them make informed
            decisions about the quality, fit, and overall satisfaction of the products.
             </p>
-        </div> -->
+        </div>
     </div>
 </div>
 <hr>
@@ -175,7 +175,7 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
-<hr><hr>
+<hr><hr> -->
 
 </body>
 </html>
