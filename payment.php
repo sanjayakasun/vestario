@@ -85,21 +85,31 @@ session_start();
 <body>
   <!--Header-->
   <div class="background_">
-  <nav class="navbar navbar-light navbar-expand-lg"  style="background-color:#87CBB9">
-        &ensp;
-        <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse " id="nav_tings">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a href="home_logged.php" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="home.php#link-to-category" class="nav-link">Categories</a></li>
-                <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
-                <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
-                <li class="nav-item"><a href="home.php" class="nav-link">LogOut</a></li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+            &ensp;
+            <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse " id="nav_tings">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="home.php" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="home.php#link-to-category" class="nav-link">Categories</a></li>
+                    <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
+                    <li class="nav-item"><a href="design.php" class="nav-link">Customize Products</a></li>
+                    <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
+                    <?php
+                    if (isset($_SESSION['customerId'])) { 
+                        $cu_name = $_SESSION['customerName'];
+                        ?>
+                        <li class="nav-item"><a href="logout.php" class="nav-link">LogOut</a></li>
+                    <li class="nav-item nav-link" ><i class="fa fa-user-circle-o" style="color:black; font-size:20px"></i> Hello,<?php echo $cu_name ?>!</li>
+                    <?php } else { ?>
+                    <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+                    <?php }
+                    ?>
+
+                </ul>
+            </div>
+        </nav>
 
     <section class="h-100 gradient-custom">
       <div class="container py-5">
@@ -116,7 +126,7 @@ session_start();
                     <!-- Image -->
                     &ensp;&ensp; <span class="material-symbols-outlined">cancel</span>
                     <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                      <img src="  " class="w-100" />
+                      <img src="img/<?php echo $rows['photo']; ?>" class="w-100" />
                       <a href="#!">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
                       </a>
@@ -126,9 +136,9 @@ session_start();
 
                   <div class="col-lg-5 col-md-6 mb-4 mb-lg-0 text-center">
                     <!-- Data -->
-                    <p><strong>  name  </strong></p>
-                    <br><p><strong>  productid  </strong></p>
-                    <br><p><strong> size  </strong></p>
+                    <p><strong>  name:<?php echo $rows['name']; ?>  </strong></p>
+                    <br><p><strong>  productid:<?php echo $rows['productId']; ?> </strong></p>
+                    <br><p><strong> size: <?php echo $rows['size']; ?>  </strong></p>
 
                     <!-- Data -->
                   </div>
@@ -137,7 +147,7 @@ session_start();
 
                     <!-- Price -->
                     <p class="text-start text-md-center">
-                    <h6>Price: </h6><strong>Rs.   .00</strong>
+                    <h6>Price: </h6><strong>Rs.<?php echo $rows['price']; ?>.00</strong>
                     </p>
                     <!-- Price -->
 
@@ -145,7 +155,7 @@ session_start();
                     <div class="d-flex mb-4" style="max-width: 300px">
                       <div class="form-outline">
                         <!--<input id="form1" min="0" name="quantity" value="1" type="fixed" class="form-control" />-->
-                        <label class="form-label" for="form1">Quantity: <br><strong>    </strong></label>
+                        <label class="form-label" for="form1">Quantity: <br><strong> <?php echo $number; ?>   </strong></label>
                         
                       </div>
                     </div>
@@ -190,7 +200,7 @@ session_start();
                         <strong>Total amount : </strong>
                         <strong> </strong>
                       </div>
-                      <span><strong>Rs.   .00</strong></span>
+                      <span><strong>Rs.<?php echo $total; ?>.00</strong></span>
                     </li>
                   </ul>
                   <hr>

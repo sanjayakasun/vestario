@@ -42,7 +42,7 @@ $userr = new Dashboard();
         <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
                 &ensp;
                 <img src="src_images/logo new.png" style="width:50px; height:50px;"> &ensp;
-                <h4 class="navbar-brand">Hello Delivery Manage Admin! </h4>
+                <h4 class="navbar-brand">Hello Delivery Member! </h4>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse " id="nav_tings">
                     <ul class="navbar-nav ms-auto">
@@ -59,14 +59,16 @@ $userr = new Dashboard();
                     </div>
                     <div class="row mt-2">
                         <?Php
-                        
-                    if ($_GET['error'] == 0) {
-                        echo '<h3 style="color:red;" class="text-center">Successfully Updated</h3>';
-                    } elseif ($_GET['error'] == 1) {
-                        echo '<h3 style="color:red;" class="text-center">Failed to update delivery status.</h3>';
-                    } else {
-                        echo '<h3 style="color:red;" class="text-center">Invalid request.</h3>';
-                    }
+                    if(isset($_GET['error']))   {
+                        if ($_GET['error'] == 0) {
+                            echo '<h3 style="color:red;" class="text-center">Successfully Updated</h3>';
+                        } elseif ($_GET['error'] == 1) {
+                            echo '<h3 style="color:red;" class="text-center">Failed to update delivery status.</h3>';
+                        } else {
+                            echo '<h3 style="color:red;" class="text-center">Invalid request.</h3>';
+                        }
+                    } 
+                    
                     ?>
                         <label for="validationTooltip01" class="form-label">Order ID</label> 
                         <input type="text" name="orderid"class="form-control" id="validationTooltip01" value="" required>

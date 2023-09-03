@@ -9,7 +9,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>Customise Design</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css">
@@ -75,7 +75,7 @@ session_start();
             </div>
              
             <div class="col-sm-3 text-lg-end">
-              <a href="#" class="btn btn-primary stretched-link">Click here</a>
+              <a href="https://printify.com/app/editor/12/50" class="btn btn-primary stretched-link">Click here</a>
             </div>
           </div>
         </div>
