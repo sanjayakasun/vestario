@@ -61,7 +61,7 @@ $userr = new Dashboard();
                         <?Php
                     if(isset($_GET['error']))   {
                         if ($_GET['error'] == 0) {
-                            echo '<h3 style="color:red;" class="text-center">Successfully Updated</h3>';
+                            echo '<h3 style="color:green;" class="text-center">Successfully Updated</h3>';
                         } elseif ($_GET['error'] == 1) {
                             echo '<h3 style="color:red;" class="text-center">Failed to update delivery status.</h3>';
                         } else {
