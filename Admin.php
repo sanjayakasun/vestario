@@ -1,6 +1,6 @@
-
-
-
+<?Php
+// require 'process/add_product_process.php';
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -40,40 +40,58 @@
 
 if(isset($_POST['add_product'])){
     @include 'config.php';
-   $selectd_value = $_POST['category'] ;
+    
+   $category = $_POST['category'] ;
    $name = $_POST['title'];
    $price = $_POST['product_price'];
-   $image = $_FILES['product_image']['name'];
+   $img = $_FILES['product_image']['name'];
    $image_tmp_name = $_FILES['product_image']['tmp_name'];
-   $image_folder ='img/'.$image ;
-   $selectd_value3 = $_POST['size'];
+   $image_folder ='img/'.$img ;
+   $size = $_POST['size'];
    $discription = $_POST['discription'];
-    if(empty($selectd_value) || empty($selectd_value3) || empty($name) || empty($price) || empty($image) || empty($discription)){
+
+    if(empty($category) || empty($size) || empty($name) || empty($price) || empty($img) || empty($discription)){
+
         $message_null = '<h3 style="color:red;" class="text-center">please fill out all</h3>';
         echo $message_null;
-//                $null = 1;
-//                echo '<script>Messagenull()</script>';
     }else{
-        $insert = "INSERT INTO product(category,product_name,price,photo,size,discription) VALUES('$selectd_value','$name','$price','$image','$selectd_value3','$discription')";
-        $upload = mysqli_query($conn,$insert);
-        if($upload){
+
+        @include 'process/add_product_process.php';
+        $addproduct =  new product($name,$price, $discription, $size, $category, $img);
+        $result = $addproduct->addproduct($name,$price, $discription, $size, $category, $img);
+
+        if($result == 1){
+
             move_uploaded_file($image_tmp_name, $image_folder);
             $message_done = '<h3 style="color:green;" class="text-center">Product Added Sucessfully</h3>';
             echo $message_done;
         }else{
+
             $message_no = '<h3 style="color:red;" class="text-center">Did Not Added</h3>';
             echo $message_no; 
         } 
-//                $null = 0;
-//                echo '<script>Messagenull()</script>';
+
     }
 }
 
 if (isset($_GET['delete'])){
-    @include 'config.php';
+    @include 'classes/DbConnector.php';
     $id = $_GET['delete'];
-    mysqli_query($conn,"DELETE FROM product WHERE product_id = '$id' ");
-    header('Location:Admin.php');
+    $dbcon = new DbConnector();
+    $con = $dbcon->getConnection();
+    $query = "DELETE FROM product WHERE product_id = '$id'";
+    $pstmt = $con->prepare($query);
+    $pstmt->execute();
+    if($pstmt->rowCount() >0 ){
+        echo '<h3 style="color:orange;" class="text-center"> !!!! Product Deleted Sucessfully !!!!</h3>';
+
+        
+    }else{
+        echo '<h3 style="color:red;" class="text-center"> !-!-!-! Product Delete Fialed !-!-!-!</h3>';
+        header('Location:Admin.php');
+       
+    }
+    
 }
 ?>
 

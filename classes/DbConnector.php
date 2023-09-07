@@ -1,14 +1,12 @@
 
    <?php
 
-
-
-
 class DbConnector{
+
     private $host = "localhost";
     private $dbname = "vestario";
-    private $dbuser = "root";
-    private $dbpw = "";
+    private $dbuser = "testuser";
+    private $dbpw = "testuser";
 
 public function getConnection(){
     $dsn = "mysql:host=$this->host; dbname=$this->dbname";
