@@ -1,18 +1,16 @@
-@import "https://unpkg.com/open-props";
-@import "https://unpkg.com/open-props/normalize.min.css";
+
 
 * {
  box-sizing: border-box;
 }
 :root {
-  --magnifier: 6;
+  --magnifier:2;
   --gap: 1vmin;
   --transition: 0.5s;
 }
   
 .container-img {
-  width: 50px;;
-  height: 50vmin;
+  height: 600px ;
   display: flex;
   align-items: center;
   justify-content: center;

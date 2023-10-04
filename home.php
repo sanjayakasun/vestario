@@ -8,18 +8,15 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"> -->
-    <link rel="stylesheet" href="css/Navbar-Right-Links-Dark-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
     <script src="js/bootstrap.js"></script>
     <!--for animated images-->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="css/style_for_anim-img_2.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style_for_anim_img.css">
     <!--end-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
@@ -76,12 +73,7 @@
         </nav>
         <!--header finish-->
         
-
-        <!--animated image starts-->
-        <!-- <div class="container-img"><img src="src_images/men/crew neck t shirt/crew neck t shirt green.jpg"/><img src="src_images/men/chino pants/chino pants blue.jpg"/><img src="src_images/men/polo t-shirt/fit polo t shirt.jpg"/><img src="src_images/women/Womens Slim Fit T-Shirt/Womens Slim Fit T-Shirt-red.png"/><img src="src_images/women/womens traveler pant/Womens Traveler Pant - Mulberry wine.jpg"/>
-        </div> -->
-        <!--animated image finished-->
-
+        <!--search-->
         <div class="container mt-5  mx-auto d-block">
             <div class="row">
                 <div class="col-12">
@@ -93,6 +85,12 @@
                 </div>
             </div>
         </div>
+        <br>
+
+        <!--animated image starts-->
+        <div class="container-img"><img src="Anim/chino pants blue.png"/><img src="Anim/Slim Fit T-Shirt.png"/><img src="Anim/crew neck t shirt.png"/><img src="Anim/classic pants.png"/><img src="Anim/Oxford Short.png"/>
+        </div>
+        <!--animated image finished-->
 
 
         <div id="link-to-category">
