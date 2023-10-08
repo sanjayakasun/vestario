@@ -77,10 +77,10 @@
         <div class="container mt-5  mx-auto d-block">
             <div class="row">
                 <div class="col-12">
-                    <form class="form-inline my-2 my-lg-0 d-flex">
-                        <input class="form-control mr-sm-2 bar" type="search" placeholder="Search" aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0 d-flex" action="process/search_process.php" method="post">
+                        <input class="form-control mr-sm-2 bar" type="search" placeholder="Search" aria-label="Search" name="search">
                         &ensp;
-                    <button class="btn btn-outline-dark my-2 my-sm-0 serch" type="submit">Search Items</button>
+                    <button class="btn btn-outline-dark my-2 my-sm-0 serch" type="submit" name="submit">Search Items</button>
                     </form>
                 </div>
             </div>
@@ -91,7 +91,8 @@
         <div class="container-img"><img src="Anim/chino pants blue.png"/><img src="Anim/Slim Fit T-Shirt.png"/><img src="Anim/crew neck t shirt.png"/><img src="Anim/classic pants.png"/><img src="Anim/Oxford Short.png"/>
         </div>
         <!--animated image finished-->
-
+        
+        
 
         <div id="link-to-category">
             <section class="py-4 py-xl-5">
@@ -101,7 +102,7 @@
                             <div class="col-md-6">
                                 <div class="text-dark p-4 p-md-5">
                                     <h2 class="fw-bold text-dark mb-3"><strong>Men Collection</strong></h2>
-                                    <p class="mb-4">We provide to you best quality products for you</p>
+                                    <p class="mb-4">We provide best quality products for you</p>
                                     <div class="my-3"><a class="btn  btn-lg me-2" role="button" href="men.php" style="background:#87CBB9 ;">Goto Collection</a></div>
                                 </div>
                             </div>
@@ -121,7 +122,7 @@
                             <div class="col-md-6 order-first order-md-last" style="min-height: 250px;">
                                 <div class="text-dark p-4 p-md-5">
                                     <h2 class="fw-bold text-dark mb-3"><strong>Women Collections</strong></h2>
-                                    <p class="mb-4">We provide to you best quality products for you</p>
+                                    <p class="mb-4">We provide best quality products for you</p>
                                     <div class="my-3"><a class="btn btn-lg me-2" role="button" href="women.php" style="background:#87CBB9;"><span style="color: var(--bs-btn-hover-color);">Goto Collection</span></a></div>
                                 </div>
                             </div>
