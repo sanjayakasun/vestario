@@ -88,6 +88,9 @@ $userr = new Dashboard();
                     <div class="row mt-2">
                         <input type="submit" name="update" value="Update" style="background-color:#87CBB9; border:1px solid rgb(0, 183, 255); border-radius: 5px; ">
                     </div>
+                    <div class="row mt-2">
+                        <button class="btn btn-primary"><a href = "https://maps.app.goo.gl/AhfC3FGcEgbAQjzC8" >Track order</a></button>
+                    </div>
                 </div>
             </form>
 

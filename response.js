@@ -1,8 +1,7 @@
 const responseObj={
     hello:"Hey!! How are you? say fine to us!",
-    fine:"Hey! What are you looking for:services , today , time , customize_product , reveiws , contact_us",
+    fine:"What are you looking for: customize_product, New_Arrivals, Offers, reveiws, contact_us",
     today:new Date().toDateString(),
     time:new Date().toLocaleTimeString(),
-    services: "Vestario provides you clothes for comfortable prices",
-    cutomize_product : location.href ="design.php",
+    customize_product:"By clickiing this link you can join with customize_product: <a href='' > click me </a> "
 };
