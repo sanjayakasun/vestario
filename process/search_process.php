@@ -13,7 +13,15 @@ if(isset($_POST['submit'])){
         $query = "SELECT * FROM product WHERE product_name LIKE '$ae_item%' ";
         $pstmt = $con->prepare($query);
         $pstmt->execute();
+        $rs = $pstmt->fetch(PDO::FETCH_ASSOC);
+        foreach($rs as $rows){
+            $ts =  $rs['product_name'];
+            $bs =  $rs['price'];
+            echo $ts;
+            echo $bs;
 
+        }
+        
     }
 }
 
