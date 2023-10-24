@@ -65,5 +65,13 @@ class Dashboard {
     }catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
     }}
-
+public function getUsers($tablename) {
+        $con = $this->db->getConnection();
+        $sql = "SELECT * FROM $tablename ";
+        $stmt = $con->prepare($sql);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+   
 }

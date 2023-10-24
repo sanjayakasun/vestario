@@ -126,7 +126,36 @@ $userr = new Dashboard();
                     </div>
                 </div>
             </div>
-        </section>
+         <section class="s1">
+                <table class="table table-hover table-striped">
+
+                    <thead>
+                        <tr>
+                            <th colspan="4">Order Details</th>
+                        </tr>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $users = $userr->getUsers('orders');
+
+                        foreach ($users as $userData) {
+                            ?>
+                            <tr>
+                                <td><?php echo $userData['orderId']; ?></td>
+                                <td><?php echo $userData['customerId']; ?></td>
+                                <td><?php echo $userData['orderStatus']; ?></td>
+
+                            </tr><?php }
+                        ?>
+                    </tbody>
+
+                </table>
+            </section>
         <!-- fotter -->
     <hr>
     <div class="container-fluid back">
