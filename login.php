@@ -90,28 +90,40 @@ if (isset($_POST['submit'])) {
                 </ul>
             </div>
         </nav>
-        <div class="login">
-            <div class="form-container">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center min-vh-100">
+                <div class="col-md-4">
+                    <div class="card" style="background-color: rgb(135, 203, 185)">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Log In</h3>
 
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <h3>Log In</h3>
-                    <?php
-                    if (isset($errors) && count($errors) > 0) {
-                        foreach ($errors as $error_msg) {
-                            echo '<div class="alert alert-danger">' . $error_msg . '</div>';
-                        }
-                    }
-                    ?>
-                    <input type="text" name="username" placeholder="Enter User Name" class="box" required />
-                    <input type="password" name="password" placeholder="Enter Password" class="box" required />
-                    <input type="submit" name="submit" class="btn1" value="Log In" />
-                    <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+                            <?php
+                            if (isset($errors) && count($errors) > 0) {
+                                foreach ($errors as $error_msg) {
+                                    echo '<div class="alert alert-danger">' . $error_msg . '</div>';
+                                }
+                            }
+                            ?>
 
-                </form>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <input type="text" name="username" placeholder="Enter User Name" class="form-control" required />
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" name="password" placeholder="Enter Password" class="form-control" required />
+                                </div>
+                                <div class="mb-3">
+                                    <input type="submit" name="submit" class="btn1" value="Log In" />
+                                </div>
+                            </form>
 
+                            <p class="text-center">Don't have an account? <a href="signup.php">Sign Up</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
 
 
 

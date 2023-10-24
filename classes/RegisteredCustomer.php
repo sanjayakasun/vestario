@@ -103,4 +103,69 @@ class RegisteredCustomer
         return $result->customerId;
 
     }
+
+    public function updateProfile($name, $email, $contactNumber, $address, $gender, $username, $password, $customerId)
+    {
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
+
+        $query1 = "UPDATE registeredcustomer SET username=?, name=?, email=?, contactNumber=?, address=?, password=?, gender=? WHERE customerId=?";
+        $pstmt = $con->prepare($query1);
+        $pstmt->bindValue(1, $username);
+        $pstmt->bindValue(2, $name);
+        $pstmt->bindValue(3, $email);
+        $pstmt->bindValue(4, $contactNumber);
+        $pstmt->bindValue(5, $address);
+        $pstmt->bindValue(6, $password);
+        $pstmt->bindValue(7, $gender);
+        $pstmt->bindValue(8, $customerId);
+        $pstmt->execute();
+        if ($pstmt) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function diplayCustomerDetails($customerId)
+    {
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
+        $query = "SELECT * FROM registeredcustomer WHERE customerId=?";
+        $pstmt = $con->prepare($query);
+        $pstmt->bindValue(1, $customerId);
+        $pstmt->execute();
+
+        $result = $pstmt->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+    public function displayTotalOrders($customerId) {
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
+    
+        
+        $query = "SELECT COUNT(*) AS total_orders FROM orders WHERE customerId=?";
+        $pstmt = $con->prepare($query);
+        $pstmt->bindValue(1, $customerId);
+        $pstmt->execute();
+    
+        
+        $totalOrders = $pstmt->fetchColumn();
+    
+        return $totalOrders;
+    }
+
+    public function getorderdetails($customerId){
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
+        $query = "SELECT * FROM delivery WHERE orderid = (SELECT orderid FROM orders WHERE customerId = ?)";
+        $pstmt = $con->prepare($query);
+        $pstmt->bindValue(1,$customerId);
+        $pstmt->execute();
+
+        $result = $pstmt->fetch(PDO::FETCH_OBJ);
+        return $result;
+
+    }
 }
