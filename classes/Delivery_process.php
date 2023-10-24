@@ -11,13 +11,6 @@ class Dashboard {
     public function updateDeliveryStatus($id, $orderId, $deliveryStatus) {
         try {
             $con = $this->db->getConnection();
-//        $query = "SELECT deliveryMemberId FROM deliverymember WHERE name=?";
-//        $pstmt = $con->prepare($query);
-//        $pstmt->bindValue(1, $name);
-//        $pstmt->execute();
-//        $result = $pstmt->fetch(PDO::FETCH_OBJ);
-//
-//        $deliveryMemberId = $result->deliveryMemberId;
             $stmt1 = $con->prepare("UPDATE delivery SET deliveryStatus=? WHERE orderId =? AND deliveryMemberId=?");
 
             $stmt1->bindParam(1, $deliveryStatus);
@@ -65,5 +58,13 @@ class Dashboard {
     }catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
     }}
-
+public function getUsers($tablename) {
+        $con = $this->db->getConnection();
+        $sql = "SELECT * FROM $tablename ";
+        $stmt = $con->prepare($sql);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+   
 }
