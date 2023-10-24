@@ -135,11 +135,13 @@ $userr = new Dashboard();
 
                     <thead>
                         <tr>
-                            <th colspan="4">Order Details</th>
+                            <th colspan="5">Order Details</th>
                         </tr>
                         <tr>
                             <th>Order ID</th>
                             <th>Customer ID</th>
+                            <th>Order Date</th>
+                            <th>Total Price</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -152,6 +154,8 @@ $userr = new Dashboard();
                             <tr>
                                 <td><?php echo $userData['orderId']; ?></td>
                                 <td><?php echo $userData['customerId']; ?></td>
+                                <td><?php echo $userData['orderDate']; ?></td>
+                                 <td><?php echo $userData['totalPrice']; ?></td>
                                 <td><?php echo $userData['orderStatus']; ?></td>
 
                             </tr><?php }
