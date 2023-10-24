@@ -9,19 +9,19 @@ $user = new Admin();
 //    $user->deleteUser($id);
 //}
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['customerId']) && isset($_POST['submit'])) {
-        $id = $_POST['customerId'];
-        
-        $success = $user->deleteUser($id);
-        
-        if ($success) {
-            // Redirect back to the page or display a success message
-            header('Location: admin_dashboard.php');
-            exit;
-        }
-    }
-}
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//    if (isset($_POST['customerId']) && isset($_POST['submit'])) {
+//        $id = $_POST['customerId'];
+//        
+//      
+//        
+//        if ($success) {
+//            // Redirect back to the page or display a success message
+//            header('Location: admin_dashboard.php');
+//            exit;
+//        }
+//    }
+//}
 ?>
 <html lang="en">
     <head>
@@ -125,13 +125,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <thead>
                         <tr>
-                            <th colspan="4">Customers</th>
+                            <th colspan="5">Customers</th>
                         </tr>
                         <tr>
                             <th>CustomerID</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Action</th>
+                            <th>Contact No</th>
+                            <th>Address</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -144,10 +146,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <td><?php echo $userData['customerId']; ?></td>
                                 <td><?php echo $userData['name']; ?></td>
                                 <td><?php echo $userData['email']; ?></td>
-                                <td>  <form method="POST" action="">
-                    <input type="hidden" name="customerId" value="<?= $userData['customerId'] ?>">
-                    <button type="submit" name="submit">Delete</button>
-                                    </form></td>
+                                <td><?php echo $userData['contactNumber']; ?></td>
+                                <td><?php echo $userData['address']; ?></td>
+
                             </tr><?php }
                         ?>
                     </tbody>
@@ -193,13 +194,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <thead>
                         <tr>
-                            <th colspan="4">Orders</th>
+                            <th colspan="6">Orders</th>
                         </tr>
                         <tr>
                             <th>Order ID</th>
+                            <th>Customer Id</th>
                             <th>Date</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Order Status</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -210,10 +214,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             ?>
                             <tr>
                                 <td><?php echo $userData['orderId']; ?></td>
+                                <td><?php echo $userData['customerId']; ?></td>
                                 <td><?php echo $userData['orderDate']; ?></td>
                                 <td><?php echo $userData['totalPrice']; ?></td>
                                 <td><?php echo $userData['quantity']; ?></td>
-
+                                <td><?php echo $userData['orderStatus']; ?></td>
+                               
+                                
                             </tr><?php }
                         ?>
                     </tbody>
@@ -228,6 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <th colspan="4">Reviews</th>
                         </tr>
                         <tr>
+                            <th>Customer Id</th>
                             <th>Rating</th>
                             <th>Review</th>
                         </tr>
@@ -239,6 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         foreach ($users as $userData) {
                             ?>
                             <tr>
+                                <td><?php echo $userData['customerId']; ?></td>
                                 <td><?php echo $userData['rating']; ?></td>
                                 <td><?php echo $userData['comment']; ?></td>
                             </tr><?php }
@@ -255,9 +264,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <th colspan="4">Inquiry</th>
                         </tr>
                         <tr>
-                            
-                            <th>Rating</th>
-                            <th>Review</th>
+                            <th>Customer Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Message</th>
                         </tr>
                     </thead>
@@ -268,6 +277,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         foreach ($users as $userData) {
                             ?>
                             <tr>
+                                <td><?php echo $userData['customerId']; ?></td>
                                 <td><?php echo $userData['name']; ?></td>
                                 <td><?php echo $userData['email']; ?></td>
                                 <td><?php echo $userData['message']; ?></td>
