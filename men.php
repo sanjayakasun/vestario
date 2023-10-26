@@ -94,29 +94,41 @@
                                 </div>
                             </div><!--row header-->
                             <div class="row">
-                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 " >
                                     <p class="text-center lead">crew neck T-Shirt</p>
                                     <img src="src_images/men/crew neck t shirt/crew neck t shirt green.jpg"
                                         alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="crew_neck_T_Shirt.php" class="btn btn-outline-dark">Explore more..</a>
+                                    <br>
+                                    <p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.1500 - Rs.2000</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="crew_neck_T_Shirt.php" class="btn btn-outline-dark btn-sm ">See more</a><center>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Oxford Short</p>
                                     <img src="src_images/men/Oxford Short/Oxford Short indigo.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="oxford_short.php" class="btn btn-outline-dark">Explore more..</a>
+                                    <br>
+                                    <p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.1800 - Rs.2500</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="oxford_short.php" class="btn btn-outline-dark btn-sm ">See more</a></center>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">chino pants</p>
                                     <img src="src_images/men/chino pants/chino pants red.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="chino_pants.php" class="btn btn-outline-dark">Explore more..</a>
+                                    <br>
+                                    <p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.2000 - Rs.2800</b><br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="chino_pants.php" class="btn btn-outline-dark btn-sm ">See more</a></center>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">polo t-shirt</p>
                                     <img src="src_images/men/polo t-shirt/fit polo t shirt.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="polo_t_shirt.php" class="btn btn-outline-dark">Explore more..</a>
+                                    <br>
+                                    <p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.2000 - Rs.2500</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="polo_t_shirt.php" class="btn btn-outline-dark btn-sm ">See more</a></center><br>
                                 </div>
                             </div>
                         </div>

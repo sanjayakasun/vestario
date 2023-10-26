@@ -98,32 +98,42 @@
                                     <p class="text-center lead">Comfirt Fit Crew Neck T-Shirt</p>
                                     <img src="src_images/women/comfirt fit crew neck t-shirt - orange/comfirt fit crew neck t-shirt - orange.jpg"
                                         alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="women_crew_neck_T_Shirt.php" class="btn btn-outline-dark">Explore more..</a>
+                                    <br><p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.1500 - Rs.2000</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="women_crew_neck_T_Shirt.php" class="btn btn-outline-dark  btn-sm ">See more</a></center>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Women's Slim Fit T-Shirt</p>
                                     <img src="src_images/women/Womens Slim Fit T-Shirt/Womens Slim Fit T-Shirt - blue.png" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="Women's_Slim_Fit_T_Shirt.php" class="btn btn-outline-dark">Explore more..</a>
+                                    <br><p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.1800 - Rs.2000</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="Women's_Slim_Fit_T_Shirt.php" class="btn btn-outline-dark btn-sm ">See more</a></center>
                                 </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Womens Traveler Pant</p>
                                     <img src="src_images/women/womens traveler pant/Womens Traveler Pant - Drift Wood.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="womens_traveler_pant.php" class="btn btn-outline-dark">Explore more..</a>
-                                </div>
+                                    <br><p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.2000 - Rs.2500</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="womens_traveler_pant.php" class="btn btn-outline-dark btn-sm ">See more</a></center>
+   </center>                             </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Womens Premium Legging</p>
                                     <img src="src_images/women/legging/womens premium Legging - white.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="legging.php" class="btn btn-outline-dark">Explore more..</a>
-                                </div>
+                                    <br><p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.2000 - Rs.2500</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="legging.php" class="btn btn-outline-dark btn-sm ">See more</a></center>
+                </center>                </div>
                                 <div class="col-sm-6 col-md-4 col-lg-3 ">
                                     <p class="text-center lead">Womes's Classic Pant</p>
                                     <img src="src_images/women/Womens Classic Pant/Womens Classic Pant - Miracle Navy.jpg" alt="picture 1"
                                         style="height:250px;" class="mx-auto d-block img-fluid">
-                                    <br><a href="Womess_Classic_Pant.php" class="btn btn-outline-dark">Explore more..</a>
-                                </div>
+                                    <br><p class="text-center lead" style="font-size: 15px;">Price Range: <b>Rs.1800 - Rs.2100</b> <br> 
+                                    Select your favorite Colors and matching sizes</p>
+                                    <center><a href="Womess_Classic_Pant.php" class="btn btn-outline-dark btn-sm ">See more</a></center>
+    </center>                            </div>
                                 
                             </div>
                         </div>

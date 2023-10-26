@@ -104,32 +104,26 @@
                                                 <p class="lead"><?php echo $row['discription'] ?></p> <br>
                                                 <h5 class="text-center">Size</h5> 
                                                 <form>
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-2" style="border: 1px solid green">
-                                                            <h6>Stock</h6>
-                                                            <input type="radio" name="size" value="<?php echo $row['size'] ?>" checked="checked"/>
-                                                            <br>
-                                                            <?php echo $row['size'] ?>
-                                                        </div>
-                                                        <div class="col-md-2 ">
+                                                    <div class="row" >
+                                                        <div class="col-6 col-sm-6 col-md-2 ">
                                                             <br>
                                                             <input type="radio" name="size" value="S" />
                                                             <br>
                                                             S
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-6 col-sm-6 col-md-2">
                                                             <br>
                                                             <input type="radio" name="size" value="M" />
                                                             <br>
                                                             M
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-6 col-sm-6 col-md-2">
                                                             <br>
                                                             <input type="radio" name="size" value="L" />
                                                             <br>
                                                             L
                                                         </div>
-                                                        <div class="col-md-2">
+                                                        <div class="col-6 col-sm-6 col-md-2">
                                                             <br>
                                                             <input type="radio" name="size" value="XL" />
                                                             <br>
