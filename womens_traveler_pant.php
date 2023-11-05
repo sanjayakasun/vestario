@@ -97,7 +97,7 @@
                                                 <div class="row" >
                                                         <div class="col-6 col-sm-6 col-md-2 ">
                                                             <br>
-                                                            <input type="radio" name="size" value="S" />
+                                                            <input type="radio" name="size" value="S" required/>
                                                             <br>
                                                             S
                                                         </div>

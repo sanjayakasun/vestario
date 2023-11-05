@@ -106,31 +106,31 @@
                                                 <div class="row" >
                                                         <div class="col-6 col-sm-6 col-md-2 ">
                                                             <br>
-                                                            <input type="radio" name="size" value="S" />
+                                                            <input type="radio" name="size" value="S" required/>
                                                             <br>
                                                             S
                                                         </div>
                                                         <div class="col-6 col-sm-6 col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="M" />
+                                                            <input type="radio" name="size" value="M" required/>
                                                             <br>
                                                             M
                                                         </div>
                                                         <div class="col-6 col-sm-6 col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="L" />
+                                                            <input type="radio" name="size" value="L" required/>
                                                             <br>
                                                             L
                                                         </div>
                                                         <div class="col-6 col-sm-6 col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="XL" />
+                                                            <input type="radio" name="size" value="XL" required/>
                                                             <br>
                                                             XL
                                                         </div>
                                                         <div class="col-md-2">
                                                             <br>
-                                                            <input type="radio" name="size" value="XXL" />
+                                                            <input type="radio" name="size" value="XXL" required/>
                                                             <br>
                                                             XXL
                                                         </div>
