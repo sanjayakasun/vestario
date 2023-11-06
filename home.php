@@ -77,6 +77,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="user.php">Profile</a>
+                                <a class="dropdown-item" href="payment.php">Order Summary</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php">LogOut</a>
                             </div>

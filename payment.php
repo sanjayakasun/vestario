@@ -1,16 +1,20 @@
 <?php
+
+
 session_start();
 if (!isset($_SESSION['customerId'])) {
   header('Location:login.php');
 }
 
+require 'classes/DbConnector.php';
+$dbuser = new DbConnector();
 // when using pay from cart
 if (isset($_POST['quan'])) {
   $number = $_POST['quan'];
-  require 'classes/DbConnector.php';
+  
   $id = $_GET['pay'];
   $cid = $_SESSION['customerId'];
-  $dbuser = new DbConnector();
+  
   $con = $dbuser->getConnection();
   $query = "SELECT * FROM cart WHERE cartId = '$id' ";
   $pstmt = $con->prepare($query);
@@ -35,11 +39,11 @@ if (isset($_POST['quan'])) {
 
 // when using direct pay method
 if (isset($_POST['pay'])) {
-  require 'classes/DbConnector.php';
+  // require 'classes/DbConnector.php';
   // pid eka thami danna onee
   $pid = $_GET['pay'];
   $cid = $_SESSION['customerId'];
-  $dbuser = new DbConnector();
+  // $dbuser = new DbConnector();
   $con = $dbuser->getConnection();
   $query = "SELECT * FROM product WHERE product_id = '$pid' ";
   $pstmt = $con->prepare($query);
@@ -139,9 +143,9 @@ if (isset($_POST['pay'])) {
 
     <section class="h-100 gradient-custom">
       <?php
-
+      // require 'classes/DbConnector.php';
       $cuid = $_SESSION['customerId'];
-      $dbuser = new DbConnector();
+      // $dbuser = new DbConnector();
       $con = $dbuser->getConnection();
       $query = "SELECT * FROM orders WHERE customerid = '$cuid' ";
       $pstmt = $con->prepare($query);
