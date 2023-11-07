@@ -5,7 +5,8 @@ session_start();
 if (!isset($_SESSION['customerId'])) {
   header('Location:login.php');
 }
-
+$cid = $_SESSION['customerId'];
+require 'checkout.php';
 require 'classes/DbConnector.php';
 $dbuser = new DbConnector();
 // when using pay from cart
@@ -143,14 +144,16 @@ if (isset($_POST['pay'])) {
 
     <section class="h-100 gradient-custom">
       <?php
-      // require 'classes/DbConnector.php';
-      $cuid = $_SESSION['customerId'];
-      // $dbuser = new DbConnector();
-      $con = $dbuser->getConnection();
-      $query = "SELECT * FROM orders WHERE customerid = '$cuid' ";
-      $pstmt = $con->prepare($query);
-      $pstmt->execute();
-      $rs = $pstmt->fetchAll(PDO::FETCH_ASSOC);
+      $user = new Orders();
+      // // require 'classes/DbConnector.php';
+      // $cuid = $_SESSION['customerId'];
+      // // $dbuser = new DbConnector();
+      // $con = $dbuser->getConnection();
+      // $query = "SELECT * FROM orders WHERE customerid = '$cuid' ";
+      // $pstmt = $con->prepare($query);
+      // $pstmt->execute();
+      // $rs = $pstmt->fetchAll(PDO::FETCH_ASSOC);
+      $rs = $user->getdetails();
       foreach ($rs as $rows_order) {
         //store that values to variables
         $name = $rows_order['name'];
@@ -249,7 +252,10 @@ if (isset($_POST['pay'])) {
                       <strong>Total amount : </strong>
                       <strong> </strong>
                     </div>
-                    <span><strong>Rs.<?php echo $total; ?>.00</strong></span>
+                    <?php 
+                    $tot = $user->gettotalprice($cid);
+                    ?>
+                    <span><strong>Rs.<?php echo $tot; ?>.00</strong></span>
                   </li>
                 </ul>
                 <hr>

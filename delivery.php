@@ -87,6 +87,9 @@ $userr = new Dashboard();
                         </select>        
                     </div>
                     <div class="row mt-2">
+                        <label for="validationTooltip02" class="form-label">Location Link</label>
+                        <input type="text" name="location" class="form-control" id="validationTooltip02" value="">        </div>
+                    <div class="row mt-2">
                         <input type="submit" name="update" value="Update" style="background-color:#87CBB9; border:1px solid rgb(0, 183, 255); border-radius: 5px; ">
                     </div>
                 </div>

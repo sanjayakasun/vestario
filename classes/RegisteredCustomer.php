@@ -159,12 +159,12 @@ class RegisteredCustomer
     public function getorderdetails($customerId){
         $dbcon = new DbConnector();
         $con = $dbcon->getConnection();
-        $query = "SELECT * FROM delivery WHERE orderid = (SELECT orderid FROM orders WHERE customerId = ?)";
+        $query = "SELECT * FROM orders WHERE customerId = ?";
         $pstmt = $con->prepare($query);
         $pstmt->bindValue(1,$customerId);
         $pstmt->execute();
 
-        $result = $pstmt->fetch(PDO::FETCH_OBJ);
+        $result = $pstmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
 
     }
