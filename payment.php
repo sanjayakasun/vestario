@@ -32,7 +32,7 @@ if (isset($_POST['quan'])) {
   }
 
   $date = date("Y-m-d");
-  $query2 = "INSERT INTO orders (orderDate,price,quantity,productId,customerId,cartId,name,size,photo) VALUES ('$date','$price','$number','$pid','$cid','$id','$name','$size','$image')";
+  $query2 = "INSERT INTO orders (orderDate,price,quantity,productId,customerId,cartId,name,size,photo,deliveryStatus) VALUES ('$date','$price','$number','$pid','$cid','$id','$name','$size','$image','Processing')";
   $pstmt = $con->prepare($query2);
   $pstmt->execute();
 }
@@ -61,7 +61,7 @@ if (isset($_POST['pay'])) {
 
 
   $date = date("Y-m-d");
-  $query2 = "INSERT INTO orders (orderDate,price,quantity,productId,customerId,cartId,name,size,photo) VALUES ('$date','$price','$number','$pid','$cid','0','$name','$size','$image')";
+  $query2 = "INSERT INTO orders (orderDate,price,quantity,productId,customerId,cartId,name,size,photo,deliveryStatus) VALUES ('$date','$price','$number','$pid','$cid','0','$name','$size','$image','Processing')";
   $pstmt = $con->prepare($query2);
   $pstmt->execute();
 }
