@@ -96,31 +96,31 @@ session_start();
               <form action="design_process.php" method="post" enctype="multipart/form-data">
                 <table>
                   <tr>
-                    <td><input type="file" name="image" accept="image/png,image/jpeg,image/jpg" /></td>
+                    <td><input type="file" name="image" accept="image/png,image/jpeg,image/jpg" required/></td>
                   </tr>
                   <tr>
                     <td><p class="name" >customer name</p></td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="customerName"></td>
+                    <td><input type="text" name="customerName" required></td>
                   </tr>
                   <tr>
                     <td><p class="name" >delivery address</p></td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="deliveryAddress"></td>
+                    <td><input type="text" name="deliveryAddress" required></td>
                   </tr>
                   <tr>
                     <td><p class="name">Size</p></td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="size"></td>
+                    <td><input type="text" name="size" required></td>
                   </tr>
                   <tr>
                     <td><p class="name">quantity</p></td>
                   </tr>
                   <tr>
-                    <td><input type="number" name="quantity"></td>
+                    <td><input type="number" name="quantity" required></td>
                   </tr>
                   <tr>
                     <td><input type="submit" value="Submit" class="submit"></td>

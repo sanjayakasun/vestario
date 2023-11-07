@@ -153,8 +153,8 @@ $userr = new Dashboard();
                                 <td><?php echo $userData['orderId']; ?></td>
                                 <td><?php echo $userData['customerId']; ?></td>
                                 <td><?php echo $userData['orderDate']; ?></td>
-                                 <td><?php echo $userData['totalPrice']; ?></td>
-                                <td><?php echo $userData['orderStatus']; ?></td>
+                                 <td><?php echo $userData['price']; ?></td>
+                                <td><?php echo $userData['deliveryStatus']; ?></td>
 
                             </tr><?php }
                         ?>

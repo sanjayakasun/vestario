@@ -38,6 +38,15 @@ class Admin
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $users;
     }
+
+    public function getUser($tablename) {
+        $con = $this->db->getConnection();
+        $sql = "SELECT * FROM $tablename";
+        $stmt = $con->prepare($sql);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
    
 //    public function deleteUser($id){
 //        $con = $this->db->getConnection();

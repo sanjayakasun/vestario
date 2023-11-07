@@ -11,11 +11,10 @@ class Dashboard {
     public function updateDeliveryStatus($id, $orderId, $deliveryStatus) {
         try {
             $con = $this->db->getConnection();
-            $stmt1 = $con->prepare("UPDATE delivery SET deliveryStatus=? WHERE orderId =? AND deliveryMemberId=?");
+            $stmt1 = $con->prepare("UPDATE orders SET deliveryStatus=? WHERE orderId =?");
 
             $stmt1->bindParam(1, $deliveryStatus);
             $stmt1->bindParam(2, $orderId);
-            $stmt1->bindParam(3, $id);
             $a=$stmt1->execute();
             return true; // Return true if update is successful
         } catch (PDOException $e) {
