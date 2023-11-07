@@ -232,6 +232,33 @@ $user = new Admin();
 
                     <thead>
                         <tr>
+                            <th colspan="6">Customized Designs</th>
+                        </tr>
+                        <tr>
+                            <th>Customer Id</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $users = $user->getUsers('designitem');
+
+                        foreach ($users as $userData) {
+                            ?>
+                            <tr>
+                                <td><?php echo $userData['customerId']; ?></td>
+                                <td><?php echo $userData['image']; ?></td>
+                            </tr><?php }
+                        ?>
+                    </tbody>
+
+                </table>
+            </section>
+             <section class="s1">
+                <table class="table table-hover table-striped">
+
+                    <thead>
+                        <tr>
                             <th colspan="4">Reviews</th>
                         </tr>
                         <tr>
