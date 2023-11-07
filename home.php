@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +12,18 @@
     <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css">
     <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
     <script src="js/bootstrap.js"></script>
-    <!--for animated images-->
+    <!--for animated images in category-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="css/style_for_anim_img.css">
+    <!--end-->
+    <!--slider-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="assets/css/styles_slider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/script.min.js"></script>
     <!--end-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -61,8 +71,19 @@
                     if (isset($_SESSION['customerId'])) {
                         $cu_name = $_SESSION['customerName'];
                     ?>
-                        <li class="nav-item"><a href="logout.php" class="nav-link">LogOut</a></li>
-                        <li class="nav-item nav-link"><i class="fa fa-user-circle-o" style="color:black; font-size:20px"></i> Hello,<?php echo $cu_name ?>!</li>
+                        <li class="nav-item dropdown" >
+                            <a class="nav-link dropdown-toggle btn btn-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle-o" style="color:black; font-size:20px"></i> Hello,<?php echo $cu_name ?>!
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="user.php">Profile</a>
+                                <a class="dropdown-item" href="payment.php">Order Summary</a>
+                            <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout.php">LogOut</a>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item"><a href="logout.php" class="nav-link"></a></li> -->
+                        
                     <?php } else { ?>
                         <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
                     <?php }
@@ -87,10 +108,42 @@
         </div>
         <br>
 
-        <!--animated image starts-->
-        <!-- <div class="container-img"><img src="Anim/chino pants blue.png"/><img src="Anim/Slim Fit T-Shirt.png"/><img src="Anim/crew neck t shirt.png"/><img src="Anim/classic pants.png"/><img src="Anim/Oxford Short.png"/>
-        </div> -->
-        <!--animated image finished-->
+
+        <!-- Start: Simple Slider -->
+        <div class="simple-slider">
+            <!-- Start: Slideshow -->
+            <div class="swiper-container">
+                <!-- Start: Slide Wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Start: Slide -->
+                    <div data-aos="fade" class="swiper-slide" style="background: url(src_images/men.jpg);">
+                    <a href="#" class="btn btn-primary" style="display:block; width:10%; margin: auto; margin-top: 240px;">click here</a>
+                    </div>
+                    <!-- End: Slide -->
+                    <!-- Start: Slide -->
+                    <div data-aos="fade" class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);">
+                    
+                    </div>
+                    <!-- End: Slide -->
+                </div>
+                <!-- End: Slide Wrapper -->
+                <!-- Start: Pagination -->
+                <div class="swiper-pagination">
+                </div>
+                <!-- End: Pagination -->
+                <!-- Start: Previous -->
+                <div class="swiper-button-prev">
+                </div>
+                <!-- End: Previous -->
+                <!-- Start: Next -->
+                <div class="swiper-button-next">
+                </div>
+                <!-- End: Next -->
+            </div>
+            <!-- End: Slideshow -->
+        </div>
+        <!-- End: Simple Slider -->
+
 
         <!--start search engine code-->
         <?php
@@ -176,28 +229,28 @@
 
                                     <button class="btn btn-outline-success">Add to Cart</button>
                                     <!-- <a href= class="btn btn-outline-success"> Add to Cart </a> -->
-                                    </form>
-                                    <br><br>
-                                    <form action="payment.php?pay=<?php echo $row['product_id']; ?>" method="post">
-                                    <button class="btn btn-primary">Place Order</button>
-                                    </form>
-                                    <br><br>
+                        </form>
+                        <br><br>
+                        <form action="payment.php?pay=<?php echo $row['product_id']; ?>" method="post">
+                            <button class="btn btn-primary">Place Order</button>
+                        </form>
+                        <br><br>
 
-                                    <form action="wishlist.php?wishlist=<?php echo $row['product_id']; ?>" method="post">
-                                    <button class="btn btn-outline-warning" title="Add to wishlist"><i class="fa fa-heart-o"></i></button><br><br>
-                                    </form>
-                                </div>
-
+                        <form action="wishlist.php?wishlist=<?php echo $row['product_id']; ?>" method="post">
+                            <button class="btn btn-outline-warning" title="Add to wishlist"><i class="fa fa-heart-o"></i></button><br><br>
+                        </form>
                     </div>
-                </div>
-            <?php }
+
+    </div>
+    </div>
+<?php }
             }
         }
 ?>
 <!--end search engine code-->
 <div id="link-to-category">
     <section class="py-4 py-xl-5">
-        <div class="container"  style="border-left: 4px solid cyan;">
+        <div class="container" style="border-left: 4px solid cyan;">
             <div class="bg-light border rounded border-0 border-dark overflow-hidden">
                 <div class="row g-0">
                     <div class="col-md-6 text-center mt-5">
@@ -208,14 +261,14 @@
                         </div>
                     </div>
                     <div class="col-md-6 order-first order-md-last" style="height:350px;">
-                    <div class="container-img" style="min-height: 350px;">
-                        <img src="Anim/chino pants blue.png"/>
-                        <!-- <img src="Anim/Slim Fit T-Shirt.png"/> -->
-                        <img src="Anim/crew neck t shirt.png"/>
-                        <!-- <img src="Anim/classic pants.png"/> -->
-                        <img src="Anim/Oxford Short.png"/>
-                    <!-- <img class="w-100 h-100 fit-cover" src="src_images/men.jpg"> -->
-                    </div>
+                        <div class="container-img" style="min-height: 350px;">
+                            <img src="Anim/chino pants blue.png" />
+                            <!-- <img src="Anim/Slim Fit T-Shirt.png"/> -->
+                            <img src="Anim/crew neck t shirt.png" />
+                            <!-- <img src="Anim/classic pants.png"/> -->
+                            <img src="Anim/Oxford Short.png" />
+                            <!-- <img class="w-100 h-100 fit-cover" src="src_images/men.jpg"> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -226,15 +279,15 @@
 <div id="link-to-category">
     <section class="py-4 py-xl-5">
         <div class="container" style="border-right: 4px solid cyan;">
-            <div class="bg-light border rounded border-0 border-dark overflow-hidden" >
+            <div class="bg-light border rounded border-0 border-dark overflow-hidden">
                 <div class="row g-0">
                     <div class="col-md-6 " style="height: 350px;">
-                    <div class="container-img" style="min-height: 350px;">
-                        <img src="Anim/Slim Fit T-Shirt.png"/> 
-                        <img src="Anim/classic pants.png"/>
-                        <img src="Anim/Traveler Pant .png"/>
-                    <!-- <img class="w-100 h-100 fit-cover" src="src_images/men.jpg"> -->
-                    </div>
+                        <div class="container-img" style="min-height: 350px;">
+                            <img src="Anim/Slim Fit T-Shirt.png" />
+                            <img src="Anim/classic pants.png" />
+                            <img src="Anim/Traveler Pant .png" />
+                            <!-- <img class="w-100 h-100 fit-cover" src="src_images/men.jpg"> -->
+                        </div>
                         <!-- <img class="w-100 h-100 fit-cover" src="src_images/women.jpg"> -->
                     </div>
                     <div class="col-md-6 order-first order-md-last">

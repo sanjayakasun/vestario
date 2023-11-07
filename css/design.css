@@ -1,0 +1,19 @@
+.col .file{
+    margin-top: 10px;
+}
+.col .name{
+ float: left;
+ margin-top: 10px;
+ margin-bottom: 5px;
+}
+.col .submit{
+    float: right;
+    color: #fff;
+    background-color: rgb(76, 114, 252);
+    border-radius: 7px;
+    padding: 7px 20px;
+    border: none;
+}
+.col .submit:hover{
+    background-color: rgb(55, 98, 255);;
+}

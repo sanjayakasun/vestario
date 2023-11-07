@@ -92,8 +92,43 @@ session_start();
               
             </div>
              
-            <div class="col-sm-3 text-lg-end">
-              <a href="#" class="btn btn-primary stretched-link">Upload</a>
+            <div class="col">
+              <form action="design_process.php" method="post" enctype="multipart/form-data">
+                <table>
+                  <tr>
+                    <td><input type="file" name="image" accept="image/png,image/jpeg,image/jpg" /></td>
+                  </tr>
+                  <tr>
+                    <td><p class="name" >customer name</p></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="customerName"></td>
+                  </tr>
+                  <tr>
+                    <td><p class="name" >delivery address</p></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="deliveryAddress"></td>
+                  </tr>
+                  <tr>
+                    <td><p class="name">Size</p></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="size"></td>
+                  </tr>
+                  <tr>
+                    <td><p class="name">quantity</p></td>
+                  </tr>
+                  <tr>
+                    <td><input type="number" name="quantity"></td>
+                  </tr>
+                  <tr>
+                    <td><input type="submit" value="Submit" class="submit"></td>
+                  </tr>
+
+                </table>
+              </form>
+            
             </div>
           </div>
         </div>
