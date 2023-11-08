@@ -1,3 +1,34 @@
+<?php
+session_start();
+require './classes/RegisteredCustomer.php';
+
+
+if (isset($_SESSION["customerId"])){
+$customerId=$_SESSION['customerId'];
+}
+
+
+
+if (isset($_POST['submit'])) {
+    if (!empty($_POST['name']) ||  !empty($_POST['message'])) {
+        
+            $name = trim($_POST['name']); 
+            $message = ($_POST['message']);
+            
+$dbcon=new DbConnector();
+$con=$dbcon->getConnection();
+            $user=new RegisteredCustomer(null,null,null,null,null,null,null);
+            if($user->placeInquiry($customerId,$message)){
+                $success="Inquiry placed.We will contact you soon.";
+            }else{
+                $errors[] = "Inquiry was not placed.";
+            }
+        
+    } else {
+        $errors[] = "Fill the required fields";
+    }
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +88,7 @@
                     <li class="nav-item"><a href="design.php" class="nav-link">Customize Products</a></li>
                     <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
                     <?php
-                    session_start();
+                    //session_start();
                     if (isset($_SESSION['customerId'])) { 
                         $cu_name = $_SESSION['customerName'];
                         ?>
@@ -115,29 +146,36 @@
                         </div>
                     </div>
                     <div class="contact-form">
-                        <form id="contact-form">
-                            <h2>Send Message</h2>
-                            <div class="input-box">
-                                <input type="text" required="true">
-                                <span>Full Name</span>
-                            </div>
-                            <div class="input-box">
-                                <input type="email" required="true">
-                                <span>Email</span>
-                            </div>
-                            <div class="input-box">
-                               <textarea required="true"></textarea>
-                                <span>Type your message...</span>
-                            </div>
-                            <div class="input-box">
-                            <input type="submit" value="Send"> 
-                            </div>
-                        </form>
-                    </div>
+                            <form id="contact-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                            <?php 
+            if (isset($errors) && count($errors) > 0) {
+                foreach ($errors as $error_msg) {
+                    echo '<div class="alert alert-danger">' . $error_msg . '</div>';
+                }
+            }
+            if (isset($success)) {
+                echo '<div class="alert alert-success">' . $success . '</div>';
+            }
+            ?>
+                                <h2>Send Message</h2>
+                                <div class="input-box">
+                                    <input type="text" required="true" name="name">
+                                    <span>Full Name</span>
+                                </div>
+                                
+                                <div class="input-box">
+                                    <textarea required="true" name="message"></textarea>
+                                    <span>Type your message...</span>
+                                </div>
+                                <div class="input-box">
+                                    <input type="submit" value="Send" name="submit">
+                                </div>
+                            </form>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         </div>
         
