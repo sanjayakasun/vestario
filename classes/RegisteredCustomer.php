@@ -168,4 +168,21 @@ class RegisteredCustomer
         return $result;
 
     }
+
+    public function placeReview($customerId,$rate,$comment){
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
+        $query1 = "INSERT INTO review (rating,comment,customerId)VALUES(?,?,?)";
+        $pstmt1 = $con->prepare($query1);
+        $pstmt1->bindValue(1, $rate);
+        $pstmt1->bindValue(2, $comment);
+        $pstmt1->bindValue(3, $customerId);
+        $pstmt1->execute();
+
+        if($pstmt1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
