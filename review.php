@@ -2,42 +2,40 @@
 
 require './classes/DbConnector.php';
 // @include "classes/DbConnector.php";
+require'./classes/Review.php';
+require './classes/RegisteredCustomer.php';
 
 
 if (isset($_POST['submit'])) {
     if (empty($_POST['name']) || empty($_POST['name']) || empty($_POST['name']) || empty($_POST['name'])) {
-        $errors[] = "Please fill required fields";
+      $errors[] = "Please fill required fields";
     } else {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $rate = $_POST['rate'];
-        $comment = $_POST['comment'];
-        $dbcon = new DbConnector();
-        $con = $dbcon->getConnection();
-
-        $query = "SELECT customerId,name FROM registeredcustomer WHERE email=?";
-        $pstmt = $con->prepare($query);
-        $pstmt->bindValue(1, $email);
-        $pstmt->execute();
-        $result = $pstmt->fetch(PDO::FETCH_OBJ);
-
-        $customerId = $result->customerId;
-        $name = $result->name;
-
-        $query1 = "INSERT INTO review (rating,comment,customerId)VALUES(?,?,?)";
-        $pstmt1 = $con->prepare($query1);
-        $pstmt1->bindValue(1, $rate);
-        $pstmt1->bindValue(2, $comment);
-        $pstmt1->bindValue(3, $customerId);
-        $pstmt1->execute();
-
-        if ($pstmt1) {
-            $success = 'Review Added Successfully';
-        } else {
-            $errors[] = "Failed to Add a Review";
-        }
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $rate = $_POST['rate'];
+      $comment = $_POST['comment'];
+  
+      $dbcon = new DbConnector();
+      $con = $dbcon->getConnection();
+  
+      $query = "SELECT customerId,name FROM registeredcustomer WHERE email=?";
+      $pstmt = $con->prepare($query);
+      $pstmt->bindValue(1, $email);
+      $pstmt->execute();
+      $result = $pstmt->fetch(PDO::FETCH_OBJ);
+  
+      $customerId = $result->customerId;
+      $name = $result->name;
+  
+      $user=new RegisteredCustomer(null,null,null,null,null,null,null);
+      $reviewPlacing = $user->placeReview($customerId,$rate,$comment);
+      if ($reviewPlacing) {
+        $success = 'Review Added Successfully';
+      } else {
+        $errors[] = "Failed to Add a Review";
+      }
     }
-}
+  }
 
 
 ?>
@@ -186,28 +184,27 @@ if (isset($_POST['submit'])) {
             <h2>Customer Reviews</h2>
             <?php
 
-            $dbcon = new DbConnector();
-            $con = $dbcon->getConnection();
+      $dbcon = new DbConnector();
+      $con = $dbcon->getConnection();
+      $review = new Review(null, null);
+      $pstmt = $review->displayReview();
 
-            $query2 = "SELECT * FROM review";
-            $pstmt2 = $con->prepare($query2);
-            $pstmt2->execute();
 
-            while ($result = $pstmt2->fetch(PDO::FETCH_OBJ)) {
+      while ($result = $pstmt->fetch(PDO::FETCH_OBJ)) {
 
-                $cusId = $result->customerId;
-                $rating = $result->rating;
-                $comments = $result->comment;
+        $cusId = $result->customerId;
+        $rating = $result->rating;
+        $comments = $result->comment;
 
-                $query3 = "SELECT name FROM registeredcustomer WHERE customerId=?";
-                $pstmt3 = $con->prepare($query3);
-                $pstmt3->bindValue(1, $cusId);
-                $pstmt3->execute();
+        $query3 = "SELECT name FROM registeredcustomer WHERE customerId=?";
+        $pstmt3 = $con->prepare($query3);
+        $pstmt3->bindValue(1, $cusId);
+        $pstmt3->execute();
 
-                $result1 = $pstmt3->fetch(PDO::FETCH_OBJ);
-                $name = $result1->name;
+        $result1 = $pstmt3->fetch(PDO::FETCH_OBJ);
+        $name = $result1->name;
 
-            ?>
+      ?>
                 <!--code to loop-->
                 <div class="review">
                     <div class="review-info">
