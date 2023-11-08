@@ -185,4 +185,21 @@ class RegisteredCustomer
             return false;
         }
     }
+
+    public function placeInquiry($customerId,$message){
+        $dbcon = new DbConnector();
+        $con = $dbcon->getConnection();
+        $query="INSERT INTO inquiry(message,customerId,adminId) VALUES(?,?,?)";
+        $pstmt = $con->prepare($query);
+        $pstmt->bindValue(1,$message);
+        $pstmt->bindValue(2,$customerId);
+        $pstmt->bindValue(3,1);
+        $pstmt->execute();
+        if($pstmt){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 }
