@@ -166,9 +166,9 @@ if (isset($_POST['update'])) {
                                 foreach ($rs as $rows) {
                                     $oid = $rows['orderId'];
                                     $sts = $rows['deliveryStatus'];
+                                    $url = $rows['location'];
                                 ?>
-                            <div class="tracking" style="width:auto; height: 40vh;">  
-                                
+                            <div class="tracking" style="width:auto; height: auto;">  
                                     <div style="text-align: left;">
                                         <label >Order Id &ensp;&ensp;&ensp; : <?php echo $oid ?></label> <br><br>
                                         <label>Order Status : </label>
@@ -182,16 +182,15 @@ if (isset($_POST['update'])) {
                                             <button class="btn btn-success" name="track">Track Location</button>
                                         </div>
                                         <br>
-                                        <br>
-                                    
                                     <?php 
                                     if(isset($_POST['track'])){ 
                                         //php code goes from here to update order place mapping calling the function to get link
                                         ?>
-                                    <div class="col">
+                                    <div>
                                         <div>
-                                            map is loading in this place.....comming soon..
-                                        </div>
+                                            <!-- <iframe src="" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                                        <?php echo $url ?>
+                                        </div>    
                                     </div>
                                     <?php }
                                         ?>
@@ -199,7 +198,6 @@ if (isset($_POST['update'])) {
                                     <?php }
                                     ?>
                                     </form>
-                                    <br>
                                     <br>
                             </div>
                             <?php }

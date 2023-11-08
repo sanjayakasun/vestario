@@ -144,21 +144,24 @@ $userr = new Dashboard();
                             <th>Order Date</th>
                             <th>Total Price</th>
                             <th>Status</th>
+                            <th>Location Url</th>
+                            <th>Delivery Address</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $users = $userr->getUsers('orders');
+                        $users = $userr->getUsers();
 
                         foreach ($users as $userData) {
                             ?>
-                            <tr>
+                            <tr aria-rowspan="3">
                                 <td><?php echo $userData['orderId']; ?></td>
                                 <td><?php echo $userData['customerId']; ?></td>
                                 <td><?php echo $userData['orderDate']; ?></td>
                                  <td><?php echo $userData['price']; ?></td>
                                 <td><?php echo $userData['deliveryStatus']; ?></td>
-
+                                <td><?php echo $userData['location']; ?></td>
+                                <td><?php echo $userData['address']; ?></td>
                             </tr><?php }
                         ?>
                     </tbody>

@@ -58,9 +58,9 @@ class Dashboard {
     }catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
     }}
-public function getUsers($tablename) {
+public function getUsers() {
         $con = $this->db->getConnection();
-        $sql = "SELECT * FROM $tablename ";
+        $sql = "SELECT * FROM orders,registeredcustomer WHERE orders.customerId = registeredcustomer.customerId ";
         $stmt = $con->prepare($sql);
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
