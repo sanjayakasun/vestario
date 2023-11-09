@@ -4,6 +4,28 @@ session_start();
         header('Location:login.php');
     }
     ?>
+
+<?php
+$massage = null;
+
+if(isset($_GET['status'])){
+    $status= $_GET['status'];
+    if ($status==0){
+        $massage ="<h6 class='text-danger'>required values1 not submitted</h6>";
+        
+    }
+    elseif ($status==1) {
+        $massage = "<h6 class='text-danger'>you must fill all fields </h6>";   
+    }
+    elseif ($status==2) {
+        $massage = "<h6 class='text-success'> you have successfully submitted and thanks for the order we will contact you soon</>";
+    }
+    else {
+        $massage = "<h6 class='text-danger'>error occurred during the designing</h6>" ;   
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,7 +115,8 @@ session_start();
             </div>
              
             <div class="col">
-              <form action="design_process.php" method="post" enctype="multipart/form-data">
+            <?=$massage?>
+              <form action="design1.php" method="post" enctype="multipart/form-data">
                 <table>
                   <tr>
                     <td><input type="file" name="image" accept="image/png,image/jpeg,image/jpg" /></td>
@@ -103,6 +126,12 @@ session_start();
                   </tr>
                   <tr>
                     <td><input type="text" name="customerName"></td>
+                  </tr>
+                  <tr>
+                    <td><p class="name" >email</p></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="email"></td>
                   </tr>
                   <tr>
                     <td><p class="name" >delivery address</p></td>
