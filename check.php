@@ -36,10 +36,6 @@ if (isset($_POST['quan'])) {
   $query2 = "INSERT INTO orders (orderDate,price,quantity,productId,customerId,cartId,name,size,photo,deliveryStatus) VALUES ('$date','$price','$number','$pid','$cid','$id','$name','$size','$image','Processing')";
   $pstmt = $con->prepare($query2);
   $pstmt->execute();
-
-  $query3 = "INSERT INTO payment (paymentDate,price,quantity,productId,customerId,cartId,name,size,photo) VALUES ('$date','$price','$number','$pid','$cid','0','$name','$size','$image')";
-  $pstmt = $con->prepare($query3);
-  $pstmt->execute();
 }
 
 // when using direct pay method
@@ -66,13 +62,8 @@ if (isset($_POST['pay'])) {
 
 
   $date = date("Y-m-d");
-
   $query2 = "INSERT INTO orders (orderDate,price,quantity,productId,customerId,cartId,name,size,photo,deliveryStatus) VALUES ('$date','$price','$number','$pid','$cid','0','$name','$size','$image','Processing')";
   $pstmt = $con->prepare($query2);
-  $pstmt->execute();
-
-  $query3 = "INSERT INTO payment (paymentDate,price,quantity,productId,customerId,cartId,name,size,photo) VALUES ('$date','$price','$number','$pid','$cid','0','$name','$size','$image')";
-  $pstmt = $con->prepare($query3);
   $pstmt->execute();
 }
 
@@ -86,7 +77,7 @@ if (isset($_POST['pay'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment</title>
+  <title>Order Summery</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"> -->
@@ -152,18 +143,9 @@ if (isset($_POST['pay'])) {
 
 
     <section class="h-100 gradient-custom">
-    <div class="container">
-          <div class="row d-flex justify-content-center my-4">
-            <div class="col-md-12">
-              <div class="card mb-4">
-                <div class="card-header py-3">
+    <div class="card-header py-3">
                   <h5 class="mb-0 text-center">Order Summary</h5>
                 </div>
-              </div>
-            </div>
-          </div>
-    </div>
-    
       <?php
       $user = new Orders();
       // // require 'classes/DbConnector.php';
@@ -174,7 +156,7 @@ if (isset($_POST['pay'])) {
       // $pstmt = $con->prepare($query);
       // $pstmt->execute();
       // $rs = $pstmt->fetchAll(PDO::FETCH_ASSOC);
-      $rs = $user->getdetails();
+      $rs = $user->getdetails_order();
       foreach ($rs as $rows_order) {
         //store that values to variables
         $name = $rows_order['name'];
@@ -186,19 +168,14 @@ if (isset($_POST['pay'])) {
         $total = $quantity * $price;
       ?>
         <div class="container">
-        <div>
           <div class="row d-flex justify-content-center my-4">
             <div class="col-md-12">
               <div class="card mb-4" style="border-radius:8px;">
-                <!-- <div class="card-header py-3">
-                  <h5 class="mb-0 text-center">Order Summary</h5>
-                </div> -->
                 <div class="card-body">
                   <!-- Single item -->
                   <div class="row">
                     <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                       <!-- Image -->
-                      &ensp;&ensp; <button style="background-color:white; border: none;" id="myButton" onclick="this.clicked = true; checkButtonClick(<?php echo $pid; ?>);"><span class="material-symbols-outlined" title="cancel this item">cancel</span></button>
                       <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
                         <img src="img/<?php echo $rows_order['photo']; ?>" class="w-50" />
                         <a href="#!">
@@ -236,18 +213,17 @@ if (isset($_POST['pay'])) {
                       </div>
                       <!-- Quantity -->
                     </div>
-                    <hr class="my-4" />  
+                    <hr class="my-4" />
                   </div>
-              
                   <!-- Single item -->
                 </div>
-              </div>  
+              </div>
             </div>
           <?php } ?>
-      </div>
-      </div>  
+          </div>
+
           <!--Payment form-->
-          <div class="row">
+          <!-- <div class="row">
             <div class="card mb-4 mb-lg-0">
               <strong>
                 <h6 class="text-center">We Accept</h6>
@@ -256,33 +232,38 @@ if (isset($_POST['pay'])) {
                 <img class="me-2" width="220px" src="img/visa.png">
               </div>
             </div>
-          </div>
+          </div> -->
           <br>
           <div class="row">
             <div class="card mb-3">
-              <div class="card-header py-3">
+              <!-- <div class="card-header py-3">
                 <h5 class="mb-0 text-center">Payment</h5>
-              </div>
-              <div class="card-body mx-auto d-block">
+              </div> -->
+              <div class="card-body">
                 <!--get card number and cvv-->
-                <form name="pay">
+                <!-- <form name="pay">
                   <input type="text" placeholder="Enter card number" name="num" required> &ensp;&ensp; <input type="text" placeholder="CVV" name="cv" required><br><br>
                 </form>
-                <hr>
+                <hr> -->
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                    <div>
+                    <div style="text-align: left;">
                       <strong>Total Amount : </strong>
-                      <strong> </strong>
                     </div>
                     <?php 
-                    $tot = $user->gettotalprice($cid);
+                    $tot = $user->gettotalprice_order($cid);
                     ?>
                     <span><strong>Rs.<?php echo $tot; ?>.00</strong></span>
                   </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                    <div style="text-align: left;">
+                      <strong>Oder Status: </strong>
+                    </div>
+                    <strong><a href="user.php">Click Here</a></strong>
+                  </li>
                 </ul>
-                <hr>
-                <button class="btn btn-primary btn-lg btn-block mx-auto d-block" onclick="fill(<?php echo $pid ?>)">Pay Now</button>
+                <!-- <hr>
+                <button class="btn btn-primary btn-lg btn-block mx-auto d-block" onclick="fill(<?php echo $pid ?>)">Pay Now</button> -->
               </div>
             </div>
           </div>
