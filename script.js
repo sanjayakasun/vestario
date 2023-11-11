@@ -1,4 +1,6 @@
-function paymentGateWay(){
+function paymentGateWay(x,cid){
+    var tot = x;
+    var cid = cid;
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = ()=>{
 if(xhttp.readyState == 4 && xhttp.status ==200){
@@ -8,6 +10,7 @@ if(xhttp.readyState == 4 && xhttp.status ==200){
      // Payment completed. It can be a successful failure.
      payhere.onCompleted = function onCompleted(orderId) {
         console.log("Payment completed. OrderID:" + orderId);
+        location.href = "order_delete_process.php?cid=" + cid;
         // Note: validate the payment and show success or failure page to the customer
     };
 
@@ -27,8 +30,8 @@ if(xhttp.readyState == 4 && xhttp.status ==200){
     var payment = {
         "sandbox": true,
         "merchant_id": "1224788",    // Replace your Merchant ID
-        "return_url": "http://localhost/newfolder/payhere.php",     // Important
-        "cancel_url": "http://localhost/newfolder/payhere.php",     // Important
+        "return_url": "http://localhost/vestario/home.php",     // Important
+        "cancel_url": "http://localhost/vestario/home.php",     // Important
         "notify_url": "http://sample.com/notify",
         "order_id": obj["order_id"],
         "items": "Payment Portal",
@@ -51,6 +54,7 @@ if(xhttp.readyState == 4 && xhttp.status ==200){
     payhere.startPayment(payment);
 }
 }
-xhttp.open("GET","payhereprocess.php",true);
+xhttp.open("GET","payhereprocess.php?tot=" + tot,true);
 xhttp.send();
+
 } 

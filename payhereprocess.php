@@ -1,6 +1,8 @@
 <?php
 
-$amount = 3000;
+
+$tot =  $_GET['tot'];
+$amount = $tot;
 $merchant_id = "1224788";
 $order_id = uniqid();
 $merchant_secret = "MjcxNTUzNTExNDMyMjU4OTgyMzIxMDkwNTI3NTAzMjAzMzAxODIx";
@@ -27,3 +29,14 @@ $jsonObj = json_encode($array);
 
 
 echo $jsonObj;
+
+// require_once 'checkout.php';
+
+// $user = new Orders();
+// $tot = $user->gettotalprice($cid);
+// // $rs = $user->getdetails();
+// // foreach ($rs as $rows_order) {
+// //     $price = $rows_order['price'];
+// //     $quantity = $rows_order['quantity'];
+// //     $total = $quantity * $price;
+// // }

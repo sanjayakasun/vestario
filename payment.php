@@ -157,7 +157,7 @@ if (isset($_POST['pay'])) {
             <div class="col-md-12">
               <div class="card mb-4">
                 <div class="card-header py-3">
-                  <center><img src="src_images/PayHere-Logo.png" style="width:100px;"></center>
+                <center><img src="src_images/PayHere-Logo.png" style="width:100px;"><h5 class="mb-0">Payment</h5></center>           
                 </div>
               </div>
             </div>
@@ -261,13 +261,10 @@ if (isset($_POST['pay'])) {
           <div class="row">
             <div class="card mb-3">
               <div class="card-header py-3">
-                <h5 class="mb-0 text-center">Payment</h5>
+              <center><img src="src_images/PayHere-Logo.png" style="width:100px;"></center>
               </div>
               <div class="card-body mx-auto d-block">
                 <!--get card number and cvv-->
-                <form name="pay">
-                  <input type="text" placeholder="Enter card number" name="num" required> &ensp;&ensp; <input type="text" placeholder="CVV" name="cv" required><br><br>
-                </form>
                 <hr>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
@@ -277,12 +274,15 @@ if (isset($_POST['pay'])) {
                     </div>
                     <?php 
                     $tot = $user->gettotalprice($cid);
+                    $cuid = $_SESSION['customerId'];
                     ?>
                     <span><strong>Rs.<?php echo $tot; ?>.00</strong></span>
                   </li>
                 </ul>
                 <hr>
-                <button class="btn btn-primary btn-lg btn-block mx-auto d-block" onclick="fill(<?php echo $pid ?>)">Pay Now</button>
+                
+                <button class="btn btn-primary btn-lg btn-block mx-auto d-block" onclick="paymentGateWay(<?php echo $tot; ?>,<?php echo $cuid; ?>);">Pay Here</button>
+                <!-- <button class="btn btn-primary btn-lg btn-block mx-auto d-block">Pay Now</button> -->
               </div>
             </div>
           </div>
@@ -362,6 +362,8 @@ if (isset($_POST['pay'])) {
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/Off-Canvas-Sidebar-Drawer-Navbar-swipe.js"></script>
   <script src="assets/js/Off-Canvas-Sidebar-Drawer-Navbar-off-canvas-sidebar.js"></script>
+  <script src="script.js"></script>
+  <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
   <script>
     function checkButtonClick(x) {
       // Check if the button is clicked

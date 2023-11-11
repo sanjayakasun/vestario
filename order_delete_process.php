@@ -24,4 +24,21 @@ if(isset($_GET['id'])){
         echo "Not Completed";
       }
 }
+
+if(isset($_GET['cid'])){
+  $cid = $_GET['cid'];
+  require 'classes/DbConnector.php';
+  $dbuser = new DbConnector();
+    $con = $dbuser->getConnection();
+    $query = "DELETE FROM payment WHERE customerId = '$cid' ";
+    $pstmt = $con->prepare($query);
+    $pstmt->execute();
+    if($pstmt->rowCount() >0 ){
+      header('Location:payment.php');
+    }else{
+      echo "Not Completed";
+    }
+}
+
+
 ?>
