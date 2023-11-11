@@ -157,7 +157,7 @@ if (isset($_POST['pay'])) {
             <div class="col-md-12">
               <div class="card mb-4">
                 <div class="card-header py-3">
-                  <h5 class="mb-0 text-center">Order Summary</h5>
+                  <center><img src="src_images/PayHere-Logo.png" style="width:100px;"></center>
                 </div>
               </div>
             </div>

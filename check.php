@@ -143,9 +143,16 @@ if (isset($_POST['pay'])) {
 
 
     <section class="h-100 gradient-custom">
-    <div class="card-header py-3">
-                  <h5 class="mb-0 text-center">Order Summary</h5>
+    <div class="container">
+    <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-12">
+              <div class="card mb-4">
+                <div class="card-header py-3 text-center">
+                  <h5>Order Summary</h5>
                 </div>
+              </div>
+            </div>
+          </div>
       <?php
       $user = new Orders();
       // // require 'classes/DbConnector.php';
@@ -167,7 +174,6 @@ if (isset($_POST['pay'])) {
         $pid = $rows_order['productId'];
         $total = $quantity * $price;
       ?>
-        <div class="container">
           <div class="row d-flex justify-content-center my-4">
             <div class="col-md-12">
               <div class="card mb-4" style="border-radius:8px;">
