@@ -73,15 +73,15 @@ class cart{
 //            $size = $row['size'];
             $description = $row['discription'];
 
-            $query2 = "INSERT INTO cart(customerId, productId,size) VALUES (?, ?,?)";
+            $query2 = "INSERT INTO cart(customerId, productId,size,price,name,photo,description) VALUES (?, ?,?,?,?,?,?)";
             $pstmt2 = $con->prepare($query2);
             $pstmt2->bindParam(1, $cusid, PDO::PARAM_INT);
             $pstmt2->bindParam(2, $pid, PDO::PARAM_INT);
             $pstmt2->bindParam(3, $size);
-//            $pstmt2->bindParam(4, $price);
-//            $pstmt2->bindParam(5, $size);
-//            $pstmt2->bindParam(6, $photo);
-//            $pstmt2->bindParam(7, $description);
+           $pstmt2->bindParam(4, $price);
+           $pstmt2->bindParam(5, $name );
+           $pstmt2->bindParam(6, $photo);
+           $pstmt2->bindParam(7, $description);
 
             $a = $pstmt2->execute();
         }
@@ -99,7 +99,7 @@ class cart{
         try {
             $dbcon = new DbConnector();
         $con = $dbcon->getConnection();
-            $query = "SELECT * FROM product,cart WHERE product.product_Id = cart.productId  AND customerId = ?";
+            $query = "SELECT * FROM cart WHERE customerId = ?";
             $pstmt = $con->prepare($query);
             $pstmt->bindParam(1, $cusid);
             $pstmt->execute();

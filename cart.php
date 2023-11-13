@@ -136,8 +136,8 @@ if (isset($_GET['cart'])) {
                 <img src="img/<?php echo $row['photo']; ?>" height="100" alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
                 <br></div>
                 <div class="col-md-6 col-lg-4 mt-2 ">
-                    <h5 class="text-center" id="item-name"><?php echo $row['product_name'] ?></h5>
-                    <h6 id="item-name-disc"><?php echo $row['discription'] ?> </h6>
+                    <h5 class="text-center" id="item-name"><?php echo $row['name'] ?></h5>
+                    <h6 id="item-name-disc"><?php echo $row['description'] ?> </h6>
                      
                     <!--Ieam code or order code-->
                     <h6 id="item-code">Size : <?php echo $row['size'] ?></h6><br>
