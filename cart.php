@@ -1,57 +1,53 @@
 <?php
 
-require 'classes/DbConnector.php';
+ //require_once 'classes/DbConnector.php';
+require 'classes/cart_process.php';
 
-
-
+use classes\cart_process;
+$Userrr = new cart();
 
 session_start();
     if(!isset($_SESSION['customerId'])){
         header('Location:login.php');
     }
     // storing customer id from session
-    $cusid = $_SESSION['customerId'];
-    $dbcon = new DbConnector();
-// @include 'config.php';
-
+    $cusid = $_SESSION['customerId'];        
+                                
+                                 
+//    if (isset($_GET['cart'])) {              
+//    $cartId = $_GET['cart'];
+//    $size = $_POST['size'];    
+//      $Userrr->getProductDetails($size);                  
+//}
 if (isset($_GET['cart'])) {
+    
+    $size = $_POST['size'];
 
     $cartId = $_GET['cart'];
     $size = $_POST['size'];
-     
-    // take data from clothing collection page
-    $dbuser = new DBConnector();
-    $con = $dbuser->getConnection();
-    $query = "SELECT * FROM product WHERE product_id = $cartId ";
-    $pstmt = $con->prepare($query);
-    $pstmt->execute();
-    $rs = $pstmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($rs as $rows) {
-        //store that values to variables
-        $name = $rows['product_name'];
-        $price = $rows['price'];
-        $photo = $rows['photo'];
-        //$size = $rows['size'];
-        $description = $rows['discription'];
-    }
-
-    //store that values again to database
-
-    $query2 = "INSERT INTO cart(customerId,productId,name,price,size,photo,description) VALUES ('$cusid','$cartId','$name','$price','$size', '$photo', '$description')";
-    $pstmt = $con->prepare($query2);
-    $a = $pstmt->execute();
+    
+      $Userrr->getProductDetails($cartId,$cusid,$size);               
+    
 }
-
-if (isset($_GET['delete'])) {
+ 
+    
+  if (isset($_GET['delete'])) {
     $cartId = $_GET['delete'];
+    $Userrr->removeFromCart($cartId);
+  }  
+  
+ 
+
+//if (isset($_GET['delete'])) {
+//    $cartId = $_GET['delete'];
      
-    $dbuser = new DBConnector();
-    $con = $dbuser->getConnection();
-    $query = "DELETE FROM cart WHERE cartId = $cartId";
-    $pstmt = $con->prepare($query);
-    $pstmt->execute();
-    header('Location:cart.php');
-}
+//    $dbuser = new DBConnector();
+//    $con = $dbuser->getConnection();
+//    $query = "DELETE FROM cart WHERE cartId = $cartId";
+//    $pstmt = $con->prepare($query);
+//    $pstmt->execute();
+//    header('Location:cart.php');
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,10 +118,15 @@ if (isset($_GET['delete'])) {
     
     <!--Item 1-->
     <?php
-    @include 'config.php';
-    $select = mysqli_query($conn, "SELECT * FROM cart where customerId = $cusid");
+     //include 'config.php';
+ 
+     $Cartt = $Userrr->getItems($cusid);
+
+     foreach ($Cartt as $row) {
+         
+   //$Userrr->getItems($cusid);
     ?>
-    <?php while ($row = mysqli_fetch_assoc($select)) { ?>
+     
     <div class="container mt-3">
     
         <div class="rounded border-0   overflow-hidden" style="background-color:#EEEDED">
@@ -135,8 +136,8 @@ if (isset($_GET['delete'])) {
                 <img src="img/<?php echo $row['photo']; ?>" height="100" alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
                 <br></div>
                 <div class="col-md-6 col-lg-4 mt-2 ">
-                    <h5 class="text-center" id="item-name"><?php echo $row['name'] ?></h5>
-                    <h6 id="item-name-disc"><?php echo $row['description'] ?> </h6>
+                    <h5 class="text-center" id="item-name"><?php echo $row['product_name'] ?></h5>
+                    <h6 id="item-name-disc"><?php echo $row['discription'] ?> </h6>
                      
                     <!--Ieam code or order code-->
                     <h6 id="item-code">Size : <?php echo $row['size'] ?></h6><br>
