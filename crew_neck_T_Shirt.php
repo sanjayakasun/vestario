@@ -148,7 +148,6 @@
                                                 <button class="btn btn-primary" name="pay" title="Only one piece">Place Order</button>
                                                 </form>
                                                 <br><br>
-
                                                 <form action="wishlist.php?wishlist=<?php echo $row['product_id']; ?>" method="post">
                                                 <button class="btn btn-outline-warning" title="Add to wishlist"><i class="fa fa-heart-o"></i></button><br><br>
                                                 </form>

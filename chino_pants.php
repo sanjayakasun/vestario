@@ -144,7 +144,7 @@
                                                 </form>
                                                 <br><br>
                                                 <form action="payment.php?pay=<?php echo $row['product_id']; ?>" method="post">
-                                                <button class="btn btn-primary">Place Order</button>
+                                                <button class="btn btn-primary" name="pay" title="Only one piece">Place Order</button>
                                                 </form>
                                                 <br><br>
 

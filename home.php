@@ -36,10 +36,10 @@
         }
 
         .background_ {
-            background-image: url(src_images/bg3.jpg);
+            /* background-image: url(src_images/bg3.jpg);
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-size: cover;
+            background-size: cover; */
         }
 
         .serch {
@@ -343,6 +343,9 @@
                 </a>
                 <a href="review.php" style="text-decoration:none; color:black">
                     <li>Review</li>
+                </a>
+                <a href="chatbot.html" style="text-decoration:none; color:black">
+                    <li>Chat Bot</li>
                 </a>
                 <!-- <a href="" style="text-decoration:none; color:black"><li></li></a> -->
                 <!-- <a href="" style="text-decoration:none; color:black">
