@@ -1,54 +1,31 @@
 <?php
 
-require './classes/DbConnector.php';
-
 session_start();
-    if(!isset($_SESSION['customerId'])){
-        header('Location:login.php');
-    }
-    $cusid = $_SESSION['customerId'];
-$dbcon = new DbConnector();
+require './classes/DbConnector.php';
+require 'classes/wishlist_process.php';
 
-// @include 'config.php';
+use classes\wishlist_process;
+$Userrr = new Wishlist();
 
-
-if (isset($_GET['wishlist'])) {
-
-    $wishlistId = $_GET['wishlist'];
-    // $size = $_POST['size'];
-     
-    // take data from clothing collection page
-    $dbuser = new DBConnector();
-    $con = $dbuser->getConnection();
-    $query = "SELECT * FROM product WHERE product_id = $wishlistId ";
-    $pstmt = $con->prepare($query);
-    $pstmt->execute();
-    $rs = $pstmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($rs as $rows) {
-        //store that values to variables
-        $name = $rows['product_name'];
-        $price = $rows['price'];
-        $photo = $rows['photo'];
-        $size = $rows['size'];
-        $description = $rows['discription'];
-    }
-
-    //store that values again to database
-
-    $query2 = "INSERT INTO wishlist(customerId,productId,name,price,photo,size,description) VALUES ('$cusid','$wishlistId','$name','$price', '$photo','$size' ,'$description')";
-    $pstmt = $con->prepare($query2);
-    $a = $pstmt->execute();
+if (!isset($_SESSION['customerId'])) {
+    header('Location:login.php');
 }
+
+$cusid = $_SESSION['customerId'];
+
+ 
+
+// take data from clothing collection page query1 and //store that values again to database query2
+if (isset($_GET['wishlist'])) {              
+    $wishlistId = $_GET['wishlist'];
+    //$size = $_POST['size'];
+    $Userrr->getProductDetails($wishlistId, $cusid);               
+}
+
 
 if (isset($_GET['delete'])) {
     $wishlistId = $_GET['delete'];
-     
-    $dbuser = new DBConnector();
-    $con = $dbuser->getConnection();
-    $query = "DELETE FROM wishlist WHERE wishlistId = $wishlistId";
-    $pstmt = $con->prepare($query);
-    $pstmt->execute();
-    header('Location:wishlist.php');
+    $Userrr->removeFromWishlist($wishlistId);
 }
 ?>
 
@@ -120,10 +97,15 @@ if (isset($_GET['delete'])) {
     
     <!--Item 1-->
     <?php
-    @include 'config.php';
-    $select = mysqli_query($conn, "SELECT * FROM wishlist WHERE customerId = $cusid");
+    //@include 'config.php';
+ 
+    $Wishlistt = $Userrr->getItems($cusid);
+
+    foreach ($Wishlistt as $row) {
+           
+//$Userrr->getItems($cusid);
     ?>
-    <?php while ($row = mysqli_fetch_assoc($select)) { ?>
+     
     
     <div class="container mt-3">
     
@@ -134,11 +116,11 @@ if (isset($_GET['delete'])) {
                 <img src="img/<?php echo $row['photo']; ?>" height="100" alt="picture 1" style="height:250px;" class="mx-auto d-block img-fluid">
                 </div>
                 <div class="col-md-6 col-lg-4 mt-2 ">
-                    <h5 class="text-center" id="item-name"><?php echo $row['name'] ?></h5>
-                    <h6 id="item-name-disc"><?php echo $row['description'] ?> </h6>
+                    <h5 class="text-center" id="item-name"><?php echo $row['product_name'] ?></h5><br>
+                    <h6 id="item-name-disc"><?php echo $row['discription'] ?> </h6>
                      
                     <!--Ieam code or order code-->
-                    <h6 id="item-code">Size : <?php echo $row['size'] ?></h6><br>
+                     
                     <h5 class="tedxt-center" id="item-price">Rs.<?php echo $row['price'] ?>.00</h5>
                 </div>
                 <div class="col-md-6 col-lg-4 d-flex flex-row align-items-center justify-content-center"
