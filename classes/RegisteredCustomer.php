@@ -50,7 +50,7 @@ class RegisteredCustomer
                 $pstmt->bindValue(5,$gender);
                 $pstmt->bindValue(6,$adminId);
                 $pstmt->bindValue(7,$username);
-                $pstmt->bindValue(8,$password);
+                $pstmt->bindValue(8,$hashPassword);
 
                 $pstmt->execute();
                 if ($pstmt) {
@@ -72,21 +72,24 @@ class RegisteredCustomer
         $dbcon = new DbConnector();
         $con = $dbcon->getConnection();
 
-        $query = "select * from registeredcustomer where username = ?";
+        $query = "select * from registeredcustomer where username=?";
         $pstmt = $con->prepare($query);
         $pstmt->bindValue(1,$username);
-        $pstmt->execute();
-        if ($pstmt->rowCount() > 0) {
-            $getRow = $pstmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($password === $getRow['password']) {
-                return true;
+        
+        if($pstmt->execute()){
+            $getRow = $pstmt->fetch(PDO::FETCH_OBJ);
+            $db_password = $getRow->password;
+            if (password_verify($password, $db_password)) {
+                return true;  // Passwords match
             } else {
-                $errors[] = "Incorrect Username or Password";
+                return false;
+
             }
-        } else {
-            $errors[] = "Incorrect Username or Password";
+        }else{
+            return false;
         }
+            
+        
     }
 
     public function getCustomerId(){
