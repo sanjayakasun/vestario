@@ -14,12 +14,12 @@ if(isset($_FILES['image'],$_POST["customerName"],$_POST["email"],$_POST["deliver
         $image = $_FILES['image']['name'];
         $image_tmp_name = $_FILES['image']['tmp_name'];
         $image_folder ='img/'.$image ;
-        $customerName = $_POST['customerName'];
+        $customerId = $_POST['customerName'];
         $email = $_POST['email'];
         $deliveryAddress = $_POST['deliveryAddress'];
         $size = $_POST['size'];
         $quantity = $_POST['quantity'];
-        $design_process = new design_process($image,$customerName,$email,$deliveryAddress,$size,$quantity); 
+        $design_process = new design_process($image,$customerId,$email,$deliveryAddress,$size,$quantity); 
 
         if($design_process->deliveryProcess($con)){
             $file_upload = move_uploaded_file($image_tmp_name, $image_folder); 

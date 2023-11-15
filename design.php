@@ -122,7 +122,7 @@ if(isset($_GET['status'])){
                     <td><input type="file" name="image" accept="image/png,image/jpeg,image/jpg" required/></td>
                   </tr>
                   <tr>
-                    <td><p class="name" >customer name</p></td>
+                    <td><p class="name" >customer Id</p></td>
                   </tr>
                   <tr>
                     <td><input type="text" name="customerName" required></td>
@@ -240,7 +240,8 @@ if(isset($_GET['status'])){
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
 </body>
 

@@ -236,7 +236,12 @@ $user = new Admin();
                         </tr>
                         <tr>
                             <th>Customer Id</th>
-                            <th>Image</th>
+                            <th>Item Id</th>
+                            <th>Designed Image</th>
+                            <th>E-mail</th>
+                            <th>Delivery Address</th>
+                            <th>Size</th>
+                            <th>Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -247,7 +252,12 @@ $user = new Admin();
                             ?>
                             <tr>
                                 <td><?php echo $userData['customerId']; ?></td>
-                                <td><?php echo $userData['image']; ?></td>
+                                <td><?php echo $userData['itemId']; ?></td>
+                                <td><img src ="img/<?php echo $userData['image']; ?>" style="width:50px;"></td>
+                                <td><?php echo $userData['email']; ?></td>
+                                <td><?php echo $userData['deliveryAddress']; ?></td>
+                                <td><?php echo $userData['size']; ?></td>
+                                <td><?php echo $userData['quantity']; ?></td>
                             </tr><?php }
                         ?>
                     </tbody>
@@ -327,18 +337,20 @@ $user = new Admin();
                             <th>Order Id</th>
                             <th>Payment Date</th>
                             <th>Payment Method</th>
+                            <th>Price Amount</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $users = $user->getUsers('payment');
+                        $users = $user->getUsers('orders');
 
                         foreach ($users as $userData) {
                             ?>
                             <tr>
                                 <td><?php echo $userData['orderId']; ?></td>
-                                <td><?php echo $userData['paymentDate']; ?></td>
-                                <td><?php echo $userData['paymentMethod']; ?></td>
+                                <td><?php echo $userData['orderDate']; ?></td>
+                                <td>Card Pay</td>
+                                <td><?php echo $userData['price']; ?></td>
 
                             </tr><?php }
                         ?>

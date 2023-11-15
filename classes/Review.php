@@ -1,7 +1,7 @@
 <?php 
 
-require 'DbConnector.php';
-use PDO;
+// require 'DbConnector.php';
+// use PDO;
  class Review{
     private $reviewId;
     private $rate;
@@ -20,5 +20,9 @@ use PDO;
         $pstmt->execute();
         
         return $pstmt;
+    }
+
+    public function getdetails(){
+        //
     }
  }

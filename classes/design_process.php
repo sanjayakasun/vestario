@@ -25,7 +25,7 @@ class design_process{
     public function deliveryProcess($con){
         try {
            
-            $query = "INSERT INTO designitem (image,customerName,email,deliveryAddress,size,quantity) VALUES (?,?,?,?,?,?)";
+            $query = "INSERT INTO designitem (image,customerId,email,deliveryAddress,size,quantity) VALUES (?,?,?,?,?,?)";
             $pstm = $con->prepare($query);
             $pstm->bindParam(1,$this->image, PDO::PARAM_LOB);
             $pstm->bindValue(2,$this->customerName);

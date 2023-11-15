@@ -1,8 +1,6 @@
 <?php
 session_start();
-require './classes/DbConnector.php';
-// @include "classes/DbConnector.php";
-require'./classes/Review.php';
+require './classes/Review.php';
 require './classes/RegisteredCustomer.php';
 
 $customerId=$_SESSION['customerId'];
@@ -86,7 +84,7 @@ if (isset($_POST['submit'])) {
                     <li class="nav-item"><a href="design.php" class="nav-link">Customize Products</a></li>
                     <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
                     <?php
-                    session_start();
+                    
                     if (isset($_SESSION['customerId'])) { 
                         $cu_name = $_SESSION['customerName'];
                         ?>
@@ -115,7 +113,10 @@ if (isset($_POST['submit'])) {
                 echo '<div class="alert alert-success">' . $success . '</div>';
             }
             ?>
-           
+            
+
+
+
             <div class="pinfo">Rate our overall services.</div>
 
 
@@ -272,7 +273,8 @@ if (isset($_POST['submit'])) {
     <!--end of footer-->
         </div>
 
-
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 <style>
     #feedback {

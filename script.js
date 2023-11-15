@@ -13,7 +13,6 @@ if(xhttp.readyState == 4 && xhttp.status ==200){
         location.href = "order_delete_process.php?cid=" + cid;
         // Note: validate the payment and show success or failure page to the customer
     };
-
     // Payment window closed
     payhere.onDismissed = function onDismissed() {
         // Note: Prompt user to pay again or show an error page
