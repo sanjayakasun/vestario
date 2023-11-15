@@ -1,31 +1,22 @@
 <?php
-
+session_start();
 require './classes/DbConnector.php';
 // @include "classes/DbConnector.php";
 require'./classes/Review.php';
 require './classes/RegisteredCustomer.php';
 
+$customerId=$_SESSION['customerId'];
+//$customerId=26;
 
 if (isset($_POST['submit'])) {
-    if (empty($_POST['name']) || empty($_POST['name']) || empty($_POST['name']) || empty($_POST['name'])) {
+    if (empty($_POST['rate']) || empty($_POST['comment']) ) {
       $errors[] = "Please fill required fields";
     } else {
-      $name = $_POST['name'];
-      $email = $_POST['email'];
       $rate = $_POST['rate'];
       $comment = $_POST['comment'];
   
       $dbcon = new DbConnector();
       $con = $dbcon->getConnection();
-  
-      $query = "SELECT customerId,name FROM registeredcustomer WHERE email=?";
-      $pstmt = $con->prepare($query);
-      $pstmt->bindValue(1, $email);
-      $pstmt->execute();
-      $result = $pstmt->fetch(PDO::FETCH_OBJ);
-  
-      $customerId = $result->customerId;
-      $name = $result->name;
   
       $user=new RegisteredCustomer(null,null,null,null,null,null,null);
       $reviewPlacing = $user->placeReview($customerId,$rate,$comment);
@@ -124,28 +115,7 @@ if (isset($_POST['submit'])) {
                 echo '<div class="alert alert-success">' . $success . '</div>';
             }
             ?>
-            <div class="pinfo">Your personal info</div>
-
-            <div class="form-group">
-                <div class="col-md-12 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input name="name" placeholder="John Doe" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-12 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input name="email" type="email" class="form-control" placeholder="john.doe@yahoo.com">
-                    </div>
-                </div>
-            </div>
-
-
-
+           
             <div class="pinfo">Rate our overall services.</div>
 
 
