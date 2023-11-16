@@ -25,17 +25,13 @@
     <!--end-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Navbar</title>
+    <title>Home</title>
     <style>
         .navbar {
             font-weight: bold;
         }
 
         .background_ {
-            /* background-image: url(src_images/bg3.jpg);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover; */
             background-color: #EEEEEE;
         }
 
@@ -62,7 +58,7 @@
 
     <!--Header-->
     <div class="background_">
-        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color:#222831">
+        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color:#222831" id="navbar">
             &ensp;
             <a href="" class="navbar-brand">Vestario</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
@@ -340,8 +336,11 @@
     <div class="container-fluid back ">
         <div class="row">
             <div class="col-12 col-md-3">
-                Vestario
-                <!-- <img src="src_images/logo new.png" style="width:200px; height:200px;"> -->
+            <a href="#navbar" style="text-decoration: none; color: white;">
+                    <h2>Vestario</h2>
+                </a>
+                
+                
             </div>
             <div class="col-md-3" style="color: white;">
                 <a href="contactus.php" style="text-decoration: none; color: white;">
@@ -367,22 +366,15 @@
                     <a href="chatbot.html" style="text-decoration:none; color:white">
                         <li>Chat Bot</li>
                     </a>
-                    <!-- <a href="" style="text-decoration:none; color:black"><li></li></a> -->
-                    <!-- <a href="" style="text-decoration:none; color:black">
-                        <li>Help</li>
-                    </a> -->
                 </ul>
             </div>
             <div class="col-md-3">
                 <h6>
                     Contact
                 </h6>
-                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail</span>vestario@gmail.com</span>&ensp;</a>
+                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail:&ensp; </span>vestario@gmail.com</span>&ensp;</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
-                <!-- <p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.4842255938223!2d79.96344996947397!3d6.777534431309632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24fd7781fbd17%3A0x36b8c930439bdc4f!2sVestario!5e0!3m2!1sen!2slk!4v1693714871562!5m2!1sen!2slk" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </p> -->
             </div>
         </div>
     </div>
@@ -397,7 +389,6 @@
             </div>
         </div>
     </div>
-    <hr>
     <hr>
 </div>
 

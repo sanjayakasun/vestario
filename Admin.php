@@ -7,6 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN</title>
+
+
+    <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="css/bootstrap.css">    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+            />
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -22,14 +34,13 @@
     </style>
 </head>
 <body>
-            <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
-                &ensp;
-                <img src="src_images/logo new.png" style="width:50px; height:50px;"> &ensp;
-                <h4 class="navbar-brand">Hello Admin! </h4>
+            <nav class="navbar navbar-dark navbar-expand-lg" style="background-color:#222831">
+            <a href="" class="navbar-brand"  style="font-size: 15px;">Vestario</a>&ensp;
+            <h4 class="navbar-brand"  style="font-size: 15px;">Hello Admin! </h4>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse " id="nav_tings">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="admin_dashboard.php" class="nav-link">Admin_Dashboard</a></li>
+                        <li class="nav-item"><a href="admin_dashboard.php" class="nav-link active" style="font-size: 15px;">Admin Dashboard</a></li>
                         
                     </ul>
                 </div>

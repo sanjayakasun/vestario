@@ -30,10 +30,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Navbar</title>
         <style>
+.navbar {
+            font-weight: bold;
+        }
 
-            .navbar {
-                font-weight: bold;
-            }
+        .background_ {
+            background-color: #EEEEEE;
+        }
+
         </style>
 
     </head>
@@ -41,29 +45,48 @@
     <body>
         <!--Header-->
         <div class="background_">
-        <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color:#222831">
             &ensp;
-            <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
+            <a href="" class="navbar-brand">Vestario</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse " id="nav_tings">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="home.php" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="home.php#link-to-category" class="nav-link">Categories</a></li>
-                    <li class="nav-item"><a href="cart.php" class="nav-link">Cart</a></li>
+                    <li class="nav-item"><a href="home.php" class="nav-link">
+                            Home</a></li>
+                    <li class="nav-item" title="Categories"><a href="#link-to-category" class="nav-link active">Categories</a></li>
+
                     <li class="nav-item"><a href="design.php" class="nav-link">Customize Products</a></li>
-                    <li class="nav-item"><a href="wishlist.php" class="nav-link">Wishlist</a></li>
+
                     <?php
                     session_start();
-                    if (isset($_SESSION['customerId'])) { 
+                    if (isset($_SESSION['customerId'])) {
                         $cu_name = $_SESSION['customerName'];
-                        ?>
-                        <li class="nav-item"><a href="logout.php" class="nav-link">LogOut</a></li>
-                    <li class="nav-item nav-link" ><i class="fa fa-user-circle-o" style="color:black; font-size:20px"></i> Hello,<?php echo $cu_name ?>!</li>
+                    ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn btn-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <ion-icon name="person-circle-outline" style="font-size: 19px;" class="d-inline-flex"></ion-icon></i> Hello,<?php echo $cu_name ?>!
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="user.php">Profile</a>
+                                <a class="dropdown-item" href="payment.php">Pay</a>
+                                <a class="dropdown-item" href="check.php">Order Summary</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout.php">LogOut</a>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item"><a href="logout.php" class="nav-link"></a></li> -->
+
                     <?php } else { ?>
-                    <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
                     <?php }
                     ?>
+                    <br>
+                    <ul class="d-flex ">
 
+                        <li class="nav-item"><a href="cart.php" class="nav-link"><ion-icon name="cart-outline" size="large"></ion-icon></a></li>
+                        <li class="nav-item"><a href="wishlist.php" class="nav-link"><ion-icon name="heart-circle-outline" size="large" title="WishList"></ion-icon></a></li>
+
+                    </ul>
                 </ul>
             </div>
         </nav>
@@ -171,64 +194,70 @@
 
 
 
-        <!-- fotter -->
-        <hr>
-        <div class="container-fluid back">
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <img src="src_images/logo new.png" style="width:200px; height:200px;">
-                </div>
-                <div class="col-md-4">
-                    <h6>Contact us</h6>
-                    <a href="#" class="fa fa-facebook"></a>&ensp;&ensp;
-                    <a href="#" class="fa fa-twitter"></a>&ensp;&ensp;
-                    <a href="#" class="fa fa-instagram"></a>&ensp;&ensp;
-                    <a href="#" class="fa fa-google"></a>&ensp;&ensp;
-                    <a href="#" class="fa fa-linkedin"></a><br><br>
-                    <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="Text-decoration:none;"><span
-                            class="material-symbols-outlined">mail</span>vestario@gmail.com</span>&ensp;</a>
-                    <a href="#" class="d-flex" style="Text-decoration:none;"><span
-                            class="material-symbols-outlined">call</span>&ensp;0712209112</a>
-                    <a href="#" class="d-flex" style="Text-decoration:none;"><span
-                            class="material-symbols-outlined">call</span>&ensp;0716123050</a>
-                </div>
-                <div class="col-md-4">
-                    <h6>
-                        Services
-                    </h6>
-                    <ul>
-                        <a href="" style="text-decoration:none; color:black">
-                            <li>Customize products</li>
-                        </a>
-                        <a href="" style="text-decoration:none; color:black">
-                            <li>Order Clothes</li>
-                        </a>
-                        <a href="" style="text-decoration:none; color:black">
-                            <li>Delivery</li>
-                        </a>
-                        <a href="" style="text-decoration:none; color:black">
-                            <li>Sign-up</li>
-                        </a>
-                        <a href="" style="text-decoration:none; color:black">
-                            <li>Help</li>
-                        </a>
-                    </ul>
-                </div>
+                <!-- fotter -->
+<div style="background-color:#222831; color: white;">
+    <hr>
+    <div class="container-fluid back ">
+        <div class="row">
+            <div class="col-12 col-md-3">
+            <a href="#navbar" style="text-decoration: none; color: white;">
+                    <h2>Vestario</h2>
+                </a>
+                
+                
+            </div>
+            <div class="col-md-3" style="color: white;">
+                <a href="contactus.php" style="text-decoration: none; color: white;">
+                    <h6>Follow us on</h6>
+                </a>
+                <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-facebook" size="large"></ion-icon></a>&ensp;&ensp;
+                <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-google" size="large"></ion-icon> </ion-icon></a>&ensp;&ensp;
+            </div>
+            <div class="col-md-3">
+                <h6>
+                    Services
+                </h6>
+                <ul>
+                    <a href="design.php" style="text-decoration:none; color:white">
+                        <li>Customize products</li>
+                    </a>
+                    <a href="#link-to-category" style="text-decoration:none; color:white">
+                        <li>Order Clothes</li>
+                    </a>
+                    <a href="review.php" style="text-decoration:none; color:white">
+                        <li>Review</li>
+                    </a>
+                    <a href="chatbot.html" style="text-decoration:none; color:white">
+                        <li>Chat Bot</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6>
+                    Contact
+                </h6>
+                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail&ensp; </span>vestario@gmail.com</span>&ensp;</a>
+                <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
+                <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
             </div>
         </div>
-        <hr>
-        <div class="container-fluid back">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
-                </div>
-                <div class="col-md-6">
-                    <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>
-                </div>
+    </div>
+    <hr>
+    <div class="container-fluid back">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
+            </div>
+            <div class="col-md-6">
+                <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>
             </div>
         </div>
-        <hr>
-        <hr>
+    </div>
+    <hr>
+</div>
+
+
+<!--end of footer-->
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>

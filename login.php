@@ -68,6 +68,15 @@ if (isset($_POST['submit'])) {
         .navbar {
             font-weight: bold;
         }
+
+        .background_ {
+            background-color: #EEEEEE;
+            background-image: url(src_images/bg3.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
     </style>
 
 </head>
@@ -75,13 +84,13 @@ if (isset($_POST['submit'])) {
 <body>
     <!--Header-->
     <div class="background_">
-        <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color:#222831">
             &ensp;
-            <a href="" class="navbar-brand"><img src="src_images/logo new.png" style="width:50px; height:50px;">&ensp;Vestario</a>
+            <a href="" class="navbar-brand">Vestario</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse " id="nav_tings">
             <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="home.php" class="nav-link active">Home</a></li>
                     <!-- <li class="nav-item"><a href="#" class="nav-link">Categories</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Customize Products</a></li>
@@ -93,9 +102,9 @@ if (isset($_POST['submit'])) {
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center min-vh-100">
                 <div class="col-md-4">
-                    <div class="card" style="background-color: rgb(135, 203, 185)">
+                    <div class="card" style="background-color: #222831">
                         <div class="card-body">
-                            <h3 class="card-title text-center">Log In</h3>
+                            <h3 class="card-title text-center" style="color: white;">Log In</h3>
 
                             <?php
                             if (isset($errors) && count($errors) > 0) {
@@ -117,7 +126,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </form>
 
-                            <p class="text-center">Don't have an account? <a href="signup.php">Sign Up</a></p>
+                            <p class="text-center"  style="color: white;">Don't have an account? <a href="signup.php">Sign Up</a></p>
                         </div>
                     </div>
                 </div>

@@ -29,24 +29,32 @@ $userr = new Dashboard();
             .card:hover{
                 background-color: rgb(220, 220, 220);
 
-            }        
+            }  
+            .navbar {
+            font-weight: bold;
+        }
+
+        .background_ {
+            background-color: #EEEEEE;
+        }
+      
         </style>
     </head>
     <body>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"
-        ></script>
+            crossorigin="anonymous"></script>
+
         <div class="background_">
-        <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
+        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color:#222831">
                 &ensp;
-                <img src="src_images/logo new.png" style="width:50px; height:50px;"> &ensp;
+            
                 <h4 class="navbar-brand">Hello Delivery Member! </h4>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse " id="nav_tings">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="home.php" class="nav-link">LogOut</a></li>
+                        <li class="nav-item"><a href="home.php" class="nav-link active">LogOut</a></li>
                         
                     </ul>
                 </div>
@@ -90,7 +98,7 @@ $userr = new Dashboard();
                         <label for="validationTooltip02" class="form-label">Location Link</label>
                         <input type="text" name="location" class="form-control" id="validationTooltip02" value="">        </div>
                     <div class="row mt-2">
-                        <input type="submit" name="update" value="Update" style="background-color:#87CBB9; border:1px solid rgb(0, 183, 255); border-radius: 5px; ">
+                        <input type="submit" name="update" value="Update" style="background-color:#00ADB5; border:1px solid rgb(0, 183, 255); border-radius: 5px; ">
                     </div>
                 </div>
             </form>

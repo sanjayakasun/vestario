@@ -60,6 +60,9 @@ if (isset($_POST['submit'])) {
         .navbar{
             font-weight: bold;
         }
+        .background_{
+            background-color: #EEEEEE;
+        }
 
     </style>
 
@@ -111,7 +114,7 @@ if (isset($_POST['submit'])) {
             
 
             <input type="submit" name="submit" class="btn1" value="Sign Up" />
-            <p>Already have an account? <a href="login.php">Login</a></p>
+            <p style="color: white;">Already have an account? <a href="login.php">Login</a></p>
 
         </form>
 

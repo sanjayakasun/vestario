@@ -69,14 +69,13 @@ $user = new Admin();
         ></script>
         <div class="background_">
         
-        <nav class="navbar navbar-light navbar-expand-lg" style="background-color:#87CBB9">
-                &ensp;
-                <img src="src_images/logo new.png" style="width:50px; height:50px;"> &ensp;
+        <nav class="navbar navbar-dark navbar-expand-lg" style="background-color:#222831">
+        <a href="" class="navbar-brand">Vestario</a>&ensp;
                 <h4 class="navbar-brand">Hello Admin! </h4>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#nav_tings"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse " id="nav_tings">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="home.php" class="nav-link">LogOut</a></li>
+                        <li class="nav-item"><a href="home.php" class="nav-link active">LogOut</a></li>
                         
                     </ul>
                 </div>
@@ -272,7 +271,7 @@ $user = new Admin();
                             <th colspan="4">Reviews</th>
                         </tr>
                         <tr>
-                            <th>Customer Id</th>
+                            <th>Customer Name</th>
                             <th>Rating</th>
                             <th>Review</th>
                         </tr>
@@ -282,11 +281,13 @@ $user = new Admin();
                         $users = $user->getUsers('review');
 
                         foreach ($users as $userData) {
+                            $id = $userData['reviewId'];
                             ?>
                             <tr>
-                                <td><?php echo $userData['customerId']; ?></td>
+                                <td><?php echo $userData['name']; ?></td>
                                 <td><?php echo $userData['rating']; ?></td>
                                 <td><?php echo $userData['comment']; ?></td>
+                                <td><a href="classes/Admin_dashboard_process.php?delete=<?php echo $id ; ?>" class="btn btn-danger"> Remove </a></td>
                             </tr><?php }
                         ?>
                     </tbody>
@@ -358,51 +359,7 @@ $user = new Admin();
 
                 </table>
             </section>
-            <!-- footer -->
-            <hr>
-            <div class="container-fluid back">
-                <div class="row">
-                    <div class="col-12 col-md-3">
-                        <img src="src_images/logo new.png" style="width:200px; height:200px;">
-                    </div>
-                    <div class="col-md-3">
-                        <h6>Contact us</h6>
-                        <a href="#" class="fa fa-facebook"></a>&ensp;&ensp;
-                        <a href="#" class="fa fa-twitter"></a>&ensp;&ensp;
-                        <a href="#" class="fa fa-instagram"></a>&ensp;&ensp;
-                        <a href="#" class="fa fa-google"></a>&ensp;&ensp;
-                        <a href="#" class="fa fa-linkedin"></a><br><br>
-                        <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">mail</span>vestario@gmail.com</span>&ensp;</a>
-                        <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
-                        <a href="#" class="d-flex" style="Text-decoration:none;"><span class="material-symbols-outlined">call</span>&ensp;0716123050</a>
-                    </div>
-                    <div class="col-md-3">
-                        <h6>
-                            Services
-                        </h6>
-                        <ul>
-                            <a href="" style="text-decoration:none; color:black"><li>Customize products</li></a>
-                            <a href="" style="text-decoration:none; color:black"><li>Order Clothes</li></a>
-                            <a href="" style="text-decoration:none; color:black"><li>Delivery</li></a>
-                            <a href="" style="text-decoration:none; color:black"><li>Sign-up</li></a>
-                            <a href="" style="text-decoration:none; color:black"><li>Help</li></a>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-            <hr>
-            <div class="container-fluid back">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>
-                    </div>
-                </div>
-            </div>
-            <hr><hr>
+            
             </body>
             <script>
 document.addEventListener('DOMContentLoaded', function() {
