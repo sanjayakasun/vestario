@@ -2,7 +2,7 @@
 <?php
 require_once 'classes/DbConnector.php';
 require 'classes/Delivery_process.php';
-$userr = new Dashboard();
+$userr = new DeliveryMember();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,7 +144,7 @@ $userr = new Dashboard();
 
                     <thead>
                         <tr>
-                            <th colspan="5">Order Details</th>
+                            <th colspan="7">Order Details</th>
                         </tr>
                         <tr>
                             <th>Order ID</th>

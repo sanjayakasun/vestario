@@ -3,7 +3,7 @@
 
 require_once 'DbConnector.php';
 
-class design_process{
+class DesignItems{
   
     private $image;
     private $customerName;

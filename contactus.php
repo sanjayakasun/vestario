@@ -4,30 +4,33 @@ require './classes/RegisteredCustomer.php';
 
 
 if (isset($_SESSION["customerId"])){
-$customerId=$_SESSION['customerId'];
-}
-
-
-
-if (isset($_POST['submit'])) {
-    if (!empty($_POST['name']) ||  !empty($_POST['message'])) {
-        
-            $name = trim($_POST['name']); 
-            $message = ($_POST['message']);
+    $customerId=$_SESSION['customerId'];
+    
+    
+    
+    
+    if (isset($_POST['submit'])) {
+        if (!empty($_POST['name']) ||  !empty($_POST['message'])) {
             
-$dbcon=new DbConnector();
-$con=$dbcon->getConnection();
-            $user=new RegisteredCustomer(null,null,null,null,null,null,null);
-            if($user->placeInquiry($customerId,$message)){
-                $success="Inquiry placed.We will contact you soon.";
-            }else{
-                $errors[] = "Inquiry was not placed.";
-            }
-        
-    } else {
-        $errors[] = "Fill the required fields";
+                $name = trim($_POST['name']); 
+                $message = ($_POST['message']);
+                
+    $dbcon=new DbConnector();
+    $con=$dbcon->getConnection();
+                $user=new RegisteredCustomer(null,null,null,null,null,null,null);
+                if($user->placeInquiry($customerId,$message)){
+                    $success="Inquiry placed.We will contact you soon.";
+                }else{
+                    $errors[] = "Inquiry was not placed.";
+                }
+            
+        } else {
+            $errors[] = "Fill the required fields";
+        }
+    } 
+    }else{
+        header('Location:login.php');
     }
-} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,9 +57,9 @@ $con=$dbcon->getConnection();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <title>Navbar</title>
     <style>
-        .navbar {
+        /* .navbar {
             font-weight: bold;
-        }
+        } */
 
         .background_ {
             background-color: #EEEEEE;
@@ -195,6 +198,7 @@ $con=$dbcon->getConnection();
         </div>
         
               <!-- fotter -->
+<!-- fotter -->
 <div style="background-color:#222831; color: white;">
     <hr>
     <div class="container-fluid back ">
@@ -207,9 +211,9 @@ $con=$dbcon->getConnection();
                 
             </div>
             <div class="col-md-3" style="color: white;">
-                <a href="contactus.php" style="text-decoration: none; color: white;">
+                
                     <h6>Follow us on</h6>
-                </a>
+                
                 <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-facebook" size="large"></ion-icon></a>&ensp;&ensp;
                 <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-google" size="large"></ion-icon> </ion-icon></a>&ensp;&ensp;
             </div>
@@ -227,16 +231,18 @@ $con=$dbcon->getConnection();
                     <a href="review.php" style="text-decoration:none; color:white">
                         <li>Review</li>
                     </a>
-                    <a href="chatbot.html" style="text-decoration:none; color:white">
-                        <li>Chat Bot</li>
+                    <a href="contactus.php" style="text-decoration:none; color:white">
+                        <li>Contact Us</li>
                     </a>
                 </ul>
             </div>
             <div class="col-md-3">
+            <a href="contactus.php" style="text-decoration: none; color: white;">
                 <h6>
                     Contact
                 </h6>
-                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail&ensp; </span>vestario@gmail.com</span>&ensp;</a>
+            </a>
+                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail:&ensp; </span>vestario@gmail.com</span>&ensp;</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
             </div>

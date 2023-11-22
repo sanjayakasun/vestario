@@ -3,17 +3,17 @@
 
 require_once 'DbConnector.php';
 
-// if($_GET['delete']){
-//      $id = $_GET['delete'];
-//      $db = new DbConnector();
-//    $con = $db->getConnection();
-//    $sql = "DELETE  FROM review WHERE reviewId=$id ";
-//    $stmt = $con->prepare($sql);
-//    $a = $stmt->execute();  
-//    if($a >0) {
-//     header('Location:/admin_dashboard.php');
-//    }
-// }
+if(isset($_GET['delete'])){
+     $id = $_GET['delete'];
+     $db = new DbConnector();
+   $con = $db->getConnection();
+   $sql = "DELETE  FROM review WHERE reviewId=$id ";
+   $stmt = $con->prepare($sql);
+   $a = $stmt->execute();  
+   if($a >0) {
+    header('Location:../admin_dashboard.php');
+   }
+}
 
 class Admin 
 {

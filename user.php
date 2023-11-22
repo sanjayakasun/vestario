@@ -168,7 +168,7 @@ if (isset($_POST['update'])) {
                                     <input type="email" value="<?php echo $email; ?>" name="email" placeholder="Enter Email" class="box" required />
                                     <input type="text" value="<?php echo $contactNumber; ?>" name="phone-no" placeholder="Enter Contact Number" class="box" required />
                                     <input type="text" value="<?php echo $address; ?>" name="address" placeholder="Enter Address" class="box" required />
-                                    <input type="password" value="<?php echo $password; ?>" name="password" placeholder="Enter Password" class="box" required />
+                                    <input type="password" name="password" placeholder="Enter New Password" class="box" required />
                                     <select name="user_type" class="box">
                                         <option selected disabled value="default"><?php echo $gender; ?></option>
                                         <option value="Male">Male</option>

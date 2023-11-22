@@ -1,11 +1,11 @@
 <?php
 require_once './classes/DbConnector.php';
 require_once './classes/design_process.php';
+session_start();
 
 
-
-if(isset($_FILES['image'],$_POST["customerName"],$_POST["email"],$_POST["deliveryAddress"],$_POST["size"],$_POST["quantity"])){
-    if(empty($_FILES['image'])||empty($_POST["customerName"])||empty($_POST["email"])|| empty($_POST["deliveryAddress"])|| empty($_POST["size"])|| empty($_POST["quantity"])){
+if(isset($_FILES['image'],$_POST["email"],$_POST["deliveryAddress"],$_POST["size"],$_POST["quantity"])){
+    if(empty($_FILES['image'])||empty($_POST["email"])|| empty($_POST["deliveryAddress"])|| empty($_POST["size"])|| empty($_POST["quantity"])){
         $location = "design.php?status=1";
     }
     else{
@@ -14,12 +14,12 @@ if(isset($_FILES['image'],$_POST["customerName"],$_POST["email"],$_POST["deliver
         $image = $_FILES['image']['name'];
         $image_tmp_name = $_FILES['image']['tmp_name'];
         $image_folder ='img/'.$image ;
-        $customerId = $_POST['customerName'];
+        $customerId =$_SESSION['customerId'];
         $email = $_POST['email'];
         $deliveryAddress = $_POST['deliveryAddress'];
         $size = $_POST['size'];
         $quantity = $_POST['quantity'];
-        $design_process = new design_process($image,$customerId,$email,$deliveryAddress,$size,$quantity); 
+        $design_process = new DesignItems($image,$customerId,$email,$deliveryAddress,$size,$quantity); 
 
         if($design_process->deliveryProcess($con)){
             $file_upload = move_uploaded_file($image_tmp_name, $image_folder); 

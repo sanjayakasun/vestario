@@ -215,13 +215,13 @@ if (isset($_POST['pay'])) {
                       <br>
                       <p>Product id: <br><strong> <?php echo $rows_order['productId']; ?> </strong></p>
                       <br>
-                      <p> Size: <br><strong><?php echo $rows_order['size']; ?> </strong></p>
-
+                      <p> Order Id: <br><strong><?php echo $rows_order['orderId']; ?> </strong></p>
                       <!-- Data -->
                     </div>
 
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-
+                    <br>
+                      <p> Size: <br><strong><?php echo $rows_order['size']; ?> </strong></p>
                       <!-- Price -->
                       <p class="text-start text-md-center">
                       <h6>Price: </h6><strong>Rs.<?php echo $rows_order['price']; ?>.00</strong>
@@ -238,11 +238,15 @@ if (isset($_POST['pay'])) {
                       <!-- Quantity -->
                     </div>
                     <hr class="my-4" />
+                    <p style="color: green; font-weight: bold; text-align: right;">
+                        Purchased Date : <?php echo $rows_order['orderDate']; ?>
+                    </p>
                   </div>
                   <!-- Single item -->
                 </div>
               </div>
             </div>
+          </div>
           <?php } ?>
           </div>
 
@@ -272,7 +276,7 @@ if (isset($_POST['pay'])) {
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                     <div style="text-align: left;">
-                      <strong>Total Amount : </strong>
+                      <strong>Total Amount Purchased: </strong>
                     </div>
                     <?php 
                     $tot = $user->gettotalprice_order($cid);

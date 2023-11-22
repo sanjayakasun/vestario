@@ -163,7 +163,7 @@ if(isset($_GET['status'])){
                     <td><p class="name" >customer Id</p></td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="customerName" required></td>
+                    <td><input type="text" name="customerName" value="<?php echo $_SESSION['customerId'] ?>" disabled></td>
                   </tr>
                   <tr>
                     <td><p class="name" >email</p></td>

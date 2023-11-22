@@ -1,6 +1,6 @@
 
 <?php
-class Dashboard {
+class DeliveryMember {
 
     private $db;
 
