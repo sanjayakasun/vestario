@@ -30,7 +30,7 @@ if (isset($_POST['update'])) {
     $email = trim($_POST['email']);
     $contact = trim($_POST['phone-no']);
     $address = trim($_POST['address']);
-    $password = trim($_POST['password']);
+    $password = password_hash(trim($_POST['password']),PASSWORD_BCRYPT);
     $gender = trim($_POST['user_type']);
 
     $user = new RegisteredCustomer(null, null, null, null, null, null, null);
@@ -241,7 +241,7 @@ if (isset($_POST['update'])) {
     </div>
 
 
-            <!-- fotter -->
+           <!-- fotter -->
 <div style="background-color:#222831; color: white;">
     <hr>
     <div class="container-fluid back ">
@@ -254,9 +254,9 @@ if (isset($_POST['update'])) {
                 
             </div>
             <div class="col-md-3" style="color: white;">
-                <a href="contactus.php" style="text-decoration: none; color: white;">
+                
                     <h6>Follow us on</h6>
-                </a>
+                
                 <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-facebook" size="large"></ion-icon></a>&ensp;&ensp;
                 <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-google" size="large"></ion-icon> </ion-icon></a>&ensp;&ensp;
             </div>
@@ -274,16 +274,20 @@ if (isset($_POST['update'])) {
                     <a href="review.php" style="text-decoration:none; color:white">
                         <li>Review</li>
                     </a>
-                    <a href="chatbot.html" style="text-decoration:none; color:white">
-                        <li>Chat Bot</li>
+                    <a href="contactus.php" style="text-decoration:none; color:white">
+                        <li>Contact Us</li>
+                    </a><a href="returnpolicy.html" style="text-decoration:none; color:white">
+                        <li>Refund Policy</li>
                     </a>
                 </ul>
             </div>
             <div class="col-md-3">
+            <a href="contactus.php" style="text-decoration: none; color: white;">
                 <h6>
                     Contact
                 </h6>
-                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail&ensp; </span>vestario@gmail.com</span>&ensp;</a>
+            </a>
+                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail&ensp;</span>vestario@gmail.com</span>&ensp;</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
             </div>
@@ -293,7 +297,7 @@ if (isset($_POST['update'])) {
     <div class="container-fluid back">
         <div class="row">
             <div class="col-12 col-md-6">
-                <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
+                <h6>This site is protected by <a href="privancy.html"  style="color: white;"> Privacy Policy </a> and Terms of Service apply.</h6>
             </div>
             <div class="col-md-6">
                 <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>

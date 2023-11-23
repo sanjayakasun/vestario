@@ -366,6 +366,8 @@
                     </a>
                     <a href="contactus.php" style="text-decoration:none; color:white">
                         <li>Contact Us</li>
+                    </a><a href="returnpolicy.html" style="text-decoration:none; color:white">
+                        <li>Refund Policy</li>
                     </a>
                 </ul>
             </div>
@@ -375,7 +377,7 @@
                     Contact
                 </h6>
             </a>
-                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail:&ensp; </span>vestario@gmail.com</span>&ensp;</a>
+                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail&ensp;</span>vestario@gmail.com</span>&ensp;</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
                 <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
             </div>
@@ -385,7 +387,7 @@
     <div class="container-fluid back">
         <div class="row">
             <div class="col-12 col-md-6">
-                <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
+                <h6>This site is protected by <a href="privancy.html"  style="color: white;"> Privacy Policy </a> and Terms of Service apply.</h6>
             </div>
             <div class="col-md-6">
                 <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>

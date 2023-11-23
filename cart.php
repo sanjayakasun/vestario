@@ -197,70 +197,74 @@ if (isset($_GET['delete'])) {
 
     &ensp;&ensp;
 
-    <!-- fotter -->
-    <div style="background-color:#222831; color: white;">
-        <hr>
-        <div class="container-fluid back ">
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <a href="#navbar" style="text-decoration: none; color: white;">
-                        <h2>Vestario</h2>
+<!-- fotter -->
+<div style="background-color:#222831; color: white;">
+    <hr>
+    <div class="container-fluid back ">
+        <div class="row">
+            <div class="col-12 col-md-3">
+            <a href="#navbar" style="text-decoration: none; color: white;">
+                    <h2>Vestario</h2>
+                </a>
+                
+                
+            </div>
+            <div class="col-md-3" style="color: white;">
+                
+                    <h6>Follow us on</h6>
+                
+                <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-facebook" size="large"></ion-icon></a>&ensp;&ensp;
+                <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-google" size="large"></ion-icon> </ion-icon></a>&ensp;&ensp;
+            </div>
+            <div class="col-md-3">
+                <h6>
+                    Services
+                </h6>
+                <ul>
+                    <a href="design.php" style="text-decoration:none; color:white">
+                        <li>Customize products</li>
                     </a>
-
-
-                </div>
-                <div class="col-md-3" style="color: white;">
-                    <a href="contactus.php" style="text-decoration: none; color: white;">
-                        <h6>Follow us on</h6>
+                    <a href="#link-to-category" style="text-decoration:none; color:white">
+                        <li>Order Clothes</li>
                     </a>
-                    <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-facebook" size="large"></ion-icon></a>&ensp;&ensp;
-                    <a href="#" style="text-decoration: none; color: white;"><ion-icon name="logo-google" size="large"></ion-icon> </ion-icon></a>&ensp;&ensp;
-                </div>
-                <div class="col-md-3">
-                    <h6>
-                        Services
-                    </h6>
-                    <ul>
-                        <a href="design.php" style="text-decoration:none; color:white">
-                            <li>Customize products</li>
-                        </a>
-                        <a href="#link-to-category" style="text-decoration:none; color:white">
-                            <li>Order Clothes</li>
-                        </a>
-                        <a href="review.php" style="text-decoration:none; color:white">
-                            <li>Review</li>
-                        </a>
-                        <a href="chatbot.html" style="text-decoration:none; color:white">
-                            <li>Chat Bot</li>
-                        </a>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h6>
-                        Contact
-                    </h6>
-                    <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail&ensp; </span>vestario@gmail.com</span>&ensp;</a>
-                    <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
-                    <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
-                </div>
+                    <a href="review.php" style="text-decoration:none; color:white">
+                        <li>Review</li>
+                    </a>
+                    <a href="contactus.php" style="text-decoration:none; color:white">
+                        <li>Contact Us</li>
+                    </a><a href="returnpolicy.html" style="text-decoration:none; color:white">
+                        <li>Refund Policy</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-md-3">
+            <a href="contactus.php" style="text-decoration: none; color: white;">
+                <h6>
+                    Contact
+                </h6>
+            </a>
+                <a href="mailto:sanjayakasun44@gmail.com" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">mail&ensp;</span>vestario@gmail.com</span>&ensp;</a>
+                <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0712209112</a>
+                <a href="#" class="d-flex" style="text-decoration: none; color: white;"><span class="material-symbols-outlined">call</span>&ensp;0113456987</a>
             </div>
         </div>
-        <hr>
-        <div class="container-fluid back">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <h6>This site is protected by Google Privacy Policy and Terms of Service apply.</h6>
-                </div>
-                <div class="col-md-6">
-                    <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>
-                </div>
-            </div>
-        </div>
-        <hr>
     </div>
+    <hr>
+    <div class="container-fluid back">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h6>This site is protected by <a href="privancy.html"  style="color: white;"> Privacy Policy </a> and Terms of Service apply.</h6>
+            </div>
+            <div class="col-md-6">
+                <h6 class="text-center">&copy;2023 VESTARIO Technologies</h6>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
 
 
-    <!--end of footer-->
+<!--end of footer-->
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

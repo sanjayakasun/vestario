@@ -227,7 +227,7 @@ $dbcon =  new DbConnector();
 
                 <thead>
                     <tr>
-                        <th colspan="7">Customized Designs</th>
+                        <th colspan="8">Customized Designs</th>
                     </tr>
                     <tr>
                         <th>Customer Id</th>
@@ -237,6 +237,7 @@ $dbcon =  new DbConnector();
                         <th>Delivery Address</th>
                         <th>Size</th>
                         <th>Quantity</th>
+                        <th>Send Items</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -253,8 +254,10 @@ $dbcon =  new DbConnector();
                             <td><?php echo $userData['deliveryAddress']; ?></td>
                             <td><?php echo $userData['size']; ?></td>
                             <td><?php echo $userData['quantity']; ?></td>
+                            <td><input type="checkbox" checked></td>
                         </tr><?php }
                                 ?>
+                                
                 </tbody>
 
             </table>
@@ -315,8 +318,9 @@ $dbcon =  new DbConnector();
                 <tbody>
                     <?php
                     $users = $user->getUsers('inquiry');
-                    $cusID = $userData['customerId'];
+                   
                     foreach ($users as $userData) {
+                        $cusID = $userData['customerId'];
                         $con = $dbcon->getConnection();
                         $sql = "SELECT * FROM registeredcustomer WHERE customerId = $cusID";
                         $stmt = $con->prepare($sql);

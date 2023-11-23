@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $deliveryStatus = $_POST['status'];
     $location = $_POST['location'];
     
-    $dashboard = new Dashboard();
+    $dashboard = new DeliveryMember();
     $success = $dashboard->updateDeliveryStatus($id, $orderId, $deliveryStatus,$location);
     if ($success) {
         // Redirect back to the form or display a success message

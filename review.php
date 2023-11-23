@@ -140,7 +140,7 @@ if (isset($_POST['submit'])) {
             <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon">Name</span>
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
                         <input type="text" name="name" class="form-control" id="review" rows="3">
                     </div>
                 </div>

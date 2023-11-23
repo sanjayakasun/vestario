@@ -29,6 +29,19 @@ if(isset($_GET['cid'])){
   $cid = $_GET['cid'];
   require 'classes/DbConnector.php';
   $dbuser = new DbConnector();
+  // $con = $dbuser->getConnection();
+    // $query = "SELECT cartId  FROM payment WHERE customerId = '$cid' ";
+    // $pstmt = $con->prepare($query);
+    // $pstmt->execute();
+    // $users = $pstmt->fetch(PDO::FETCH_ASSOC);
+    // foreach($users as $rows){
+    //   $cartid = $rows['cartId'];
+    //   $query = "DELETE FROM cart WHERE cartId = '$cartid' ";
+    // $pstmt = $con->prepare($query);
+    // $pstmt->execute();
+    // }
+    
+    
     $con = $dbuser->getConnection();
     $query = "DELETE FROM payment WHERE customerId = '$cid' ";
     $pstmt = $con->prepare($query);
@@ -38,6 +51,7 @@ if(isset($_GET['cid'])){
     }else{
       echo "Not Completed";
     }
+
 }
 
 
